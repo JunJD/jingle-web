@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-labelledby="title desc">
+  <title id="title">G-05E App Badge Portal</title>
+  <desc id="desc">A more app-icon-like G-05 portal variant with a compact doorway and brighter badge presence.</desc>
+  <defs>
+    <linearGradient id="bg" x1="14" y1="7" x2="86" y2="94" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2a3a33"/>
+      <stop offset=".54" stop-color="#101815"/>
+      <stop offset="1" stop-color="#050807"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="50" cy="42" r="41" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3a7048" stop-opacity=".48"/>
+      <stop offset=".64" stop-color="#132118" stop-opacity=".12"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="ring" x1="31" y1="19" x2="70" y2="81" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff2ab"/>
+      <stop offset=".3" stop-color="#dfc64c"/>
+      <stop offset=".6" stop-color="#5add79"/>
+      <stop offset="1" stop-color="#079b5f"/>
+    </linearGradient>
+    <radialGradient id="inside" cx="48" cy="40" r="31" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#23392f"/>
+      <stop offset=".72" stop-color="#0a1110"/>
+      <stop offset="1" stop-color="#030504"/>
+    </radialGradient>
+    <filter id="lift" x="-24%" y="-22%" width="148%" height="154%">
+      <feDropShadow dx="0" dy="7" stdDeviation="5.5" flood-color="#000000" flood-opacity=".39"/>
+    </filter>
+  </defs>
+  <rect x="5.5" y="5.5" width="89" height="89" rx="25.5" fill="url(#bg)"/>
+  <rect x="5.5" y="5.5" width="89" height="89" rx="25.5" fill="url(#halo)"/>
+  <ellipse cx="50" cy="77" rx="19" ry="5.4" fill="#000000" opacity=".16"/>
+  <g filter="url(#lift)">
+    <rect x="29.5" y="20" width="41" height="60" rx="20.5" fill="url(#ring)"/>
+    <rect x="38" y="30" width="24" height="40" rx="12" fill="url(#inside)"/>
+    <path d="M40 35.5c5.4-5.5 14.6-5.5 20 0" fill="none" stroke="#faffbd" stroke-linecap="round" stroke-width="3" opacity=".58"/>
+    <path d="M37 58c2.7 7.2 7.6 10.8 13 10.8S60.3 65.2 63 58" fill="none" stroke="#f1df75" stroke-linecap="round" stroke-width="2.4" opacity=".34"/>
+  </g>
+  <circle cx="68.5" cy="31" r="4.2" fill="#70e993" opacity=".88"/>
+</svg>

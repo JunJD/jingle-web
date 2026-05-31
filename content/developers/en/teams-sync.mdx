@@ -1,0 +1,36 @@
+---
+title: "Teams and sync"
+description: "Jingle status for team sharing, private extensions, organization permissions, sync, and migration."
+---
+
+import { Callout, StatusBadge } from "@/components/developers/mdx-primitives"
+
+After personal desktop workflows are stable, the next layer is team sharing: shared quicklinks, snippets, private extensions, organization settings, member permissions, and cross-device sync. This area needs care because it changes local-first and user-control boundaries.
+
+<Callout title="Platform Scope" tone="warning">
+  Jingle currently focuses on desktop workflows. Future sync targets desktop platforms and explicitly supported surfaces while preserving local ownership, disable-sync controls, export, and deletion semantics.
+</Callout>
+
+## Capability Status
+
+| Capability | Status | Target |
+| --- | --- | --- |
+| Local settings, themes, and memory | <StatusBadge tone="preview">Ongoing</StatusBadge> | Local-first, visible, editable, and deletable by the user |
+| Shared quicklinks | <StatusBadge tone="research">Planned</StatusBadge> | Team-shared URLs, parameter templates, default browser, and access scope |
+| Shared snippets | <StatusBadge tone="research">Planned</StatusBadge> | Team snippets, variables, review, and sync conflict handling |
+| Private extensions | <StatusBadge tone="research">Planned</StatusBadge> | Team extension publishing, install, update, and permission governance |
+| Organizations and members | <StatusBadge tone="research">Planned</StatusBadge> | Members, roles, permissions, audit, and organization settings |
+| Cross-device sync | <StatusBadge tone="research">Planned</StatusBadge> | Explicit sync for settings, themes, AI profile, extensions, quicklinks, snippets, and local knowledge |
+| Import and migration | <StatusBadge tone="research">Planned</StatusBadge> | Migrate from old configs, other launchers, or export files into Jingle |
+
+## Sync Boundary
+
+- Local data remains the authority. A server can only be an explicitly enabled sync or backup layer.
+- Users must know what remains local and what is synchronized.
+- Delete, revoke, disconnect, and disable-sync semantics must be explicit.
+- Account credentials should not sync as plain settings; OAuth tokens and secrets need a separate security strategy.
+- Team-shared content needs source, owner, permission, and audit information.
+
+## Release Stage
+
+Teams and sync affect privacy, credentials, permissions, and collaboration boundaries. These capabilities will open by platform release stage, with developer-facing interfaces and security semantics documented as they become available.

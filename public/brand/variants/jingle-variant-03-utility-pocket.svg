@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Utility pocket with signal">
+  <defs>
+    <linearGradient id="v3-bg" x1="16" y1="12" x2="84" y2="91" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#303532"/>
+      <stop offset="1" stop-color="#080a09"/>
+    </linearGradient>
+    <linearGradient id="v3-green" x1="38" y1="23" x2="59" y2="62" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#b9f58d"/>
+      <stop offset=".55" stop-color="#5fd05f"/>
+      <stop offset="1" stop-color="#209e67"/>
+    </linearGradient>
+  </defs>
+  <rect x="8" y="8" width="84" height="84" rx="24" fill="url(#v3-bg)"/>
+  <path d="M18 58c0-7.4 5.9-12.8 13.2-12.8h37.6C76.1 45.2 82 50.6 82 58v15.2C82 82.1 74.8 88 65.8 88H34.2C25.2 88 18 82.1 18 73.2z" fill="#111412"/>
+  <path d="M23.6 56c6.6 8.1 46.2 8.1 52.8 0" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-opacity=".2" stroke-width="5"/>
+  <circle cx="50" cy="49" r="14.6" fill="url(#v3-green)"/>
+  <circle cx="44.7" cy="42.5" r="4.2" fill="#d9ffc6" opacity=".75"/>
+  <g fill="none" stroke="#79df68" stroke-linecap="round" stroke-width="4.4">
+    <path d="M32.3 34.2c10.9-11.6 24.5-11.6 35.4 0"/>
+    <path d="M26.5 25.6c14.5-16.2 32.5-16.2 47 0"/>
+  </g>
+  <g fill="none" stroke="#e0a842" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.7">
+    <path d="M42.2 76v-9.5c0-2.9 2-5 5-5s5 2.1 5 5V76"/>
+    <path d="M34.2 71.2c0-2.8 2-4.8 4.8-4.8h22c2.8 0 4.8 2 4.8 4.8S63.8 76 61 76H39c-2.8 0-4.8-2-4.8-4.8z"/>
+  </g>
+</svg>

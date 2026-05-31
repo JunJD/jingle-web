@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-labelledby="title desc">
+  <title id="title">Jingle app icon candidate D-01</title>
+  <desc id="desc">A rounded green app icon with a friendly bell emerging from a universal pocket and soft command spark signals.</desc>
+  <defs>
+    <linearGradient id="bg" x1="18" y1="10" x2="84" y2="92" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#92F5B6"/>
+      <stop offset=".47" stop-color="#2ECF7C"/>
+      <stop offset="1" stop-color="#079760"/>
+    </linearGradient>
+    <linearGradient id="bell" x1="34" y1="27" x2="66" y2="76" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFF4A8"/>
+      <stop offset=".56" stop-color="#FFC447"/>
+      <stop offset="1" stop-color="#F08A24"/>
+    </linearGradient>
+    <linearGradient id="pocket" x1="27" y1="57" x2="73" y2="86" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0C5F4F"/>
+      <stop offset="1" stop-color="#073F39"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="150%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="5" stdDeviation="4" flood-color="#034333" flood-opacity=".25"/>
+    </filter>
+  </defs>
+  <rect width="100" height="100" rx="23" fill="url(#bg)"/>
+  <path d="M21 28C27 16 40 10 55 13c17 3 27 15 29 31 2 18-8 35-24 41-15 6-34 1-43-13C8 59 12 43 21 28Z" fill="#FFFFFF" opacity=".12"/>
+  <g filter="url(#softShadow)">
+    <path d="M25 62c0-5 4-9 9-9h32c5 0 9 4 9 9v5c0 12-10 22-22 22h-6c-12 0-22-10-22-22v-5Z" fill="url(#pocket)"/>
+    <path d="M31 62c0-2 2-4 4-4h30c2 0 4 2 4 4v2c0 2-2 4-4 4H35c-2 0-4-2-4-4v-2Z" fill="#DFFFEA" opacity=".9"/>
+    <path d="M33 63c7 5 27 5 34 0" fill="none" stroke="#074137" stroke-width="3" stroke-linecap="round" opacity=".42"/>
+    <path d="M34 51c0-10 7-19 16-19s16 9 16 19v8c0 4 2 8 5 11H29c3-3 5-7 5-11v-8Z" fill="url(#bell)"/>
+    <path d="M44 31c0-4 3-7 6-7s6 3 6 7v4H44v-4Z" fill="#FFE780"/>
+    <path d="M35 57c4 3 26 3 30 0" fill="none" stroke="#FFF9C9" stroke-width="4" stroke-linecap="round" opacity=".72"/>
+    <circle cx="50" cy="71" r="6" fill="#FFD867"/>
+    <circle cx="50" cy="71" r="3" fill="#B86520" opacity=".34"/>
+  </g>
+  <path d="M22 45c-5-4-5-10 0-14" fill="none" stroke="#DFFFF0" stroke-width="5" stroke-linecap="round"/>
+  <path d="M78 45c5-4 5-10 0-14" fill="none" stroke="#DFFFF0" stroke-width="5" stroke-linecap="round"/>
+  <path d="M17 57c-3-2-3-6 0-8" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity=".82"/>
+  <path d="M83 57c3-2 3-6 0-8" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity=".82"/>
+  <circle cx="75" cy="22" r="4" fill="#E9FFF0" opacity=".92"/>
+  <circle cx="83" cy="30" r="2.5" fill="#E9FFF0" opacity=".72"/>
+</svg>

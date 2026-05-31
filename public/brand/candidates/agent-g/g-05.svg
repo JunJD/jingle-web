@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-labelledby="title desc">
+  <title id="title">Jingle candidate G-05</title>
+  <desc id="desc">Clean portal icon for Jingle: one rounded doorway, a dark inner pocket, and a restrained chime highlight.</desc>
+  <defs>
+    <linearGradient id="bg" x1="15" y1="7" x2="86" y2="94" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#26342e"/>
+      <stop offset=".56" stop-color="#101815"/>
+      <stop offset="1" stop-color="#050807"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="50" cy="43" r="42" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2f5a3b" stop-opacity=".52"/>
+      <stop offset=".62" stop-color="#132118" stop-opacity=".14"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="ring" x1="30" y1="17" x2="73" y2="83" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff1a8"/>
+      <stop offset=".26" stop-color="#e0c94b"/>
+      <stop offset=".58" stop-color="#58d874"/>
+      <stop offset="1" stop-color="#0a9a5f"/>
+    </linearGradient>
+    <radialGradient id="inside" cx="48" cy="40" r="32" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#24382f"/>
+      <stop offset=".72" stop-color="#0a1110"/>
+      <stop offset="1" stop-color="#030504"/>
+    </radialGradient>
+    <filter id="lift" x="-24%" y="-22%" width="148%" height="154%">
+      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#000000" flood-opacity=".4"/>
+    </filter>
+  </defs>
+  <rect x="5.5" y="5.5" width="89" height="89" rx="25.5" fill="url(#bg)"/>
+  <rect x="5.5" y="5.5" width="89" height="89" rx="25.5" fill="url(#halo)"/>
+  <ellipse cx="50" cy="78" rx="21" ry="6" fill="#000000" opacity=".18"/>
+  <g filter="url(#lift)">
+    <rect x="27.5" y="18" width="45" height="64" rx="22.5" fill="url(#ring)"/>
+    <rect x="37" y="29" width="26" height="42" rx="13" fill="url(#inside)"/>
+    <path d="M39.5 35c5.7-6.4 15.8-6.3 21 .3" fill="none" stroke="#f9ffc0" stroke-linecap="round" stroke-width="3.2" opacity=".56"/>
+    <path d="M36 58c2.8 8 8.1 12.2 14 12.2s11.2-4.2 14-12.2" fill="none" stroke="#f0dc70" stroke-linecap="round" stroke-width="2.6" opacity=".34"/>
+  </g>
+</svg>

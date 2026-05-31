@@ -1,0 +1,121 @@
+---
+title: "OAuth"
+description: "Jingle 计划支持的 PKCE OAuth、callback URL、token 生命周期和扩展作者 API。"
+---
+
+import { Callout, MediaFrame, StatusBadge, developerMedia } from "@/components/developers/mdx-primitives"
+
+OAuth 是 Jingle connected accounts 面向公开集成的授权模型。扩展发起授权，Jingle 打开 provider consent 页面，callback 回到 Jingle，token 由平台安全存储并按连接状态提供给扩展。
+
+<Callout title="可用范围" tone="research">
+  开发者预览阶段提供 OAuth manifest shape、`OAuth.PKCEClient` 构造入口、`OAuth.RedirectMethod.Web` 和 callback 页面。授权、token exchange、refresh 和 revoke 会由平台 OAuth service 逐步开放。
+</Callout>
+
+<MediaFrame
+  alt="账号连接命令界面参考图"
+  caption="账号连接的最终体验应该是从命令进入授权状态、完成网页授权、再回到命令继续工作。扩展只声明 provider 和需要的 secret。"
+  src={developerMedia.commandSearch}
+/>
+
+## 目标流程
+
+```txt
+Extension command
+  -> create OAuth client
+  -> Jingle creates state + PKCE verifier
+  -> browser opens provider consent page
+  -> provider redirects to Jingle callback
+  -> Jingle validates state and exchanges code
+  -> credential store saves token set
+  -> extension receives connected status
+```
+
+## 为什么使用 PKCE
+
+桌面应用和扩展属于 public client，不能安全保存 client secret。PKCE 通过 code verifier / code challenge 绑定 authorization request 和 token exchange，降低授权码被截获后的风险。
+
+公开 OAuth 集成应使用：
+
+- authorization code flow；
+- `state` 防 CSRF；
+- PKCE S256；
+- 主进程或可信后端完成 token exchange；
+- 平台统一处理 refresh 和 revoke。
+
+## Redirect methods
+
+Jingle 计划支持这些 callback 形态：
+
+| 方法 | Provider 里填写的 redirect | 状态 |
+| --- | --- | --- |
+| Web redirect | `https://jingle.ai/callback?packageName=github` | <StatusBadge tone="research">规划中</StatusBadge> |
+| Web path redirect | `https://jingle.ai/callback/github` | <StatusBadge tone="research">规划中</StatusBadge> |
+| App scheme | `jingle://oauth?package_name=github` | <StatusBadge tone="research">规划中</StatusBadge> |
+| App URI | `ai.jingle:/oauth?package_name=github` | <StatusBadge tone="research">规划中</StatusBadge> |
+
+当前 callback 页面可以展示 provider 返回的 `code`、`state` 或 `error`。state 校验、code exchange、token refresh 和 revoke 将由平台 OAuth service 接管。
+
+## Manifest shape
+
+```ts
+connection: {
+  id: "default",
+  provider: "notion",
+  title: "Notion",
+  auth: {
+    type: "oauth",
+    authorizationUrl: "https://api.notion.com/v1/oauth/authorize",
+    tokenUrl: "https://api.notion.com/v1/oauth/token",
+    clientId: "client-id",
+    scopes: [],
+    secretNames: ["accessToken"],
+    redirect: {
+      method: "web",
+      redirectUrl: "https://jingle.ai/callback?packageName=notion"
+    }
+  }
+}
+```
+
+Manifest 可以先声明 OAuth 形态；生产级授权流程应等平台 OAuth service 可用后启用。
+
+## Extension author API
+
+扩展作者应声明 provider 和调用平台 OAuth API，而不是自己实现浏览器跳转、callback 和 token 存储：
+
+```ts
+import { OAuth } from "@openwork/extension-api"
+
+const client = new OAuth.PKCEClient({
+  redirectMethod: OAuth.RedirectMethod.Web,
+  providerName: "Notion",
+  description: "Connect your Notion workspace"
+})
+```
+
+开发者预览：
+
+- `OAuth.PKCEClient` constructor
+- `OAuth.RedirectMethod.Web`
+
+规划中：
+
+- `authorizationRequest()`
+- `authorize()`
+- `setTokens()`
+- `getTokens()`
+- `removeTokens()`
+- logout preference
+- refresh token lifecycle
+- revoke
+
+## Provider strategy
+
+| Provider | 预览阶段方式 | 推荐方向 |
+| --- | --- | --- |
+| GitHub | personal access token | OAuth App 或 GitHub App，取决于权限模型 |
+| Notion | internal integration token | Notion public integration OAuth |
+
+<Callout title="产品体验目标" tone="info">
+  用户体验应是：点击 Connect，在 provider 网站授权，回到 Jingle，命令自动恢复运行。扩展不需要自己保存 token，也不需要自己实现 callback 页面。
+</Callout>

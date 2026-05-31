@@ -1,0 +1,494 @@
+{
+  "Metadata": {
+    "title": "Jingle - 桌面命令中心",
+    "description": "面向扩展、AI 工作流和本地知识的桌面命令中心。"
+  },
+  "Site": {
+    "description": "面向扩展、AI 工作流和本地知识的桌面命令中心。",
+    "download": "下载",
+    "developerCta": "开发者",
+    "languageLabel": "切换语言",
+    "languageSwitch": "EN"
+  },
+  "Nav": {
+    "features": "功能",
+    "extensions": "扩展",
+    "roadmap": "路线图",
+    "brand": "品牌",
+    "developers": "开发者",
+    "docs": "文档"
+  },
+  "Footer": {
+    "product": "产品",
+    "resources": "资源",
+    "company": "公司",
+    "features": "功能",
+    "extensions": "扩展",
+    "roadmap": "路线图",
+    "brand": "品牌",
+    "developers": "开发者",
+    "docs": "文档",
+    "extensionGuide": "扩展指南",
+    "connectionGuide": "连接指南",
+    "privacy": "隐私",
+    "contact": "联系"
+  },
+  "Roadmap": {
+    "metadataTitle": "产品路线图",
+    "eyebrow": "路线图",
+    "title": "Jingle 桌面平台路线图",
+    "body": "Jingle 正在建设面向个人与团队的桌面命令平台。路线图展示命令入口、扩展生态、AI、账号连接、团队协作和安全治理等能力的阶段安排。",
+    "statusTitle": "路线状态",
+    "statusBody": "路线图按阶段展示能力进展：预览能力适合早期扩展开发和私有集成；正在研发中的能力已经进入产品建设；规划中代表明确方向但体验和发布时间仍会调整。具体发布时间以正式发布说明为准。",
+    "sections": [
+      {
+        "title": "启动器、搜索和动作",
+        "status": "核心建设中",
+        "body": "应用启动、命令搜索、动作面板、快捷键、最近使用和结果排序是入口底座。",
+        "next": "下一阶段：文件搜索、跨来源动作、别名、热键管理和更稳定的排序策略。"
+      },
+      {
+        "title": "文件、片段和剪贴板",
+        "status": "规划中",
+        "body": "文件搜索、路径动作、文本片段、变量展开、剪贴板历史和快速笔记会成为本地生产力层。",
+        "next": "规划方向：隐私过滤、本地索引、片段变量、历史固定、搜索、笔记浮窗和同步策略。"
+      },
+      {
+        "title": "扩展和系统命令",
+        "status": "开发者预览",
+        "body": "扩展 package、命令视图、菜单栏、无视图命令和系统能力会形成可扩展桌面层。",
+        "next": "下一阶段：脚手架、包校验、权限展示、窗口管理、脚本命令、计算器、emoji、翻译、日历和 Focus 等高频本地工具。"
+      },
+      {
+        "title": "AI 命令和 Agent 工具",
+        "status": "预览能力",
+        "body": "AI 应能读取用户批准的上下文，并在可见审批边界内调用扩展工具。",
+        "next": "下一阶段：Quick AI、AI Command 模板、上下文选择、AI profile、schema form 参数编辑、失败恢复、结果解释和 eval。"
+      },
+      {
+        "title": "商店、发布和更新",
+        "status": "正在研发中...",
+        "body": "扩展生态需要公开目录、私有分发、审核、签名、更新、撤回和安装体验。",
+        "next": "建设方向：发布流程、审核队列、包签名、版本兼容、更新策略和用户可读权限说明。"
+      },
+      {
+        "title": "账号连接和 OAuth",
+        "status": "正在研发中...",
+        "body": "GitHub、Notion 等公开 provider 应走平台托管 OAuth、callback、刷新、撤销和安全存储。",
+        "next": "建设方向：provider registry、Connect UI、state 校验、token exchange、refresh、revoke 和连接诊断。"
+      },
+      {
+        "title": "团队共享和同步",
+        "status": "规划中",
+        "body": "团队版会覆盖共享快捷入口、片段、私有扩展、组织成员、个人设置和桌面端同步。",
+        "next": "规划方向：组织权限、审计、冲突处理、导入导出、主题/Profile 同步、关闭同步和本地优先删除语义。"
+      },
+      {
+        "title": "安全、隐私和治理",
+        "status": "持续建设",
+        "body": "凭证边界、权限展示、扩展审核、日志脱敏和兼容策略决定平台能否长期开放。",
+        "next": "持续建设：权限模型、审核规则、错误上报脱敏、兼容矩阵和用户可检查界面。"
+      }
+    ],
+    "notesTitle": "平台原则",
+    "notes": [
+      "Jingle 优先服务桌面端工作流，移动端不在当前路线图范围内。",
+      "账号凭证由平台安全边界管理，扩展不直接持有 OAuth token 或 refresh token。",
+      "同步能力遵循本地优先和显式启用原则，本地所有权仍是默认边界。"
+    ],
+    "developerLink": "查看开发者路线图"
+  },
+  "Brand": {
+    "metadataTitle": "品牌系统",
+    "eyebrow": "品牌",
+    "title": "F-05H 是 Jingle 的正式品牌方向。",
+    "body": "最终选择“向右看，更像准备行动”的命令胶囊。它不是一个角色头像，而是一个随时待命的桌面命令入口：有一点生命感，但主体仍然是工具。",
+    "final": {
+      "eyebrow": "Final mark",
+      "title": "一个准备行动的命令伙伴。",
+      "body": "深色圆角底承载桌面 app 的稳定感；白色胶囊表达命令输入和搜索；绿色状态点表达已就绪；右上唤醒弧让整体像正在响应，而不是静态图案。",
+      "alt": "Jingle F-05H 定稿图标"
+    },
+    "principles": {
+      "items": [
+        {
+          "title": "命令入口",
+          "body": "第一眼要像能输入、能搜索、能执行。"
+        },
+        {
+          "title": "准备行动",
+          "body": "眼神向右，但不做夸张表情。"
+        },
+        {
+          "title": "桌面质感",
+          "body": "优先适配 Dock、菜单栏、官网和开发者文档。"
+        }
+      ]
+    },
+    "assets": {
+      "eyebrow": "Assets",
+      "title": "同一个标志在不同状态下成立。",
+      "body": "正式资产覆盖桌面 app、Web logo、favicon、小尺寸、light / dark、flat、mono、完整 lockup、衣服和周边预览。",
+      "cards": [
+        {
+          "title": "桌面 App 图标",
+          "body": "在 Dock 中保持高识别度，黑绿底色和白色胶囊足够醒目。",
+          "type": "desktop"
+        },
+        {
+          "title": "Web 端 Logo",
+          "body": "在官网导航和文档页面里配合 Jingle 字标使用，保持产品感。",
+          "type": "web"
+        },
+        {
+          "title": "Favicon",
+          "body": "小尺寸只保留胶囊、搜索和绿点，减少复杂光影。",
+          "type": "favicon"
+        },
+        {
+          "title": "Light / Dark",
+          "body": "主图标不分裂成两套，依靠图标自身底色适配浅色和深色背景。",
+          "type": "modes"
+        },
+        {
+          "title": "扁平版本",
+          "body": "用于说明图、系统内小组件和需要低复杂度渲染的场景。",
+          "type": "flat"
+        },
+        {
+          "title": "单色版本",
+          "body": "用于印刷、压印、合作方物料和极简 UI 场景。",
+          "type": "mono"
+        },
+        {
+          "title": "完整 Lockup",
+          "body": "用于发布图、品牌页、合作页面和需要完整品牌露出的场景。",
+          "type": "lockup"
+        },
+        {
+          "title": "衣服",
+          "body": "小徽章式露出更合适，不把图标放大成纯装饰图案。",
+          "type": "apparel"
+        },
+        {
+          "title": "周边",
+          "body": "适合贴纸、杯子、帆布包等轻量团队物料。",
+          "type": "merch"
+        }
+      ]
+    },
+    "tokens": {
+      "eyebrow": "Design tokens",
+      "title": "网站 token 和品牌资产保持同源。",
+      "body": "官网的背景、panel、强调色、focus ring、图标阴影和品牌页预览使用同一组颜色与半径，避免页面各做各的。",
+      "names": {
+        "brandInk": "brand ink",
+        "background": "background",
+        "panel": "panel",
+        "cream": "cream",
+        "green": "green",
+        "gold": "gold",
+        "muted": "muted",
+        "line": "line"
+      },
+      "radiusTitle": "圆角",
+      "shadowTitle": "图标阴影",
+      "assetTitle": "核心资产路径",
+      "cssTitle": "CSS 变量"
+    },
+    "downloads": {
+      "eyebrow": "Downloads",
+      "title": "官方资产清单",
+      "body": "SVG 用于设计和网页，PNG 用于 app 图标、favicon、小尺寸预览、文档截图和对外物料。",
+      "open": "打开"
+    }
+  },
+  "Home": {
+    "hero": {
+      "title": "更快地操作你的桌面工作流。",
+      "subtitle": "Jingle 是一个桌面命令中心，用来启动工作流、连接扩展，并把必要上下文交给 AI，而不接管你的工作空间。",
+      "imageAlt": "桌面工作区占位图",
+      "searchPlaceholder": "搜索应用、命令、文件和 Agent",
+      "recentLabel": "最近命令",
+      "footerStatus": "本地上下文已就绪",
+      "footerAction": "回车运行",
+      "actions": [
+        { "href": "/roadmap", "label": "查看路线图", "primary": true },
+        { "href": "/#features", "label": "了解功能", "primary": false }
+      ],
+      "demoItems": ["打开项目笔记", "创建发布计划", "检查今天的改动"],
+      "demoCards": [
+        {
+          "title": "扩展动作",
+          "body": "在一个入口运行已连接的工作流，不必来回切换应用。"
+        },
+        {
+          "title": "带上下文的 AI",
+          "body": "附上文件、记忆和工具，同时让审批保持可见。"
+        }
+      ]
+    },
+    "features": {
+      "eyebrow": "功能",
+      "title": "一切从命令入口开始。",
+      "body": "为重复工作而生：快速唤起、容易扫读，并明确告诉你将运行什么。",
+      "pillars": [
+        {
+          "title": "命令中心",
+          "description": "不用离开键盘，就能启动命令、切换上下文并操作重复工作流。"
+        },
+        {
+          "title": "扩展商店",
+          "description": "连接应用、运行扩展视图，并把 provider 动作放到统一入口。"
+        },
+        {
+          "title": "AI 工作空间",
+          "description": "把正确的文件、工具、记忆和审批边界交给 AI 工作流。"
+        },
+        {
+          "title": "本地知识",
+          "description": "让工作上下文本地优先、可搜索、可编辑，并对用户可见。"
+        }
+      ]
+    },
+    "workflow": {
+      "eyebrow": "工作流",
+      "title": "在一个地方查找、执行和交接。",
+      "rows": [
+        { "title": "找到任何东西", "detail": "跨应用搜索、打开并执行动作。" },
+        { "title": "完成工作", "detail": "用接近原生体验的视图运行扩展命令。" },
+        { "title": "安全交接", "detail": "让 Agent 使用已批准的工具和本地上下文。" }
+      ]
+    },
+    "extensions": {
+      "eyebrow": "扩展",
+      "title": "连接你工作已经依赖的工具。",
+      "cards": [
+        {
+          "title": "GitHub",
+          "description": "Issue、Pull Request、通知和仓库工作流。",
+          "icon": "GH",
+          "status": "开发者预览"
+        },
+        {
+          "title": "Notion",
+          "description": "页面、数据库、快速记录和工作区搜索。",
+          "icon": "N",
+          "status": "开发者预览"
+        },
+        {
+          "title": "提醒事项",
+          "description": "原生提醒事项、截止时间、快速捕获和本地任务流。",
+          "icon": "R",
+          "status": "内置"
+        }
+      ]
+    },
+    "roadmap": {
+      "eyebrow": "路线图",
+      "title": "Jingle 的桌面平台路线图。",
+      "body": "Jingle 围绕启动器、扩展生态、AI 工具、团队分发和跨设备同步逐步建设桌面工作流平台。路线图按阶段展示能力进展和产品方向。",
+      "items": [
+        {
+          "title": "启动器与文件搜索",
+          "description": "应用启动、命令搜索、文件搜索、动作面板、别名和快捷键是桌面入口的底座。",
+          "status": "核心建设中"
+        },
+        {
+          "title": "扩展生态与商店",
+          "description": "扩展包、运行时 SDK、开发工具、审核发布和公开/私有分发需要形成完整闭环。",
+          "status": "开发者预览"
+        },
+        {
+          "title": "AI 命令与工具调用",
+          "description": "AI 命令会调用扩展工具、解释输入、展示审批，并留下可检查结果。",
+          "status": "预览能力"
+        },
+        {
+          "title": "团队共享能力",
+          "description": "共享快捷入口、片段、私有扩展、成员权限和组织级配置会作为团队版本的一部分推进。",
+          "status": "规划中"
+        },
+        {
+          "title": "窗口、剪贴板和系统命令",
+          "description": "窗口管理、剪贴板历史、片段展开、系统命令、计算器和 emoji 等高频能力需要原生级体验。",
+          "status": "规划中"
+        },
+        {
+          "title": "账号连接与 OAuth",
+          "description": "公开集成需要平台托管的 OAuth、callback、token refresh、revoke 和统一 Connect UI。",
+          "status": "研发中"
+        },
+        {
+          "title": "数据迁移、导入和同步",
+          "description": "设置、扩展、快捷入口、片段、历史记录和本地知识需要可导入、可备份、可同步。",
+          "status": "规划中"
+        },
+        {
+          "title": "安全、隐私和治理",
+          "description": "凭证边界、权限展示、扩展审核、错误上报脱敏和版本兼容策略会决定平台能否长期开放。",
+          "status": "持续建设"
+        }
+      ]
+    },
+    "trust": {
+      "eyebrow": "信任",
+      "title": "为用户可控的自动化而设计。",
+      "items": [
+        {
+          "title": "凭证边界",
+          "description": "敏感凭证属于宿主管理的安全存储，而不是普通扩展设置。"
+        },
+        {
+          "title": "用户控制",
+          "description": "用户应该清楚哪些上下文在本地、哪些会共享，以及 Agent 能访问什么。"
+        },
+        {
+          "title": "可检查状态",
+          "description": "连接、记忆和工具权限都应该是可检查的产品界面。"
+        }
+      ]
+    },
+    "cta": {
+      "title": "探索 Jingle 的产品路线。",
+      "body": "了解桌面平台能力、后续方向和开发者资源。",
+      "guide": "产品路线图",
+      "developers": "开发者文档"
+    }
+  },
+  "Docs": {
+    "metadataTitle": "文档",
+    "eyebrow": "文档",
+    "title": "构建命令、扩展、账号连接和 Agent 工具。",
+    "body": "面向 Jingle 构建的技术指南，覆盖扩展包、账号连接和 Agent 工具边界。",
+    "cards": [
+      {
+        "title": "扩展模型",
+        "description": "构建视图命令、无视图命令、菜单栏命令和 AI 工具。",
+        "href": "/docs/extensions"
+      },
+      {
+        "title": "账号连接",
+        "description": "账号连接流程、安全存储和连接状态。",
+        "href": "/docs/connections"
+      },
+      {
+        "title": "Agent 工具",
+        "description": "Agent 如何请求工具访问、展示审批并回报结果。",
+        "href": "/docs#agents"
+      }
+    ],
+    "agentContract": "Agent 工具契约",
+    "agentItems": [
+      "工具由扩展声明",
+      "权限和审批由宿主掌握",
+      "渲染端接收类型化展示"
+    ]
+  },
+  "Connections": {
+    "metadataTitle": "账号连接",
+    "eyebrow": "账号连接",
+    "title": "账号连接是平台契约的一部分。",
+    "body": "扩展声明自己需要的账号和权限范围。Jingle 负责浏览器跳转、校验、安全存储、刷新、撤销和连接状态。",
+    "providerTitle": "Provider 示例",
+    "checklistTitle": "实现清单",
+    "providers": [
+      {
+        "title": "GitHub",
+        "body": "根据权限形态选择 OAuth App 或 GitHub App。GitHub App 可以提供更细的权限，以及短期安装或用户凭证。"
+      },
+      {
+        "title": "Notion",
+        "body": "Notion 公共连接使用 OAuth。用户批准工作区和页面访问后，Jingle 会把账号连接保存给扩展命令使用。"
+      }
+    ],
+    "requirements": [
+      "为 GitHub、Notion 和后续集成建立 provider 注册表。",
+      "支持带 state 校验的授权码流程，并在 provider 支持时使用 PKCE。",
+      "通过自定义 URL scheme 或 loopback redirect 回到桌面端。",
+      "凭证安全存储，不写入普通扩展偏好设置。",
+      "连接状态包括 connected、missing、expired、revoked、scope-missing。",
+      "需要账号访问的命令使用统一 Connect UI。"
+    ],
+    "steps": [
+      {
+        "title": "声明",
+        "description": "扩展声明 provider、权限范围、返回目标和凭证需求。"
+      },
+      {
+        "title": "授权",
+        "description": "Jingle 打开 provider 页面，并在支持时带上 state 和 PKCE。"
+      },
+      {
+        "title": "存储",
+        "description": "桌面应用完成交换，并把凭证存到普通偏好设置之外。"
+      },
+      {
+        "title": "解析",
+        "description": "命令拿到 connected、missing、expired 或 scope-missing 状态。"
+      }
+    ]
+  },
+  "ExtensionsDocs": {
+    "metadataTitle": "扩展",
+    "eyebrow": "扩展",
+    "title": "面向桌面命令和 Agent 工具的扩展包模型。",
+    "body": "Jingle 扩展应该像原生桌面功能一样：快速命令视图、清晰设置、账号连接，以及行动前可检查的 AI 工具。",
+    "packageTitle": "包结构",
+    "layers": [
+      {
+        "title": "Manifest",
+        "body": "Manifest 负责标题、图标、命令、运行模式、偏好设置和平台支持。"
+      },
+      {
+        "title": "Runtime",
+        "body": "Runtime 包负责 React 命令视图、无视图命令、菜单栏界面和 SDK 调用。"
+      },
+      {
+        "title": "Main",
+        "body": "Main 包负责高权限宿主调用、本地 API、文件系统桥接和原生集成。"
+      },
+      {
+        "title": "Agent 工具",
+        "body": "AI 包暴露带权限元数据和人类可读展示的类型化工具。"
+      }
+    ]
+  },
+  "Privacy": {
+    "metadataTitle": "隐私",
+    "eyebrow": "隐私",
+    "title": "Jingle 围绕本地所有权和显式连接而设计。",
+    "body": "Jingle 的隐私模型从本地控制开始：用户应该知道什么被存储、什么被连接，以及 Agent 或扩展能访问什么。",
+    "sections": [
+      {
+        "title": "本地优先的产品数据",
+        "body": "长期记忆、工作区上下文、扩展偏好设置和账号连接元数据默认保存在本地。未来如果引入服务器同步，也会显式开启并支持撤回。"
+      },
+      {
+        "title": "敏感凭证",
+        "body": "账号凭证属于安全存储，和普通设置文件、日志、遥测以及扩展可见偏好对象保持隔离。"
+      },
+      {
+        "title": "扩展边界",
+        "body": "扩展只接收当前命令所需的能力和连接状态。账号连接、刷新、撤销和 provider 响应由 Jingle 掌握。"
+      },
+      {
+        "title": "用户控制",
+        "body": "用户可以检查已连接账号、撤销访问、删除本地记忆，并清楚区分保留在本地和参与同步的数据。"
+      }
+    ]
+  },
+  "Callback": {
+    "metadataTitle": "连接回调",
+    "eyebrow": "账号连接",
+    "title": "完成账号连接。",
+    "body": "这个页面用于外部服务登录后返回 Jingle。如果桌面应用已打开，Jingle 会在本地完成连接。",
+    "errorTitle": "连接需要处理",
+    "readyTitle": "已收到连接响应",
+    "waitingTitle": "等待连接响应",
+    "errorBody": "请回到 Jingle 重新连接。如果问题持续存在，可以查看连接指南。",
+    "readyBody": "你可以回到桌面应用。Jingle 会完成连接，并把你带回请求访问权限的命令。",
+    "backHome": "回到 Jingle",
+    "guide": "连接指南"
+  }
+}

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-labelledby="title desc">
+  <title id="title">G-05C Flat Portal</title>
+  <desc id="desc">A flatter G-05 portal variant with reduced depth and stronger silhouette.</desc>
+  <defs>
+    <linearGradient id="bg" x1="15" y1="7" x2="86" y2="94" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#26362f"/>
+      <stop offset=".58" stop-color="#101815"/>
+      <stop offset="1" stop-color="#050807"/>
+    </linearGradient>
+    <linearGradient id="ring" x1="30" y1="18" x2="72" y2="82" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f2d967"/>
+      <stop offset=".42" stop-color="#77dc73"/>
+      <stop offset="1" stop-color="#0b9a5d"/>
+    </linearGradient>
+  </defs>
+  <rect x="5.5" y="5.5" width="89" height="89" rx="25.5" fill="url(#bg)"/>
+  <rect x="27" y="18" width="46" height="64" rx="23" fill="url(#ring)"/>
+  <rect x="37" y="29" width="26" height="42" rx="13" fill="#08100e"/>
+  <path d="M40 35c5.6-5.2 14.4-5.2 20 0" fill="none" stroke="#fff0a6" stroke-linecap="round" stroke-width="3.2" opacity=".62"/>
+  <path d="M37 58c2.8 7 7.8 10.6 13 10.6S60.2 65 63 58" fill="none" stroke="#f1db68" stroke-linecap="round" stroke-width="2.4" opacity=".38"/>
+</svg>

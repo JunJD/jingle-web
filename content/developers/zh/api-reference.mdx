@@ -1,0 +1,129 @@
+---
+title: "API 参考"
+description: "Jingle Extension API 中用于构建命令视图、读取设置、访问连接和触发宿主能力的 SDK。"
+---
+
+import { Callout, MediaFrame, StatusBadge, developerMedia } from "@/components/developers/mdx-primitives"
+
+Jingle Extension API 为扩展命令提供 UI 组件、宿主能力和运行时工具。开发者预览阶段的实际包名是 `@openwork/extension-api`；公开版本命名会随平台发布节奏统一。
+
+<Callout title="API 稳定性" tone="warning">
+  本页记录开发者预览阶段可使用的 API。“预览可用”表示当前可以在私有扩展和早期集成里使用，并且已有运行时实现；命名、参数、错误语义和兼容策略会随公开版本继续稳定。
+</Callout>
+
+## UI components
+
+| API | 用途 | 状态 |
+| --- | --- | --- |
+| `List` | 搜索、分组、列表项、accessories、empty view、dropdown、pagination | <StatusBadge tone="preview">预览可用</StatusBadge> |
+| `Detail` | Markdown 内容、metadata、链接和标签 | <StatusBadge tone="preview">预览可用</StatusBadge> |
+| `Form` | 表单字段、dropdown、tag picker、date picker、storeValue | <StatusBadge tone="preview">预览可用</StatusBadge> |
+| `ActionPanel` / `Action` | 命令动作、复制、粘贴、打开浏览器、提交表单、push view | <StatusBadge tone="preview">预览可用</StatusBadge> |
+| `MenuBarExtra` | 菜单栏入口和状态展示 | <StatusBadge tone="preview">预览可用</StatusBadge> |
+
+<MediaFrame
+  alt="命令详情视图参考图"
+  caption="UI SDK 的目标是让扩展作者描述信息架构和动作，而不是重新实现窗口、列表选择和键盘交互。"
+  src={developerMedia.commandDetail}
+/>
+
+## Preferences
+
+### `getPreferenceValues()`
+
+读取扩展级和命令级设置。返回值按命令启动上下文解析，适合在命令组件和工具函数中使用。
+
+```ts
+const preferences = getPreferenceValues<{
+  apiBaseUrl: string
+  open_in: { name?: string; bundleId?: string; path?: string }
+}>()
+```
+
+### `getConnectionSecret(name)`
+
+读取由宿主管理的连接 secret。扩展只请求需要的 secret 名称，不直接处理凭证存储位置。
+
+```ts
+const token = getConnectionSecret("accessToken")
+```
+
+### `openExtensionPreferences()` / `openCommandPreferences()`
+
+打开扩展或命令设置页。需要用户补充配置或连接账号时，命令可以把用户交给平台设置页，而不是在命令里重新实现一套设置界面。
+
+```tsx
+import { Action, ActionPanel, Detail, openExtensionPreferences } from "@openwork/extension-api"
+
+export default function Command() {
+  return (
+    <Detail
+      markdown="Connect this extension before running the command."
+      actions={
+        <ActionPanel>
+          <Action title="Open Extension Settings" onAction={openExtensionPreferences} />
+        </ActionPanel>
+      }
+    />
+  )
+}
+```
+
+## Storage
+
+| API | 语义 | 状态 |
+| --- | --- | --- |
+| `LocalStorage.getItem` | 按扩展 scope 读取持久值 | <StatusBadge tone="preview">预览可用</StatusBadge> |
+| `LocalStorage.setItem` | 写入扩展 scope 持久值 | <StatusBadge tone="preview">预览可用</StatusBadge> |
+| `LocalStorage.removeItem` | 删除扩展 scope 值 | <StatusBadge tone="preview">预览可用</StatusBadge> |
+| `LocalStorage.clear` | 清空扩展 scope 值 | <StatusBadge tone="preview">预览可用</StatusBadge> |
+| `LocalStorage.allItems` | 读取全部扩展 scope 值 | <StatusBadge tone="preview">预览可用</StatusBadge> |
+| `Cache` | 命名空间内同步缓存、订阅和容量裁剪 | <StatusBadge tone="preview">预览可用</StatusBadge> |
+
+<Callout title="敏感数据边界" tone="warning">
+  LocalStorage 和 Cache 适合保存扩展状态，不适合保存 access token、refresh token 或 client secret。账号凭证应交给 connection secret / credential storage。
+</Callout>
+
+## Feedback and shell
+
+| API | 用途 | 状态 |
+| --- | --- | --- |
+| `showToast` / `Toast` | 展示成功、失败、加载等反馈 | <StatusBadge tone="preview">预览可用</StatusBadge> |
+| `showHUD` | 展示短反馈 | <StatusBadge tone="preview">预览可用</StatusBadge> |
+| `Clipboard` / `writeClipboardText` | 剪贴板读写 | <StatusBadge tone="preview">预览可用</StatusBadge> |
+| `open` / `openExternal` | 打开 URL 或外部资源 | <StatusBadge tone="preview">预览可用</StatusBadge> |
+| `closeMainWindow` | 隐藏或关闭主窗口 | <StatusBadge tone="preview">预览可用</StatusBadge> |
+
+## Navigation and launch
+
+| API | 用途 | 状态 |
+| --- | --- | --- |
+| `useNavigation()` | push / pop / openCommand / hideLauncher | <StatusBadge tone="preview">预览可用</StatusBadge> |
+| `launchCommand()` | 从一个命令启动另一个命令 | <StatusBadge tone="preview">预览可用</StatusBadge> |
+| `LaunchProps` / `LaunchType` | 命令启动参数和启动类型 | <StatusBadge tone="preview">预览可用</StatusBadge> |
+| `useCommandSeedQuery()` | 读取 launcher 输入的种子查询 | <StatusBadge tone="preview">预览可用</StatusBadge> |
+
+## OAuth
+
+| API | 状态 |
+| --- | --- |
+| `OAuth.PKCEClient` constructor | <StatusBadge>预览</StatusBadge> |
+| `OAuth.RedirectMethod.Web` | <StatusBadge>预览</StatusBadge> |
+| `authorizationRequest()` | <StatusBadge tone="research">规划中</StatusBadge> |
+| `authorize()` | <StatusBadge tone="research">规划中</StatusBadge> |
+| `setTokens()` / `getTokens()` / `removeTokens()` | <StatusBadge tone="research">规划中</StatusBadge> |
+
+## Utilities
+
+`@openwork/extension-utils` 提供面向账号连接的辅助函数，适合 token-backed integrations：
+
+| API | 语义 |
+| --- | --- |
+| `OAuthService.getAccessToken()` | 从宿主管理的 connection secret 读取 `accessToken` |
+| `OAuthService.authorize()` | 读取当前连接 token；浏览器 OAuth 流程见 OAuth 章节 |
+| `withAccessToken(service)` | React command 缺 token 时展示连接空状态；普通函数缺 token 时抛错 |
+| `getAccessToken(service)` | 读取当前 connection secret 或 service token |
+
+<Callout title="迁移到平台 OAuth" tone="info">
+  Token 型集成适合开发者预览和私有工作流。公开发布的第三方集成应优先迁移到平台托管 OAuth，让 Jingle 统一管理授权、刷新、撤销和凭证存储。
+</Callout>

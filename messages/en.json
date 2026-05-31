@@ -1,0 +1,494 @@
+{
+  "Metadata": {
+    "title": "Jingle - desktop command center",
+    "description": "A desktop command center for extensions, AI workflows, and local knowledge."
+  },
+  "Site": {
+    "description": "A desktop command center for extensions, AI workflows, and local knowledge.",
+    "download": "Download",
+    "developerCta": "Developers",
+    "languageLabel": "Switch language",
+    "languageSwitch": "中文"
+  },
+  "Nav": {
+    "features": "Features",
+    "extensions": "Extensions",
+    "roadmap": "Roadmap",
+    "brand": "Brand",
+    "developers": "Developers",
+    "docs": "Docs"
+  },
+  "Footer": {
+    "product": "Product",
+    "resources": "Resources",
+    "company": "Company",
+    "features": "Features",
+    "extensions": "Extensions",
+    "roadmap": "Roadmap",
+    "brand": "Brand",
+    "developers": "Developers",
+    "docs": "Docs",
+    "extensionGuide": "Extension guide",
+    "connectionGuide": "Connection guide",
+    "privacy": "Privacy",
+    "contact": "Contact"
+  },
+  "Roadmap": {
+    "metadataTitle": "Product roadmap",
+    "eyebrow": "Roadmap",
+    "title": "Jingle desktop platform roadmap",
+    "body": "Jingle is building a desktop command platform for individuals and teams. This roadmap outlines the staged direction across command entry, extensions, AI, connected accounts, team collaboration, and platform governance.",
+    "statusTitle": "Roadmap status",
+    "statusBody": "Roadmap phases describe product progress. Preview capabilities are ready for early extension development and private integrations, in-development areas are actively being built, and planned areas represent committed direction while experience and timing continue to evolve. Release timing is communicated through official release notes.",
+    "sections": [
+      {
+        "title": "Launcher, search, and actions",
+        "status": "Core buildout",
+        "body": "App launch, command search, action panels, hotkeys, recent usage, and result ranking are the base surface.",
+        "next": "Next: file search, cross-source actions, aliases, hotkey management, and more stable ranking."
+      },
+      {
+        "title": "Files, snippets, and clipboard",
+        "status": "Planned",
+        "body": "File search, file actions, text snippets, variable expansion, clipboard history, and quick notes will become the local productivity layer.",
+        "next": "Planned direction: privacy filters, local indexing, snippet variables, pinned history, search, floating notes, and sync strategy."
+      },
+      {
+        "title": "Extensions and system commands",
+        "status": "Developer preview",
+        "body": "Extension packages, command views, menu bar entries, no-view commands, and system capabilities form the extensible desktop layer.",
+        "next": "Next: scaffolding, package checks, permission display, window management, script commands, calculator, emoji, translator, calendar, Focus, and other frequent local tools."
+      },
+      {
+        "title": "AI commands and agent tools",
+        "status": "Preview",
+        "body": "AI should read user-approved context and call extension tools inside visible approval boundaries.",
+        "next": "Next: Quick AI, AI Command templates, context selection, AI profile, schema-form argument editing, failure recovery, result explanation, and evals."
+      },
+      {
+        "title": "Store, publishing, and updates",
+        "status": "In development",
+        "body": "The extension ecosystem needs a public directory, private distribution, review, signing, updates, withdrawal, and install experience.",
+        "next": "In progress: publishing flow, review queue, package signing, version compatibility, update policy, and user-readable permission descriptions."
+      },
+      {
+        "title": "Connected accounts and OAuth",
+        "status": "In development",
+        "body": "Public providers such as GitHub and Notion should use platform-owned OAuth, callbacks, refresh, revoke, and secure storage.",
+        "next": "In progress: provider registry, Connect UI, state validation, token exchange, refresh, revoke, and connection diagnostics."
+      },
+      {
+        "title": "Team sharing and sync",
+        "status": "Planned",
+        "body": "The team edition will cover shared quicklinks, snippets, private extensions, organization members, personal settings, and desktop sync.",
+        "next": "Planned direction: organization permissions, audit, conflict handling, import/export, theme/profile sync, disable-sync controls, and local-first deletion semantics."
+      },
+      {
+        "title": "Security, privacy, and governance",
+        "status": "Ongoing",
+        "body": "Credential boundaries, permission display, extension review, redacted logs, and compatibility policy decide whether the platform can open up long term.",
+        "next": "Ongoing work: permission model, review rules, redacted error reporting, compatibility matrix, and user-inspectable surfaces."
+      }
+    ],
+    "notesTitle": "Platform principles",
+    "notes": [
+      "Jingle is focused on desktop workflows. Mobile apps are outside the current roadmap.",
+      "Account credentials are managed by the platform security boundary; extensions do not directly hold OAuth tokens or refresh tokens.",
+      "Sync follows local-first and explicit opt-in principles. Local ownership remains the default boundary."
+    ],
+    "developerLink": "View developer roadmap"
+  },
+  "Brand": {
+    "metadataTitle": "Brand system",
+    "eyebrow": "Brand",
+    "title": "F-05H is the official Jingle brand direction.",
+    "body": "The final mark is the command capsule looking right, ready to act. It is not a mascot portrait; it is a desktop command entry with a little life while staying firmly a tool.",
+    "final": {
+      "eyebrow": "Final mark",
+      "title": "A command companion ready to move.",
+      "body": "The dark rounded tile carries desktop app stability. The light capsule means command input and search. The green status dot means ready. The upper-right signal arc makes the mark feel responsive rather than static.",
+      "alt": "Jingle F-05H final icon"
+    },
+    "principles": {
+      "items": [
+        {
+          "title": "Command entry",
+          "body": "It should first read as a place to search, input, and run."
+        },
+        {
+          "title": "Ready to act",
+          "body": "The gaze moves right without becoming an exaggerated face."
+        },
+        {
+          "title": "Desktop feel",
+          "body": "The mark is tuned for Dock, menu bar, website, and developer docs."
+        }
+      ]
+    },
+    "assets": {
+      "eyebrow": "Assets",
+      "title": "One mark works across real product states.",
+      "body": "The official set covers desktop app icon, web logo, favicon, small sizes, light and dark use, flat, mono, full lockup, apparel, and merchandise previews.",
+      "cards": [
+        {
+          "title": "Desktop app icon",
+          "body": "Readable in the Dock, with a dark green tile and light command capsule.",
+          "type": "desktop"
+        },
+        {
+          "title": "Web logo",
+          "body": "Pairs with the Jingle wordmark in navigation and docs while staying product-like.",
+          "type": "web"
+        },
+        {
+          "title": "Favicon",
+          "body": "Small sizes keep the capsule, search read, and green dot while reducing detail.",
+          "type": "favicon"
+        },
+        {
+          "title": "Light / dark",
+          "body": "The main icon does not split into two identities; its own tile works on both backgrounds.",
+          "type": "modes"
+        },
+        {
+          "title": "Flat mark",
+          "body": "For diagrams, compact UI, and surfaces that need lower rendering complexity.",
+          "type": "flat"
+        },
+        {
+          "title": "Monochrome mark",
+          "body": "For print, embossing, partner placements, and minimal UI contexts.",
+          "type": "mono"
+        },
+        {
+          "title": "Full lockup",
+          "body": "For launch graphics, brand pages, partner pages, and full brand presence.",
+          "type": "lockup"
+        },
+        {
+          "title": "Apparel",
+          "body": "Works best as a small badge rather than an oversized decorative graphic.",
+          "type": "apparel"
+        },
+        {
+          "title": "Merch",
+          "body": "Fits stickers, mugs, tote bags, and lightweight team material.",
+          "type": "merch"
+        }
+      ]
+    },
+    "tokens": {
+      "eyebrow": "Design tokens",
+      "title": "Website tokens and brand assets stay from the same source.",
+      "body": "The website background, panels, accents, focus ring, icon shadow, and brand previews use the same color and radius system so pages do not drift apart.",
+      "names": {
+        "brandInk": "brand ink",
+        "background": "background",
+        "panel": "panel",
+        "cream": "cream",
+        "green": "green",
+        "gold": "gold",
+        "muted": "muted",
+        "line": "line"
+      },
+      "radiusTitle": "Radius",
+      "shadowTitle": "Icon shadow",
+      "assetTitle": "Core asset paths",
+      "cssTitle": "CSS variables"
+    },
+    "downloads": {
+      "eyebrow": "Downloads",
+      "title": "Official asset list",
+      "body": "Use SVG for design and web surfaces. Use PNG for app icons, favicons, small previews, documentation screenshots, and external material.",
+      "open": "Open"
+    }
+  },
+  "Home": {
+    "hero": {
+      "title": "A faster way to work with your desktop.",
+      "subtitle": "Jingle is a command center for launching workflows, connecting extensions, and giving AI the context it needs to help without taking over your workspace.",
+      "imageAlt": "Desktop workspace placeholder",
+      "searchPlaceholder": "Search apps, commands, files, and agents",
+      "recentLabel": "Recent commands",
+      "footerStatus": "Local context ready",
+      "footerAction": "Return to run",
+      "actions": [
+        { "href": "/roadmap", "label": "View roadmap", "primary": true },
+        { "href": "/#features", "label": "Explore features", "primary": false }
+      ],
+      "demoItems": ["Open project notes", "Create launch plan", "Review today's changes"],
+      "demoCards": [
+        {
+          "title": "Extension actions",
+          "body": "Run connected workflows from one surface instead of switching apps."
+        },
+        {
+          "title": "AI with context",
+          "body": "Attach files, memories, and tools while keeping approval visible."
+        }
+      ]
+    },
+    "features": {
+      "eyebrow": "Features",
+      "title": "Everything starts from the command surface.",
+      "body": "Built for repeated work: quick to invoke, easy to scan, and explicit about what runs.",
+      "pillars": [
+        {
+          "title": "Command center",
+          "description": "Launch commands, switch context, and operate repeat workflows without leaving the keyboard."
+        },
+        {
+          "title": "Extension store",
+          "description": "Connect apps, run extension views, and bring provider actions into one predictable surface."
+        },
+        {
+          "title": "AI workspace",
+          "description": "Give AI workflows the right files, tools, memories, and approval boundaries."
+        },
+        {
+          "title": "Local knowledge",
+          "description": "Keep working context local-first, searchable, editable, and visible to the user."
+        }
+      ]
+    },
+    "workflow": {
+      "eyebrow": "Workflow",
+      "title": "Find, act, and hand off in one place.",
+      "rows": [
+        { "title": "Find anything", "detail": "Search, open, and act across apps." },
+        { "title": "Do the work", "detail": "Run extension commands with native-feeling views." },
+        { "title": "Hand off safely", "detail": "Let agents use approved tools and local context." }
+      ]
+    },
+    "extensions": {
+      "eyebrow": "Extensions",
+      "title": "Connect the tools your work already depends on.",
+      "cards": [
+        {
+          "title": "GitHub",
+          "description": "Issues, pull requests, notifications, and repository workflows.",
+          "icon": "GH",
+          "status": "Developer preview"
+        },
+        {
+          "title": "Notion",
+          "description": "Pages, databases, capture flows, and workspace search.",
+          "icon": "N",
+          "status": "Developer preview"
+        },
+        {
+          "title": "Reminders",
+          "description": "Native reminders, due dates, quick capture, and local task flows.",
+          "icon": "R",
+          "status": "Built-in"
+        }
+      ]
+    },
+    "roadmap": {
+      "eyebrow": "Roadmap",
+      "title": "Jingle's desktop platform roadmap.",
+      "body": "Jingle is building a desktop workflow platform around launcher commands, extensions, AI tools, team distribution, and cross-device sync. The roadmap presents product progress and future direction by stage.",
+      "items": [
+        {
+          "title": "Launcher and file search",
+          "description": "App launch, command search, file search, action panels, aliases, and hotkeys are the base of the desktop surface.",
+          "status": "Core buildout"
+        },
+        {
+          "title": "Extension ecosystem and store",
+          "description": "Extension packages, runtime SDK, developer tooling, review, publishing, and public or private distribution need one complete loop.",
+          "status": "Developer preview"
+        },
+        {
+          "title": "AI commands and tool calls",
+          "description": "AI commands call extension tools, explain inputs, show approvals, and leave inspectable results.",
+          "status": "Preview"
+        },
+        {
+          "title": "Team sharing",
+          "description": "Shared quicklinks, snippets, private extensions, member permissions, and organization settings will move as part of the team edition.",
+          "status": "Planned"
+        },
+        {
+          "title": "Windows, clipboard, and system commands",
+          "description": "Window management, clipboard history, snippet expansion, system commands, calculator, and emoji need native-level ergonomics.",
+          "status": "Planned"
+        },
+        {
+          "title": "Connected accounts and OAuth",
+          "description": "Public integrations need platform-owned OAuth, callbacks, token refresh, revoke, and a standard Connect UI.",
+          "status": "In development"
+        },
+        {
+          "title": "Migration, import, and sync",
+          "description": "Settings, extensions, quicklinks, snippets, history, and local knowledge need import, backup, and sync paths.",
+          "status": "Planned"
+        },
+        {
+          "title": "Security, privacy, and governance",
+          "description": "Credential boundaries, permission display, extension review, redacted reporting, and compatibility policy decide whether the platform can open up long term.",
+          "status": "Ongoing"
+        }
+      ]
+    },
+    "trust": {
+      "eyebrow": "Trust",
+      "title": "Designed for user-controlled automation.",
+      "items": [
+        {
+          "title": "Credential boundaries",
+          "description": "Sensitive credentials belong to host-managed secure storage, not plain extension settings."
+        },
+        {
+          "title": "User control",
+          "description": "Users should understand which context is local, which is shared, and what agents can access."
+        },
+        {
+          "title": "Inspectable state",
+          "description": "Connections, memories, and tool permissions are designed as inspectable product surfaces."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Explore the Jingle product roadmap.",
+      "body": "See desktop platform capabilities, upcoming direction, and developer resources.",
+      "guide": "Product roadmap",
+      "developers": "Developer docs"
+    }
+  },
+  "Docs": {
+    "metadataTitle": "Docs",
+    "eyebrow": "Docs",
+    "title": "Build commands, extensions, connected accounts, and agent tools.",
+    "body": "Technical guides for building on Jingle, from extension packages to account connections and agent tool boundaries.",
+    "cards": [
+      {
+        "title": "Extension model",
+        "description": "Build view commands, no-view commands, menu bar commands, and AI tools.",
+        "href": "/docs/extensions"
+      },
+      {
+        "title": "Connections",
+        "description": "Account connection flow, secure storage, and connection state.",
+        "href": "/docs/connections"
+      },
+      {
+        "title": "Agent tools",
+        "description": "How agents request tool access, present approvals, and report results.",
+        "href": "/docs#agents"
+      }
+    ],
+    "agentContract": "Agent tool contract",
+    "agentItems": [
+      "Tools are declared by extensions",
+      "Host owns permission and approval",
+      "Renderer receives typed presentation"
+    ]
+  },
+  "Connections": {
+    "metadataTitle": "Connections",
+    "eyebrow": "Connections",
+    "title": "Connected accounts are part of the platform contract.",
+    "body": "Extensions declare the accounts and scopes they need. Jingle owns the browser handoff, validation, secure storage, refresh, revoke, and connection state.",
+    "providerTitle": "Provider examples",
+    "checklistTitle": "Implementation checklist",
+    "providers": [
+      {
+        "title": "GitHub",
+        "body": "Use OAuth App or GitHub App depending on permission shape. GitHub App gives finer permissions and short-lived installation or user credentials."
+      },
+      {
+        "title": "Notion",
+        "body": "Public connections use OAuth. Users approve workspace and page access, then Jingle stores the approved account connection for extension commands."
+      }
+    ],
+    "requirements": [
+      "Provider registry for GitHub, Notion, and future integrations.",
+      "Authorization code flow with state validation and PKCE where supported.",
+      "Desktop return route through custom URL scheme or loopback redirect.",
+      "Secure credential storage separate from plain extension preferences.",
+      "Connection states: connected, missing, expired, revoked, scope-missing.",
+      "Standard Connect UI for commands that require account access."
+    ],
+    "steps": [
+      {
+        "title": "Declare",
+        "description": "Extensions declare provider, scopes, return target, and credential requirements."
+      },
+      {
+        "title": "Authorize",
+        "description": "Jingle opens the provider page with state and PKCE where the provider supports it."
+      },
+      {
+        "title": "Store",
+        "description": "The desktop app finishes the exchange and stores credentials outside plain preferences."
+      },
+      {
+        "title": "Resolve",
+        "description": "Commands receive connected, missing, expired, or scope-missing state."
+      }
+    ]
+  },
+  "ExtensionsDocs": {
+    "metadataTitle": "Extensions",
+    "eyebrow": "Extensions",
+    "title": "A package model for desktop commands and agent tools.",
+    "body": "Jingle extensions should feel native: fast command views, clear settings, account connections, and AI tools that can be inspected before they act.",
+    "packageTitle": "Package layout",
+    "layers": [
+      {
+        "title": "Manifest",
+        "body": "Manifest owns title, icon, commands, runtime modes, preferences, and platform support."
+      },
+      {
+        "title": "Runtime",
+        "body": "Runtime package owns React command views, no-view commands, menu bar surfaces, and SDK calls."
+      },
+      {
+        "title": "Main",
+        "body": "Main package owns privileged host calls, local APIs, filesystem bridges, and native integrations."
+      },
+      {
+        "title": "Agent tools",
+        "body": "AI package exposes typed tools with permission metadata and human-readable presentation."
+      }
+    ]
+  },
+  "Privacy": {
+    "metadataTitle": "Privacy",
+    "eyebrow": "Privacy",
+    "title": "Jingle is designed around local ownership and explicit connections.",
+    "body": "Our privacy model starts with local control: users should know what is stored, what is connected, and what an agent or extension can access.",
+    "sections": [
+      {
+        "title": "Local-first product data",
+        "body": "Long-term memory, workspace context, extension preferences, and account connection metadata are stored locally first. Server sync, when introduced, will be explicit and reversible."
+      },
+      {
+        "title": "Sensitive credentials",
+        "body": "Account credentials belong in secure storage and stay separate from plain settings files, logs, telemetry, and extension-visible preference objects."
+      },
+      {
+        "title": "Extension boundaries",
+        "body": "Extensions only receive the capabilities and connection state needed for the command they are running. Jingle owns account connection, refresh, revocation, and provider responses."
+      },
+      {
+        "title": "User control",
+        "body": "Users can inspect connected accounts, revoke access, delete local memories, and distinguish local data from synchronized data."
+      }
+    ]
+  },
+  "Callback": {
+    "metadataTitle": "Connection Callback",
+    "eyebrow": "Account connection",
+    "title": "Finish connecting your account.",
+    "body": "This page is used when an external service returns to Jingle after sign-in. If Jingle is open, the desktop app will finish the connection there.",
+    "errorTitle": "Connection needs attention",
+    "readyTitle": "Connection response received",
+    "waitingTitle": "Waiting for a connection response",
+    "errorBody": "Return to Jingle and try connecting again. If the problem continues, check the connection guide.",
+    "readyBody": "You can return to the desktop app. Jingle will complete the connection and take you back to the command that asked for access.",
+    "backHome": "Back to Jingle",
+    "guide": "Connection guide"
+  }
+}

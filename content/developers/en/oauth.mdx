@@ -1,0 +1,121 @@
+---
+title: "OAuth"
+description: "The PKCE OAuth, callback URL, token lifecycle, and extension-author API planned for Jingle."
+---
+
+import { Callout, MediaFrame, StatusBadge, developerMedia } from "@/components/developers/mdx-primitives"
+
+OAuth is Jingle's authorization model for public connected accounts. An extension starts authorization, Jingle opens the provider consent page, the callback returns to Jingle, and tokens are stored securely by the platform.
+
+<Callout title="Availability" tone="research">
+  Developer Preview includes the OAuth manifest shape, the `OAuth.PKCEClient` constructor, `OAuth.RedirectMethod.Web`, and the callback page. Authorization, token exchange, refresh, and revoke will open progressively through the platform OAuth service.
+</Callout>
+
+<MediaFrame
+  alt="Reference visual for an account-backed command"
+  caption="A connected-account flow should move from command state, to browser authorization, then back into the command. Extensions declare the provider and required secrets."
+  src={developerMedia.commandSearch}
+/>
+
+## Target flow
+
+```txt
+Extension command
+  -> create OAuth client
+  -> Jingle creates state + PKCE verifier
+  -> browser opens provider consent page
+  -> provider redirects to Jingle callback
+  -> Jingle validates state and exchanges code
+  -> credential store saves token set
+  -> extension receives connected status
+```
+
+## Why PKCE
+
+Desktop apps and extensions are public clients. They cannot safely keep a client secret. PKCE binds the authorization request and token exchange through a code verifier / code challenge pair, reducing the risk of intercepted authorization codes.
+
+Public OAuth integrations should use:
+
+- authorization code flow;
+- `state` validation;
+- PKCE S256;
+- token exchange in the main process or a trusted backend;
+- platform-owned refresh and revoke.
+
+## Redirect methods
+
+Jingle plans to support these callback shapes:
+
+| Method | Redirect value | Status |
+| --- | --- | --- |
+| Web redirect | `https://jingle.ai/callback?packageName=github` | <StatusBadge tone="research">Planned</StatusBadge> |
+| Web path redirect | `https://jingle.ai/callback/github` | <StatusBadge tone="research">Planned</StatusBadge> |
+| App scheme | `jingle://oauth?package_name=github` | <StatusBadge tone="research">Planned</StatusBadge> |
+| App URI | `ai.jingle:/oauth?package_name=github` | <StatusBadge tone="research">Planned</StatusBadge> |
+
+The callback page can display `code`, `state`, or `error` returned by a provider. State validation, code exchange, token refresh, and revoke will be handled by the platform OAuth service.
+
+## Manifest shape
+
+```ts
+connection: {
+  id: "default",
+  provider: "notion",
+  title: "Notion",
+  auth: {
+    type: "oauth",
+    authorizationUrl: "https://api.notion.com/v1/oauth/authorize",
+    tokenUrl: "https://api.notion.com/v1/oauth/token",
+    clientId: "client-id",
+    scopes: [],
+    secretNames: ["accessToken"],
+    redirect: {
+      method: "web",
+      redirectUrl: "https://jingle.ai/callback?packageName=notion"
+    }
+  }
+}
+```
+
+You can declare the OAuth shape now; production authorization should wait for the platform OAuth service.
+
+## Extension author API
+
+Extension authors should declare a provider and call the platform OAuth API instead of implementing browser handoff, callbacks, and token storage themselves:
+
+```ts
+import { OAuth } from "@openwork/extension-api"
+
+const client = new OAuth.PKCEClient({
+  redirectMethod: OAuth.RedirectMethod.Web,
+  providerName: "Notion",
+  description: "Connect your Notion workspace"
+})
+```
+
+Developer Preview:
+
+- `OAuth.PKCEClient` constructor
+- `OAuth.RedirectMethod.Web`
+
+Planned:
+
+- `authorizationRequest()`
+- `authorize()`
+- `setTokens()`
+- `getTokens()`
+- `removeTokens()`
+- logout preference
+- refresh token lifecycle
+- revoke
+
+## Provider strategy
+
+| Provider | Developer Preview | Recommended direction |
+| --- | --- | --- |
+| GitHub | personal access token | OAuth App or GitHub App, depending on permission shape |
+| Notion | internal integration token | Notion public integration OAuth |
+
+<Callout title="Product target" tone="info">
+  The intended user experience is: click Connect, authorize on the provider website, return to Jingle, and continue the command. Extensions should not store tokens or implement callback pages themselves.
+</Callout>

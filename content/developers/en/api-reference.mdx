@@ -1,0 +1,129 @@
+---
+title: "API reference"
+description: "The SDK for building command views, reading settings, accessing connected accounts, and invoking host capabilities."
+---
+
+import { Callout, MediaFrame, StatusBadge, developerMedia } from "@/components/developers/mdx-primitives"
+
+Jingle Extension API gives commands UI components, host capabilities, and runtime utilities. During Developer Preview, the package name is `@openwork/extension-api`; public release naming will be unified with the platform release cadence.
+
+<Callout title="API stability" tone="warning">
+  This page documents the API available during Developer Preview. “Preview” means the capability has a runtime implementation and can be used in private extensions and early integrations; names, parameters, failure semantics, and compatibility policy will continue to stabilize before public release.
+</Callout>
+
+## UI components
+
+| API | Purpose | Status |
+| --- | --- | --- |
+| `List` | Search, sections, items, accessories, empty view, dropdown, pagination | <StatusBadge tone="preview">Preview</StatusBadge> |
+| `Detail` | Markdown content, metadata, links, tags | <StatusBadge tone="preview">Preview</StatusBadge> |
+| `Form` | Fields, dropdowns, tag picker, date picker, storeValue | <StatusBadge tone="preview">Preview</StatusBadge> |
+| `ActionPanel` / `Action` | Actions, copy, paste, open browser, submit form, push view | <StatusBadge tone="preview">Preview</StatusBadge> |
+| `MenuBarExtra` | Menu bar surfaces and status | <StatusBadge tone="preview">Preview</StatusBadge> |
+
+<MediaFrame
+  alt="Reference visual for a command detail view"
+  caption="The UI SDK lets extension authors describe information architecture and actions instead of rebuilding windows, list selection, and keyboard behavior."
+  src={developerMedia.commandDetail}
+/>
+
+## Preferences
+
+### `getPreferenceValues()`
+
+Reads extension-level and command-level settings resolved for the current launch context.
+
+```ts
+const preferences = getPreferenceValues<{
+  apiBaseUrl: string
+  open_in: { name?: string; bundleId?: string; path?: string }
+}>()
+```
+
+### `getConnectionSecret(name)`
+
+Reads a host-managed connection secret. Extensions request the secret names they need; the platform owns where credentials are stored.
+
+```ts
+const token = getConnectionSecret("accessToken")
+```
+
+### `openExtensionPreferences()` / `openCommandPreferences()`
+
+Opens the extension or command settings screen. When a command needs configuration or a connected account, it can hand off to platform settings instead of implementing its own setup UI.
+
+```tsx
+import { Action, ActionPanel, Detail, openExtensionPreferences } from "@openwork/extension-api"
+
+export default function Command() {
+  return (
+    <Detail
+      markdown="Connect this extension before running the command."
+      actions={
+        <ActionPanel>
+          <Action title="Open Extension Settings" onAction={openExtensionPreferences} />
+        </ActionPanel>
+      }
+    />
+  )
+}
+```
+
+## Storage
+
+| API | Semantics | Status |
+| --- | --- | --- |
+| `LocalStorage.getItem` | Read an extension-scoped persisted value | <StatusBadge tone="preview">Preview</StatusBadge> |
+| `LocalStorage.setItem` | Write an extension-scoped persisted value | <StatusBadge tone="preview">Preview</StatusBadge> |
+| `LocalStorage.removeItem` | Remove an extension-scoped value | <StatusBadge tone="preview">Preview</StatusBadge> |
+| `LocalStorage.clear` | Clear extension-scoped storage | <StatusBadge tone="preview">Preview</StatusBadge> |
+| `LocalStorage.allItems` | Read all extension-scoped values | <StatusBadge tone="preview">Preview</StatusBadge> |
+| `Cache` | Synchronous namespaced cache with subscriptions and capacity trimming | <StatusBadge tone="preview">Preview</StatusBadge> |
+
+<Callout title="Sensitive data boundary" tone="warning">
+  LocalStorage and Cache are for extension state. Do not store access tokens, refresh tokens, or client secrets there. Account credentials belong to connection secrets / credential storage.
+</Callout>
+
+## Feedback and shell
+
+| API | Purpose | Status |
+| --- | --- | --- |
+| `showToast` / `Toast` | Success, failure, loading, and action feedback | <StatusBadge tone="preview">Preview</StatusBadge> |
+| `showHUD` | Short success feedback | <StatusBadge tone="preview">Preview</StatusBadge> |
+| `Clipboard` / `writeClipboardText` | Clipboard access | <StatusBadge tone="preview">Preview</StatusBadge> |
+| `open` / `openExternal` | Open URLs and external resources | <StatusBadge tone="preview">Preview</StatusBadge> |
+| `closeMainWindow` | Hide or close the main window | <StatusBadge tone="preview">Preview</StatusBadge> |
+
+## Navigation and launch
+
+| API | Purpose | Status |
+| --- | --- | --- |
+| `useNavigation()` | push / pop / openCommand / hideLauncher | <StatusBadge tone="preview">Preview</StatusBadge> |
+| `launchCommand()` | Launch another command | <StatusBadge tone="preview">Preview</StatusBadge> |
+| `LaunchProps` / `LaunchType` | Command launch arguments and launch type | <StatusBadge tone="preview">Preview</StatusBadge> |
+| `useCommandSeedQuery()` | Read the launcher seed query | <StatusBadge tone="preview">Preview</StatusBadge> |
+
+## OAuth
+
+| API | Status |
+| --- | --- |
+| `OAuth.PKCEClient` constructor | <StatusBadge tone="preview">Preview</StatusBadge> |
+| `OAuth.RedirectMethod.Web` | <StatusBadge tone="preview">Preview</StatusBadge> |
+| `authorizationRequest()` | <StatusBadge tone="research">Planned</StatusBadge> |
+| `authorize()` | <StatusBadge tone="research">Planned</StatusBadge> |
+| `setTokens()` / `getTokens()` / `removeTokens()` | <StatusBadge tone="research">Planned</StatusBadge> |
+
+## Utilities
+
+`@openwork/extension-utils` provides connected-account helpers for token-backed integrations:
+
+| API | Semantics |
+| --- | --- |
+| `OAuthService.getAccessToken()` | Reads `accessToken` from a host-managed connection secret |
+| `OAuthService.authorize()` | Reads the current connection token; see OAuth for browser authorization |
+| `withAccessToken(service)` | Shows a connection empty view for React commands; throws for non-UI functions |
+| `getAccessToken(service)` | Reads the current connection secret or service token |
+
+<Callout title="Migrating to platform OAuth" tone="info">
+  Token-backed integrations are useful for Developer Preview and private workflows. Public third-party integrations should migrate to platform-owned OAuth so Jingle can manage authorization, refresh, revoke, and credential storage.
+</Callout>

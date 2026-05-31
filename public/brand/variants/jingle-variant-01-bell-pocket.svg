@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Bell and command pocket">
+  <defs>
+    <linearGradient id="v1-tile" x1="18" y1="7" x2="82" y2="93" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#29302c"/>
+      <stop offset=".5" stop-color="#141a17"/>
+      <stop offset="1" stop-color="#060807"/>
+    </linearGradient>
+    <radialGradient id="v1-innerGlow" cx="43%" cy="48%" r="56%">
+      <stop offset="0" stop-color="#2a362f" stop-opacity=".72"/>
+      <stop offset=".62" stop-color="#111713" stop-opacity=".3"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="v1-pocket" x1="21" y1="52" x2="83" y2="90" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2b3430"/>
+      <stop offset=".55" stop-color="#111513"/>
+      <stop offset="1" stop-color="#050606"/>
+    </linearGradient>
+    <linearGradient id="v1-bell" x1="35" y1="16" x2="63" y2="78" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffe39a"/>
+      <stop offset=".43" stop-color="#d99b2b"/>
+      <stop offset="1" stop-color="#955817"/>
+    </linearGradient>
+    <linearGradient id="v1-highlight" x1="28" y1="23" x2="72" y2="52" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff0bd"/>
+      <stop offset=".62" stop-color="#f6ce75"/>
+      <stop offset="1" stop-color="#fff2c7" stop-opacity=".72"/>
+    </linearGradient>
+    <linearGradient id="v1-command" x1="30" y1="58" x2="71" y2="81" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f4bc45"/>
+      <stop offset=".5" stop-color="#dfa334"/>
+      <stop offset="1" stop-color="#bd741f"/>
+    </linearGradient>
+    <linearGradient id="v1-left" x1="15" y1="20" x2="34" y2="43" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8bea70"/>
+      <stop offset="1" stop-color="#55d84f"/>
+    </linearGradient>
+    <linearGradient id="v1-right" x1="66" y1="20" x2="84" y2="43" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4fce83"/>
+      <stop offset="1" stop-color="#19af76"/>
+    </linearGradient>
+  </defs>
+  <rect x="5.5" y="5.5" width="89" height="89" rx="25.5" fill="url(#v1-tile)"/>
+  <rect x="7" y="7" width="86" height="86" rx="24" fill="url(#v1-innerGlow)"/>
+  <g fill="none" stroke-linecap="round" stroke-width="4.8">
+    <path d="M15.7 43.4c.8-9.2 5.4-17 13.2-22.5" stroke="url(#v1-left)"/>
+    <path d="M84.3 43.4c-.8-9.2-5.4-17-13.2-22.5" stroke="url(#v1-right)"/>
+  </g>
+  <path d="M19 60c0-8.2 6.5-14.2 14.8-14.2h32.4C74.5 45.8 81 51.8 81 60v15.4C81 83.6 74.3 89 65.8 89H34.2C25.7 89 19 83.6 19 75.4z" fill="url(#v1-pocket)" opacity=".88"/>
+  <path d="M25.1 56.6c7.1 6 42.7 6 49.8 0" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-opacity=".22" stroke-width="5.2"/>
+  <path d="M50 16.2c4.4 0 7.2 2.6 7.2 6.9v3.1c7.7 3.6 12.5 11.6 12.5 22.6v5.8l5.2 8.3c1.5 2.5-.2 5.7-3.2 5.7H28.3c-3 0-4.7-3.2-3.2-5.7l5.2-8.3v-5.8c0-11 4.8-19 12.5-22.6v-3.1c0-4.3 2.8-6.9 7.2-6.9z" fill="url(#v1-bell)"/>
+  <path d="M35.6 31.7c7.1-7.1 21.9-8.6 32.3 3.4" fill="none" stroke="url(#v1-highlight)" stroke-linecap="round" stroke-width="5.2" opacity=".86"/>
+  <path d="M36 56.2c5.2 1.9 22.8 1.9 28 0" fill="none" stroke="#ffe8a8" stroke-linecap="round" stroke-width="4.3" opacity=".88"/>
+  <circle cx="50" cy="69.3" r="6.5" fill="#b86d1e"/>
+  <g fill="none" stroke="url(#v1-command)" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.4">
+    <path d="M42.8 73.2V63.1c0-3.2 2.1-5.3 5.3-5.3s5.3 2.1 5.3 5.3v10.1"/>
+    <path d="M33.5 68.1c0-3.3 2.3-5.6 5.6-5.6h21.8c3.3 0 5.6 2.3 5.6 5.6s-2.3 5.6-5.6 5.6H39.1c-3.3 0-5.6-2.3-5.6-5.6z"/>
+  </g>
+</svg>

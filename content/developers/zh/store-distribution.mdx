@@ -1,0 +1,36 @@
+---
+title: "商店与分发"
+description: "Jingle 对扩展商店、公开发布、私有分发、审核和更新的状态说明。"
+---
+
+import { Callout, StatusBadge } from "@/components/developers/mdx-primitives"
+
+扩展平台真正成熟时，开发者不只是能写一个 package，还应该能测试、打包、发布、更新、撤回，并让用户安全安装。商店和分发是扩展生态的产品闭环。
+
+<Callout title="可用范围" tone="warning">
+  开发者预览阶段支持本地扩展包和私有扩展验证。公开商店、审核、签名和自动更新会作为平台分发能力逐步开放。
+</Callout>
+
+## 能力状态
+
+| 能力 | 状态 | 目标 |
+| --- | --- | --- |
+| 本地扩展包 | <StatusBadge tone="preview">预览可用</StatusBadge> | 在本地开发环境中加载和验证扩展 package |
+| 模板与脚手架 | <StatusBadge tone="research">正在研发中...</StatusBadge> | 生成命令、manifest、runtime、main service 和测试骨架 |
+| 打包校验 | <StatusBadge tone="research">正在研发中...</StatusBadge> | 校验 manifest、资源、权限、入口文件和 API 兼容性 |
+| 私有分发 | <StatusBadge tone="research">规划中</StatusBadge> | 团队内部安装、版本锁定、回滚和成员权限 |
+| 公开目录 | <StatusBadge tone="research">规划中</StatusBadge> | 展示扩展、截图、权限、更新日志、作者和安装入口 |
+| 审核队列 | <StatusBadge tone="research">规划中</StatusBadge> | 人工/自动审核权限、网络访问、凭证使用和用户风险 |
+| 签名与更新 | <StatusBadge tone="research">规划中</StatusBadge> | 包签名、版本更新、兼容检查和撤回机制 |
+
+## 发布治理
+
+- 扩展权限声明必须能被用户看懂。
+- package 需要稳定的 manifest schema 和兼容性策略。
+- 更新流程需要知道是否破坏已有设置、连接和本地数据。
+- 公开扩展需要审核 provider 使用、外部请求、文件访问和危险动作。
+- 私有扩展需要团队边界，不能和公开商店混在一起。
+
+## 对开发者文档的影响
+
+开发者文档会先覆盖 package contract 和本地运行方式。公开发布相关内容会随商店、审核、签名和更新路径逐步完善。

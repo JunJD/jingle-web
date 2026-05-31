@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-labelledby="title desc">
+  <title id="title">G-05D Deep Pocket Portal</title>
+  <desc id="desc">A deeper G-05 portal variant with a stronger inner pocket and richer glow.</desc>
+  <defs>
+    <linearGradient id="bg" x1="15" y1="7" x2="86" y2="94" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#24342d"/>
+      <stop offset=".56" stop-color="#0f1714"/>
+      <stop offset="1" stop-color="#040706"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="50" cy="43" r="44" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#376b45" stop-opacity=".58"/>
+      <stop offset=".58" stop-color="#15251a" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="ring" x1="29" y1="16" x2="73" y2="85" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff2aa"/>
+      <stop offset=".22" stop-color="#e2c74a"/>
+      <stop offset=".54" stop-color="#55d674"/>
+      <stop offset="1" stop-color="#078b55"/>
+    </linearGradient>
+    <radialGradient id="inside" cx="48" cy="39" r="33" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2a4236"/>
+      <stop offset=".56" stop-color="#0a1411"/>
+      <stop offset="1" stop-color="#010302"/>
+    </radialGradient>
+    <filter id="lift" x="-28%" y="-24%" width="156%" height="160%">
+      <feDropShadow dx="0" dy="9" stdDeviation="7" flood-color="#000000" flood-opacity=".46"/>
+    </filter>
+  </defs>
+  <rect x="5.5" y="5.5" width="89" height="89" rx="25.5" fill="url(#bg)"/>
+  <rect x="5.5" y="5.5" width="89" height="89" rx="25.5" fill="url(#halo)"/>
+  <ellipse cx="50" cy="79" rx="23" ry="7" fill="#000000" opacity=".22"/>
+  <g filter="url(#lift)">
+    <rect x="26.5" y="16" width="47" height="68" rx="23.5" fill="url(#ring)"/>
+    <rect x="36" y="28" width="28" height="45" rx="14" fill="url(#inside)"/>
+    <path d="M39 35c5.9-6.6 16.1-6.4 22 .1" fill="none" stroke="#faffbd" stroke-linecap="round" stroke-width="3.4" opacity=".58"/>
+    <path d="M35.5 58.5c3.2 8.8 8.7 13.3 14.5 13.3s11.3-4.5 14.5-13.3" fill="none" stroke="#f2df75" stroke-linecap="round" stroke-width="2.6" opacity=".38"/>
+  </g>
+</svg>

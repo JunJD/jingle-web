@@ -1,0 +1,166 @@
+---
+title: "Extension model"
+description: "Understand Jingle extension packages, manifests, command modes, settings, runtime code, and agent capabilities."
+---
+
+import { Callout, MediaFrame, StatusBadge, developerMedia } from "@/components/developers/mdx-primitives"
+
+An extension package is the development and distribution boundary in Jingle. A package can declare commands, render React views, define connected accounts, provide a main service, and register capabilities that agents can call.
+
+## Package layout
+
+```txt
+extensions/github/
+  manifest.ts
+  runtime.ts
+  runtime-metadata.ts
+  main.ts
+  assets/
+    icon.svg
+  src/
+    my-issues.tsx
+    create-issue.tsx
+    tools.ts
+    contracts.ts
+```
+
+| File | Responsibility | Status |
+| --- | --- | --- |
+| `manifest.ts` | Title, icon, commands, settings, connection, and AI capability | <StatusBadge tone="preview">Preview</StatusBadge> |
+| `runtime.ts` | View, no-view, and menu-bar command entries | <StatusBadge tone="preview">Preview</StatusBadge> |
+| `runtime-metadata.ts` | Static runtime metadata such as viewport | <StatusBadge tone="preview">Preview</StatusBadge> |
+| `main.ts` | Privileged RPC, tool definitions, local APIs, and provider calls | <StatusBadge tone="preview">Preview</StatusBadge> |
+| `assets/` | Icons and local resources | <StatusBadge tone="preview">Preview</StatusBadge> |
+
+<MediaFrame
+  alt="Reference visual for an extension command in root search"
+  caption="A package can make multiple commands discoverable from the launcher; each command then chooses whether it renders a list, form, detail view, or no-view action."
+  src={developerMedia.commandSearch}
+/>
+
+## Manifest
+
+The manifest is how Jingle identifies an extension. It describes identity, commands, settings, and capabilities through a TypeScript definition:
+
+```ts
+import { defineNativeExtensionManifest } from "@openwork/extension-api"
+
+export const githubManifest = defineNativeExtensionManifest({
+  name: "github",
+  title: "GitHub",
+  iconName: "github",
+  capabilities: ["navigation", "rpc", "surface"],
+  commands: [
+    {
+      name: "my-issues",
+      title: "My Issues",
+      description: "List GitHub issues created by you, assigned to you, or mentioning you.",
+      mode: "view"
+    }
+  ]
+})
+```
+
+Core fields include:
+
+| Field | Meaning |
+| --- | --- |
+| `name` / `title` / `description` / `icon` / `iconName` | Extension identity and presentation |
+| `commands` | Commands exposed to the launcher |
+| `preferences` | Extension-level settings |
+| `connection` | Connected-account declaration |
+| `aiCapability` | Agent-visible capability and tool list |
+| `runtimeCapabilities` | Host capabilities the runtime can request |
+| `runtimeShell.allowedUrlSchemes` | URL schemes the command may open |
+| `supportedPlatforms` | Platform constraints |
+
+## Command modes
+
+| mode | Use case | Status |
+| --- | --- | --- |
+| `view` | Commands with a main UI such as search pages, forms, or lists | <StatusBadge tone="preview">Preview</StatusBadge> |
+| `no-view` | Immediate actions without showing a main view | <StatusBadge tone="preview">Preview</StatusBadge> |
+| `menu-bar` | Menu bar status and actions | <StatusBadge tone="preview">Preview</StatusBadge> |
+| `background` | Scheduled or resident background tasks | <StatusBadge tone="research">Planned</StatusBadge> |
+
+<Callout title="Background work" tone="info">
+  Background tasks need clear host lifecycle, resource limits, and user-visible controls. Until the public API is stable, prefer user-triggered commands or menu bar surfaces for long-running workflows.
+</Callout>
+
+## Preferences
+
+Extensions and commands can contribute settings. Runtime code reads them with `getPreferenceValues()`.
+
+```ts
+const preferences = getPreferenceValues<{
+  accessToken: string
+  apiBaseUrl: string
+}>()
+```
+
+| type | Value | Status |
+| --- | --- | --- |
+| `text` / `textfield` | `string` | <StatusBadge tone="preview">Preview</StatusBadge> |
+| `password` | `string`, treated as a secret by the host | <StatusBadge tone="preview">Preview</StatusBadge> |
+| `checkbox` | `boolean` | <StatusBadge tone="preview">Preview</StatusBadge> |
+| `dropdown` | `string` | <StatusBadge tone="preview">Preview</StatusBadge> |
+| `appPicker` | application name, bundle id, or path | <StatusBadge tone="preview">Preview</StatusBadge> |
+| `file` / `directory` | file or directory path | <StatusBadge tone="research">Planned</StatusBadge> |
+
+## Runtime
+
+Runtime packages use React components to describe command UI:
+
+```tsx
+import { Action, ActionPanel, List } from "@openwork/extension-api"
+
+export default function SearchPage() {
+  return (
+    <List searchBarPlaceholder="Search workspace">
+      <List.Item
+        title="Project Plan"
+        subtitle="Notion"
+        actions={
+          <ActionPanel>
+            <Action.OpenInBrowser url="https://example.com" title="Open" />
+          </ActionPanel>
+        }
+      />
+    </List>
+  )
+}
+```
+
+The runtime SDK covers lists, details, forms, ActionPanel, MenuBarExtra, toast, clipboard, storage, preferences, navigation, and command handoff. See API reference for the full surface.
+
+## Main service
+
+Main service owns privileged or host-side work: provider API calls, filesystem bridges, native capabilities, and agent tool execution. Runtime code should request those capabilities through a service or host capability rather than reading renderer state or local credentials directly.
+
+```ts
+export const main = defineNativeExtensionMain({
+  service: defineNativeExtensionService({
+    methods: ["searchIssues"],
+    async invoke(request, context) {
+      // context.connection / context.extensionPreferences are resolved by Jingle.
+    }
+  })
+})
+```
+
+## AI capability
+
+Extensions can declare agent-visible capabilities:
+
+```ts
+aiCapability: {
+  id: "github",
+  title: "GitHub",
+  requiredPreferenceNames: ["accessToken"],
+  publicPreferenceNames: ["apiBaseUrl"],
+  toolNames: ["searchIssues", "createIssue"],
+  guide: "Use GitHub only after the user connects GitHub."
+}
+```
+
+Agents can see capability guidance, tool names, connection status, and presentation metadata. Credentials should not enter the prompt.

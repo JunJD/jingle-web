@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-labelledby="title desc">
+  <title id="title">Eye Lab E-07 Recessed Search</title>
+  <desc id="desc">Command capsule with a recessed left search chamber and raised right status dot.</desc>
+  <defs>
+    <linearGradient id="bg" x1="12" y1="7" x2="88" y2="94" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#34413c"/>
+      <stop offset=".46" stop-color="#121917"/>
+      <stop offset="1" stop-color="#050807"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="70" cy="38" r="46" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#67ea8b" stop-opacity=".2"/>
+      <stop offset=".48" stop-color="#25492f" stop-opacity=".1"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="capsule" x1="82" y1="34" x2="18" y2="67" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset=".42" stop-color="#edf7e8"/>
+      <stop offset="1" stop-color="#c4ddcc"/>
+    </linearGradient>
+    <radialGradient id="recess" cx="32" cy="48" r="14" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#dce9dc"/>
+      <stop offset=".68" stop-color="#eef6ec"/>
+      <stop offset="1" stop-color="#ffffff"/>
+    </radialGradient>
+    <linearGradient id="green" x1="57" y1="31" x2="76" y2="57" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#dcff86"/>
+      <stop offset="1" stop-color="#25c879"/>
+    </linearGradient>
+    <filter id="shadow" x="-24%" y="-24%" width="148%" height="160%">
+      <feDropShadow dx="-3" dy="9" stdDeviation="6" flood-color="#000000" flood-opacity=".36"/>
+    </filter>
+    <filter id="dotLift" x="-80%" y="-80%" width="260%" height="260%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#164b27" flood-opacity=".45"/>
+    </filter>
+  </defs>
+  <rect x="5.5" y="5.5" width="89" height="89" rx="25.5" fill="url(#bg)"/>
+  <rect x="5.5" y="5.5" width="89" height="89" rx="25.5" fill="url(#glow)"/>
+  <g filter="url(#shadow)">
+    <rect x="18.5" y="34.5" width="64" height="31" rx="15.5" fill="url(#capsule)"/>
+    <circle cx="33.5" cy="49.5" r="9" fill="url(#recess)" opacity=".72"/>
+    <circle cx="33.5" cy="49.5" r="6" fill="none" stroke="#627069" stroke-width="3"/>
+    <path d="M39.4 54.2l4.5 4.5" stroke="#627069" stroke-width="2.8" stroke-linecap="round"/>
+    <path d="M49.5 49.5h11.5" stroke="#56625d" stroke-width="3.8" stroke-linecap="round"/>
+    <g filter="url(#dotLift)">
+      <circle cx="69" cy="49.5" r="6.1" fill="url(#green)"/>
+      <circle cx="66.6" cy="47.4" r="1.55" fill="#efffd5" opacity=".84"/>
+    </g>
+  </g>
+  <path d="M57.5 30c7.2-5 15.8-3.7 21.8 2.8" fill="none" stroke="#7bf09c" stroke-linecap="round" stroke-width="3.5"/>
+</svg>

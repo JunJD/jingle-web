@@ -1,0 +1,166 @@
+---
+title: "扩展模型"
+description: "了解 Jingle 扩展包的结构、manifest、命令模式、设置、运行时和 Agent capability。"
+---
+
+import { Callout, MediaFrame, StatusBadge, developerMedia } from "@/components/developers/mdx-primitives"
+
+Extension package 是 Jingle 的开发和分发边界。一个 package 可以声明命令、渲染 React 视图、定义账号连接、提供 main service，并把部分能力注册成 Agent 可调用工具。
+
+## 包结构
+
+```txt
+extensions/github/
+  manifest.ts
+  runtime.ts
+  runtime-metadata.ts
+  main.ts
+  assets/
+    icon.svg
+  src/
+    my-issues.tsx
+    create-issue.tsx
+    tools.ts
+    contracts.ts
+```
+
+| 文件 | 作用 | 状态 |
+| --- | --- | --- |
+| `manifest.ts` | 扩展标题、图标、命令、设置、连接和 AI capability | <StatusBadge tone="preview">预览可用</StatusBadge> |
+| `runtime.ts` | view、no-view 和 menu-bar 命令入口 | <StatusBadge tone="preview">预览可用</StatusBadge> |
+| `runtime-metadata.ts` | viewport 等静态运行时元信息 | <StatusBadge tone="preview">预览可用</StatusBadge> |
+| `main.ts` | 高权限 RPC、工具定义、本地 API 和 provider 调用 | <StatusBadge tone="preview">预览可用</StatusBadge> |
+| `assets/` | 图标和本地资源 | <StatusBadge tone="preview">预览可用</StatusBadge> |
+
+<MediaFrame
+  alt="扩展命令在根搜索中出现的参考图"
+  caption="一个扩展 package 可以把多个命令交给 launcher 统一发现；每个命令再决定自己是列表、表单、详情页还是无视图动作。"
+  src={developerMedia.commandSearch}
+/>
+
+## Manifest
+
+Manifest 是 Jingle 识别扩展的入口。它用 TypeScript 定义描述扩展身份、命令、设置和能力：
+
+```ts
+import { defineNativeExtensionManifest } from "@openwork/extension-api"
+
+export const githubManifest = defineNativeExtensionManifest({
+  name: "github",
+  title: "GitHub",
+  iconName: "github",
+  capabilities: ["navigation", "rpc", "surface"],
+  commands: [
+    {
+      name: "my-issues",
+      title: "My Issues",
+      description: "List GitHub issues created by you, assigned to you, or mentioning you.",
+      mode: "view"
+    }
+  ]
+})
+```
+
+核心字段包括：
+
+| 字段 | 说明 |
+| --- | --- |
+| `name` / `title` / `description` / `icon` / `iconName` | 扩展身份和展示信息 |
+| `commands` | 暴露给 launcher 的命令 |
+| `preferences` | 扩展级设置 |
+| `connection` | 账号连接声明 |
+| `aiCapability` | Agent 可见能力和工具集合 |
+| `runtimeCapabilities` | runtime 可请求的宿主能力 |
+| `runtimeShell.allowedUrlSchemes` | 命令可打开的 URL scheme 白名单 |
+| `supportedPlatforms` | 平台限制 |
+
+## 命令模式
+
+| mode | 适用场景 | 状态 |
+| --- | --- | --- |
+| `view` | 有主视图的命令，例如搜索页面、表单、列表 | <StatusBadge tone="preview">预览可用</StatusBadge> |
+| `no-view` | 直接执行动作，不展示主视图 | <StatusBadge tone="preview">预览可用</StatusBadge> |
+| `menu-bar` | 菜单栏入口和状态类命令 | <StatusBadge tone="preview">预览可用</StatusBadge> |
+| `background` | 后台定时或常驻任务 | <StatusBadge tone="research">规划中</StatusBadge> |
+
+<Callout title="后台任务" tone="info">
+  后台任务需要明确的宿主生命周期、资源限制和用户可见控制。公开 API 稳定前，建议把长任务拆成用户主动触发的命令或菜单栏入口。
+</Callout>
+
+## Preferences
+
+扩展和命令都可以声明 settings。命令运行时通过 `getPreferenceValues()` 读取扩展级和命令级配置。
+
+```ts
+const preferences = getPreferenceValues<{
+  accessToken: string
+  apiBaseUrl: string
+}>()
+```
+
+| type | 值类型 | 状态 |
+| --- | --- | --- |
+| `text` / `textfield` | `string` | <StatusBadge tone="preview">预览可用</StatusBadge> |
+| `password` | `string`，由宿主按 secret 处理 | <StatusBadge tone="preview">预览可用</StatusBadge> |
+| `checkbox` | `boolean` | <StatusBadge tone="preview">预览可用</StatusBadge> |
+| `dropdown` | `string` | <StatusBadge tone="preview">预览可用</StatusBadge> |
+| `appPicker` | 应用名称、bundle id 或路径 | <StatusBadge tone="preview">预览可用</StatusBadge> |
+| `file` / `directory` | 文件或目录路径 | <StatusBadge tone="research">规划中</StatusBadge> |
+
+## Runtime
+
+Runtime package 使用 React 组件描述命令 UI：
+
+```tsx
+import { Action, ActionPanel, List } from "@openwork/extension-api"
+
+export default function SearchPage() {
+  return (
+    <List searchBarPlaceholder="Search workspace">
+      <List.Item
+        title="Project Plan"
+        subtitle="Notion"
+        actions={
+          <ActionPanel>
+            <Action.OpenInBrowser url="https://example.com" title="Open" />
+          </ActionPanel>
+        }
+      />
+    </List>
+  )
+}
+```
+
+Runtime SDK 覆盖列表、详情、表单、ActionPanel、MenuBarExtra、toast、clipboard、storage、preferences、navigation 和 command handoff。完整能力见 API 参考。
+
+## Main service
+
+Main service 负责高权限或宿主侧工作，例如 provider API 调用、文件系统桥接、本地原生能力和 Agent 工具执行。Runtime code 应通过 service 或 host capability 请求这些能力，而不是直接跨层读取 renderer 状态或本地凭证。
+
+```ts
+export const main = defineNativeExtensionMain({
+  service: defineNativeExtensionService({
+    methods: ["searchIssues"],
+    async invoke(request, context) {
+      // context.connection / context.extensionPreferences are resolved by Jingle.
+    }
+  })
+})
+```
+
+## AI capability
+
+扩展可以声明 Agent 可见能力：
+
+```ts
+aiCapability: {
+  id: "github",
+  title: "GitHub",
+  requiredPreferenceNames: ["accessToken"],
+  publicPreferenceNames: ["apiBaseUrl"],
+  toolNames: ["searchIssues", "createIssue"],
+  guide: "Use GitHub only after the user connects GitHub."
+}
+```
+
+Agent 能看到能力说明、工具名称、连接状态和展示元数据。凭证本身不应进入 Agent prompt。

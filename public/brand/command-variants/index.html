@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>F-05 Command Variants</title>
+    <style>
+      :root {
+        color: #f5f0e8;
+        background: #080b09;
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        --line: rgba(255, 255, 255, 0.1);
+        --muted: #aaa296;
+        --gold: #e5bf62;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background:
+          radial-gradient(circle at 48% 0%, rgba(70, 92, 76, 0.48), transparent 44%),
+          linear-gradient(180deg, #121a16 0%, #080b09 54%);
+      }
+
+      img,
+      svg {
+        display: block;
+      }
+
+      main {
+        width: min(1460px, 100%);
+        margin: 0 auto;
+        padding: 44px 28px 72px;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      header {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 32px;
+        align-items: end;
+        padding-bottom: 26px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .eyebrow {
+        color: var(--gold);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        max-width: 840px;
+        margin-top: 12px;
+        color: #fff8ee;
+        font-size: clamp(44px, 6vw, 86px);
+        letter-spacing: 0;
+        line-height: 0.94;
+      }
+
+      .intro {
+        max-width: 720px;
+        margin-top: 18px;
+        color: #c5bdb1;
+        font-size: 16px;
+        line-height: 1.72;
+      }
+
+      .hero-stack {
+        display: grid;
+        grid-template-columns: repeat(4, 72px);
+        gap: 12px;
+      }
+
+      .hero-stack img {
+        width: 72px;
+        height: 72px;
+        filter: drop-shadow(0 20px 24px rgba(0, 0, 0, 0.45));
+      }
+
+      .baseline {
+        display: grid;
+        grid-template-columns: 128px minmax(0, 1fr);
+        gap: 18px;
+        align-items: center;
+        margin-top: 22px;
+        padding: 16px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.045);
+      }
+
+      .baseline img {
+        width: 128px;
+        height: 128px;
+      }
+
+      .baseline h2 {
+        color: #f8f1e8;
+        font-size: 24px;
+      }
+
+      .baseline p {
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.62;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 22px;
+      }
+
+      .card {
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.068), rgba(255, 255, 255, 0.025)),
+          rgba(12, 16, 14, 0.78);
+      }
+
+      .card-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 14px;
+      }
+
+      .tag {
+        color: var(--gold);
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .type {
+        color: #827b70;
+        font-size: 12px;
+      }
+
+      .hero-icon {
+        display: grid;
+        min-height: 184px;
+        place-items: center;
+      }
+
+      .hero-icon img {
+        width: 132px;
+        height: 132px;
+        filter: drop-shadow(0 24px 24px rgba(0, 0, 0, 0.4));
+      }
+
+      .card-body {
+        padding: 0 14px 14px;
+      }
+
+      .card h3 {
+        color: #f8f1e8;
+        font-size: 18px;
+      }
+
+      .card p {
+        margin-top: 8px;
+        min-height: 58px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.55;
+      }
+
+      .sizes {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-top: 14px;
+        padding-top: 14px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .sizes img:nth-child(1) {
+        width: 48px;
+        height: 48px;
+      }
+
+      .sizes img:nth-child(2) {
+        width: 32px;
+        height: 32px;
+      }
+
+      .sizes img:nth-child(3) {
+        width: 16px;
+        height: 16px;
+      }
+
+      .comparison {
+        margin-top: 24px;
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .comparison h2 {
+        color: #f8f1e8;
+        font-size: 20px;
+      }
+
+      .stage-row {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 14px;
+      }
+
+      .stage {
+        min-height: 124px;
+        display: grid;
+        place-items: center;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      .stage.light {
+        background: #f7f2e9;
+      }
+
+      .stage.dark {
+        background: #070a08;
+      }
+
+      .stage.flat {
+        background: #dfe7db;
+      }
+
+      .dock {
+        display: flex;
+        gap: 9px;
+        align-items: end;
+        padding: 10px 12px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .dock span {
+        width: 30px;
+        height: 30px;
+        border-radius: 8px;
+        background: #d9ded5;
+      }
+
+      .dock img {
+        width: 54px;
+        height: 54px;
+      }
+
+      .lockup {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: #f5f0e8;
+      }
+
+      .lockup img {
+        width: 52px;
+        height: 52px;
+      }
+
+      .lockup strong {
+        display: block;
+        font-size: 26px;
+        line-height: 1;
+      }
+
+      .lockup span {
+        display: block;
+        margin-top: 5px;
+        color: #a9a196;
+        font-size: 11px;
+      }
+
+      .strip {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 16px;
+      }
+
+      .strip-cell {
+        display: grid;
+        grid-template-columns: 48px minmax(0, 1fr);
+        gap: 10px;
+        align-items: center;
+        width: 220px;
+        padding: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 8px;
+        background: rgba(0, 0, 0, 0.18);
+      }
+
+      .strip-cell img {
+        width: 48px;
+        height: 48px;
+      }
+
+      .strip-cell strong {
+        display: block;
+        color: #f4ecdf;
+        font-size: 13px;
+      }
+
+      .strip-cell span {
+        display: block;
+        margin-top: 3px;
+        color: #938c82;
+        font-size: 11px;
+      }
+
+      @media (max-width: 1180px) {
+        .grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 740px) {
+        main {
+          padding-inline: 18px;
+        }
+
+        header,
+        .baseline,
+        .grid,
+        .stage-row {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-stack {
+          grid-template-columns: repeat(4, 64px);
+          justify-content: start;
+        }
+
+        .hero-stack img {
+          width: 64px;
+          height: 64px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div>
+          <p class="eyebrow">F-05 focused exploration</p>
+          <h1>围绕 Command Capsule 再细分 10 个变体</h1>
+          <p class="intro">
+            F-05 的核心是一个干净的命令入口：输入、搜索、执行。这一页只在同一个母题下调整气质：更柔、更像快捷键、更扁平、更紧凑、更亮起，还有从左或从右进入的视觉流。
+          </p>
+        </div>
+        <div class="hero-stack">
+          <img src="/brand/command-variants/f-05-a.svg" alt="F-05A" />
+          <img src="/brand/command-variants/f-05-c.svg" alt="F-05C" />
+          <img src="/brand/command-variants/f-05-e.svg" alt="F-05E" />
+          <img src="/brand/command-variants/f-05-i.svg" alt="F-05I" />
+          <img src="/brand/command-variants/f-05-j.svg" alt="F-05J" />
+        </div>
+      </header>
+
+      <section class="baseline">
+        <img src="/brand/candidates/agent-f/f-05.svg" alt="Original F-05" />
+        <div>
+          <p class="eyebrow">Original reference</p>
+          <h2>F-05 原版：命令胶囊、搜索符号、绿色唤醒点</h2>
+          <p>这版作为母体保留。下面 10 个变体不是换主题，而是在“桌面效率入口”的范围里看比例、符号、状态感、方向感和一点点伙伴感哪个更耐看。</p>
+        </div>
+      </section>
+
+      <section class="grid" aria-label="Command variants">
+        <article class="card">
+          <div class="card-head"><span class="tag">F-05A</span><span class="type">Calm Command</span></div>
+          <div class="hero-icon"><img src="/brand/command-variants/f-05-a.svg" alt="F-05A" /></div>
+          <div class="card-body">
+            <h3>更柔、更像搜索入口</h3>
+            <p>胶囊更宽，信号更轻，整体更像安静的 launcher 输入框。</p>
+            <div class="sizes"><img src="/brand/command-variants/f-05-a.svg" alt="" /><img src="/brand/command-variants/f-05-a.svg" alt="" /><img src="/brand/command-variants/f-05-a.svg" alt="" /></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-head"><span class="tag">F-05B</span><span class="type">Command Key</span></div>
+          <div class="hero-icon"><img src="/brand/command-variants/f-05-b.svg" alt="F-05B" /></div>
+          <div class="card-body">
+            <h3>更像快捷命令</h3>
+            <p>把搜索圆换成加号/命令感符号，更像“按一下召唤工具”。</p>
+            <div class="sizes"><img src="/brand/command-variants/f-05-b.svg" alt="" /><img src="/brand/command-variants/f-05-b.svg" alt="" /><img src="/brand/command-variants/f-05-b.svg" alt="" /></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-head"><span class="tag">F-05C</span><span class="type">Flat Command</span></div>
+          <div class="hero-icon"><img src="/brand/command-variants/f-05-c.svg" alt="F-05C" /></div>
+          <div class="card-body">
+            <h3>更扁平、更系统</h3>
+            <p>去掉投影，轮廓和符号更硬朗。适合小图标、文档和印刷。</p>
+            <div class="sizes"><img src="/brand/command-variants/f-05-c.svg" alt="" /><img src="/brand/command-variants/f-05-c.svg" alt="" /><img src="/brand/command-variants/f-05-c.svg" alt="" /></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-head"><span class="tag">F-05D</span><span class="type">Compact Launcher</span></div>
+          <div class="hero-icon"><img src="/brand/command-variants/f-05-d.svg" alt="F-05D" /></div>
+          <div class="card-body">
+            <h3>更紧凑、更像 app icon</h3>
+            <p>胶囊收短，主体更居中，放在 dock 和应用商店里更像正式图标。</p>
+            <div class="sizes"><img src="/brand/command-variants/f-05-d.svg" alt="" /><img src="/brand/command-variants/f-05-d.svg" alt="" /><img src="/brand/command-variants/f-05-d.svg" alt="" /></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-head"><span class="tag">F-05E</span><span class="type">Glow Command</span></div>
+          <div class="hero-icon"><img src="/brand/command-variants/f-05-e.svg" alt="F-05E" /></div>
+          <div class="card-body">
+            <h3>更亮、更像激活态</h3>
+            <p>加强绿色点和周围光晕，像命令入口已经被唤醒。</p>
+            <div class="sizes"><img src="/brand/command-variants/f-05-e.svg" alt="" /><img src="/brand/command-variants/f-05-e.svg" alt="" /><img src="/brand/command-variants/f-05-e.svg" alt="" /></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-head"><span class="tag">F-05F</span><span class="type">Companion Command</span></div>
+          <div class="hero-icon"><img src="/brand/command-variants/f-05-f.svg" alt="F-05F" /></div>
+          <div class="card-body">
+            <h3>稍微有点伙伴感</h3>
+            <p>搜索圆和绿色点被轻轻处理成“眼神”，但不加嘴，保持聪明工具的克制。</p>
+            <div class="sizes"><img src="/brand/command-variants/f-05-f.svg" alt="" /><img src="/brand/command-variants/f-05-f.svg" alt="" /><img src="/brand/command-variants/f-05-f.svg" alt="" /></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-head"><span class="tag">F-05G</span><span class="type">Looking Left</span></div>
+          <div class="hero-icon"><img src="/brand/command-variants/f-05-g.svg" alt="F-05G" /></div>
+          <div class="card-body">
+            <h3>向左看，更像在观察</h3>
+            <p>眼神偏左，中间横线继续像命令线/鼻梁，整体比正视更灵动。</p>
+            <div class="sizes"><img src="/brand/command-variants/f-05-g.svg" alt="" /><img src="/brand/command-variants/f-05-g.svg" alt="" /><img src="/brand/command-variants/f-05-g.svg" alt="" /></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-head"><span class="tag">F-05H</span><span class="type">Looking Right</span></div>
+          <div class="hero-icon"><img src="/brand/command-variants/f-05-h.svg" alt="F-05H" /></div>
+          <div class="card-body">
+            <h3>向右看，更像准备行动</h3>
+            <p>眼神偏右，像在看下一个命令目标。伙伴感更自然，不会直勾勾。</p>
+            <div class="sizes"><img src="/brand/command-variants/f-05-h.svg" alt="" /><img src="/brand/command-variants/f-05-h.svg" alt="" /><img src="/brand/command-variants/f-05-h.svg" alt="" /></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-head"><span class="tag">F-05I</span><span class="type">Left Flow</span></div>
+          <div class="hero-icon"><img src="/brand/command-variants/f-05-i.svg" alt="F-05I" /></div>
+          <div class="card-body">
+            <h3>视觉从左边来</h3>
+            <p>左侧高光进入，胶囊向右产生厚度和阴影，像从输入走向执行。</p>
+            <div class="sizes"><img src="/brand/command-variants/f-05-i.svg" alt="" /><img src="/brand/command-variants/f-05-i.svg" alt="" /><img src="/brand/command-variants/f-05-i.svg" alt="" /></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-head"><span class="tag">F-05J</span><span class="type">Right Flow</span></div>
+          <div class="hero-icon"><img src="/brand/command-variants/f-05-j.svg" alt="F-05J" /></div>
+          <div class="card-body">
+            <h3>视觉从右边来</h3>
+            <p>右上信号成为光源，胶囊向左回应，保留不对称但更有立体秩序。</p>
+            <div class="sizes"><img src="/brand/command-variants/f-05-j.svg" alt="" /><img src="/brand/command-variants/f-05-j.svg" alt="" /><img src="/brand/command-variants/f-05-j.svg" alt="" /></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="comparison">
+        <h2>放到真实场景里看</h2>
+        <div class="stage-row">
+          <div class="stage dark">
+            <div class="dock"><span></span><img src="/brand/command-variants/f-05-a.svg" alt="" /><img src="/brand/command-variants/f-05-d.svg" alt="" /><img src="/brand/command-variants/f-05-i.svg" alt="" /><img src="/brand/command-variants/f-05-j.svg" alt="" /><span></span></div>
+          </div>
+          <div class="stage light">
+            <div class="lockup" style="color:#101410"><img src="/brand/command-variants/f-05-a.svg" alt="" /><span><strong>Jingle</strong><span>Command everything from one place</span></span></div>
+          </div>
+          <div class="stage flat">
+            <div class="lockup" style="color:#101410"><img src="/brand/command-variants/f-05-c.svg" alt="" /><span><strong>Jingle</strong><span>金狗 · 命令入口</span></span></div>
+          </div>
+        </div>
+        <div class="strip">
+          <div class="strip-cell"><img src="/brand/candidates/agent-f/f-05.svg" alt="" /><div><strong>F-05</strong><span>原版，平衡</span></div></div>
+          <div class="strip-cell"><img src="/brand/command-variants/f-05-a.svg" alt="" /><div><strong>F-05A</strong><span>柔和搜索感</span></div></div>
+          <div class="strip-cell"><img src="/brand/command-variants/f-05-b.svg" alt="" /><div><strong>F-05B</strong><span>快捷命令感</span></div></div>
+          <div class="strip-cell"><img src="/brand/command-variants/f-05-c.svg" alt="" /><div><strong>F-05C</strong><span>扁平系统感</span></div></div>
+          <div class="strip-cell"><img src="/brand/command-variants/f-05-d.svg" alt="" /><div><strong>F-05D</strong><span>紧凑 app 感</span></div></div>
+          <div class="strip-cell"><img src="/brand/command-variants/f-05-e.svg" alt="" /><div><strong>F-05E</strong><span>激活发光感</span></div></div>
+          <div class="strip-cell"><img src="/brand/command-variants/f-05-f.svg" alt="" /><div><strong>F-05F</strong><span>轻拟人伙伴感</span></div></div>
+          <div class="strip-cell"><img src="/brand/command-variants/f-05-g.svg" alt="" /><div><strong>F-05G</strong><span>向左看</span></div></div>
+          <div class="strip-cell"><img src="/brand/command-variants/f-05-h.svg" alt="" /><div><strong>F-05H</strong><span>向右看</span></div></div>
+          <div class="strip-cell"><img src="/brand/command-variants/f-05-i.svg" alt="" /><div><strong>F-05I</strong><span>左来光</span></div></div>
+          <div class="strip-cell"><img src="/brand/command-variants/f-05-j.svg" alt="" /><div><strong>F-05J</strong><span>右来光</span></div></div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

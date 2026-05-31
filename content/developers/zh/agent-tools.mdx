@@ -1,0 +1,87 @@
+---
+title: "Agent 工具"
+description: "声明 Agent 可调用的工具，并提供输入 schema、访问级别、审批和用户可读展示。"
+---
+
+import { Callout, StatusBadge } from "@/components/developers/mdx-primitives"
+
+Agent tools 让扩展能力可以被 Agent 调用。优秀的工具不是把内部函数暴露给 AI，而是提供清晰的访问级别、输入 schema、审批语义和用户可读展示。
+
+## Manifest capability
+
+扩展在 manifest 中声明 AI capability：
+
+```ts
+aiCapability: {
+  id: "notion",
+  title: "Notion",
+  description: "Notion workspace pages, data sources, tasks, and docs.",
+  requiredPreferenceNames: ["accessToken"],
+  publicPreferenceNames: ["apiBaseUrl"],
+  toolNames: ["searchPages", "getPage", "addToPage"],
+  guide: "Use this capability for Notion work only after the user connects Notion."
+}
+```
+
+| 能力 | 状态 |
+| --- | --- |
+| 工具名称注册 | <StatusBadge tone="preview">预览可用</StatusBadge> |
+| capability guide 注入 Agent 上下文 | <StatusBadge tone="preview">预览可用</StatusBadge> |
+| connection status 影响工具可用性 | <StatusBadge tone="preview">预览可用</StatusBadge> |
+| tool display title / description | <StatusBadge tone="preview">预览可用</StatusBadge> |
+| 更细的 per-tool permission UI | <StatusBadge tone="research">规划中</StatusBadge> |
+
+## Tool definition
+
+工具在 main definition 中声明：
+
+| 字段 | 说明 |
+| --- | --- |
+| `name` | 工具 ID |
+| `description` | 给用户和 Agent 看的能力说明 |
+| `inputSchema` | 工具输入 schema |
+| `access` | `read`、`write` 或 `external` |
+| `approval` | 写入、外部动作或高风险动作的人类确认 |
+| `handler` | 真正执行工具的函数 |
+
+handler 收到宿主解析后的上下文，包括连接状态、公开配置和允许的 secret。工具不应自己猜 token，也不应读取 renderer state。
+
+## Access levels
+
+| access | 语义 | 示例 |
+| --- | --- | --- |
+| `read` | 读取远端或本地数据 | 搜索 Notion 页面、列出 GitHub issue |
+| `write` | 修改外部系统 | 创建 GitHub issue、追加 Notion 页面内容 |
+| `external` | 打开外部应用、网页或产生外部副作用 | 打开 Notion app、触发外部 workflow |
+
+## Approval
+
+写操作和外部副作用应该让用户在执行前看懂影响。工具定义可以提供 confirmation：标题、风险标签、摘要事实和确认按钮。
+
+```ts
+approval: {
+  required: true,
+  buildConfirmation(input) {
+    return {
+      title: "Create GitHub issue",
+      facts: [
+        { label: "Repository", value: input.repository },
+        { label: "Title", value: input.title }
+      ]
+    }
+  }
+}
+```
+
+<Callout title="控制边界" tone="info">
+  Agent 可以请求工具，Jingle 负责可用性、审批和展示。凭证不要进入 prompt，工具结果也应按展示契约返回。
+</Callout>
+
+## Provider examples
+
+| Provider | 读工具 | 写工具 |
+| --- | --- | --- |
+| GitHub | issue、PR、repo、notification、workflow run 查询 | createIssue |
+| Notion | page、block、data source、database 查询 | addToPage、createPage、createDatabasePage |
+
+连接缺失时，Agent 应提示用户先在 Settings 中连接对应扩展，再继续读取或写入 provider。

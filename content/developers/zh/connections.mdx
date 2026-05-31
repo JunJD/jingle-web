@@ -1,0 +1,98 @@
+---
+title: "账号连接"
+description: "为扩展声明 provider、凭证需求、设置页跳转和连接状态。"
+---
+
+import { Callout, StatusBadge } from "@/components/developers/mdx-primitives"
+
+账号连接让扩展访问外部服务，同时把凭证管理留给 Jingle。扩展声明 provider、secret 名称和公开配置；Jingle 负责设置页、凭证读取、连接状态和运行时上下文。
+
+## 连接类型
+
+| 类型 | 用途 | 状态 |
+| --- | --- | --- |
+| `none` | 本地能力，不需要登录，例如系统提醒事项 | <StatusBadge tone="preview">预览可用</StatusBadge> |
+| `apiKey` | 用户手动保存 API key，例如内部 integration token | <StatusBadge tone="preview">预览可用</StatusBadge> |
+| `personalAccessToken` | 用户手动保存 personal access token | <StatusBadge tone="preview">预览可用</StatusBadge> |
+| `oauth` | 平台托管 OAuth 登录和 token 生命周期 | <StatusBadge tone="research">规划中</StatusBadge> |
+
+## Manifest 声明
+
+```ts
+connection: {
+  id: "default",
+  provider: "github",
+  title: "GitHub",
+  auth: {
+    type: "personalAccessToken",
+    secretNames: ["accessToken"]
+  },
+  publicPreferenceNames: ["apiBaseUrl"],
+  connectGuide: "Create a GitHub personal access token and save it in Settings."
+}
+```
+
+命令运行时会收到解析后的连接对象：
+
+```ts
+interface NativeExtensionResolvedConnection {
+  connectionId: string
+  extensionName: string
+  provider: string
+  publicConfig: Record<string, unknown>
+  missingSecretNames: string[]
+  status: "connected" | "failed" | "missing" | "unsupported"
+}
+```
+
+<Callout title="连接状态" tone="info">
+  当前连接状态聚焦 `connected` 和 `missing`。OAuth 上线后，平台会继续提供 `expired`、`revoked`、`scope-missing` 等更细的生命周期状态。
+</Callout>
+
+## Provider reuse
+
+一个扩展可以复用另一个 provider 扩展的连接。Jingle 会读取 provider 的公开配置和 secret，并把命令需要的值注入当前执行上下文。
+
+这适合生成版、迁移版或垂直场景扩展：用户只连接一次 provider，多个 package 可以共享同一个平台管理的连接。
+
+## Settings handoff
+
+连接缺失时，命令应打开平台设置页：
+
+```tsx
+import { openExtensionPreferences } from "@openwork/extension-api"
+
+await openExtensionPreferences()
+```
+
+可用入口：
+
+- `openExtensionPreferences()`
+- `openCommandPreferences()`
+- `openNativeExtensionSettings({ extensionName, commandName })`
+- `withAccessToken()` 提供连接空状态和设置页动作
+
+## Provider examples
+
+| Provider | 预览阶段方式 | 适用场景 |
+| --- | --- | --- |
+| GitHub | `personalAccessToken` + `accessToken` secret | issue、PR、notification、repository、workflow run |
+| Notion | `apiKey` + internal integration token | page、data source、quick capture |
+
+<Callout title="OAuth roadmap" tone="research">
+  面向公开用户的 provider 应迁移到平台托管 OAuth。授权页面、callback、token exchange、refresh 和 revoke 将由 Jingle 统一处理。
+</Callout>
+
+## 安全边界
+
+账号连接应保持清晰分层：
+
+```txt
+extension code
+  -> extension runtime SDK
+  -> host capability request
+  -> main connection service
+  -> secure credential store
+```
+
+普通 preference 可以保存 `apiBaseUrl`、默认数据库、打开方式等非敏感配置。access token、refresh token、client secret 不应进入普通 settings、日志、renderer state 或 Agent prompt。

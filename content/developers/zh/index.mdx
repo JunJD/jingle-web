@@ -1,0 +1,85 @@
+---
+title: "简介"
+description: "了解 Jingle Developers 的扩展包、运行时 API、账号连接和 Agent 工具。"
+---
+
+import {
+  Callout,
+  MediaFrame,
+  StatusBadge,
+  VideoFrame,
+  developerMedia
+} from "@/components/developers/mdx-primitives"
+
+Jingle Developers 帮助你为桌面工作流构建扩展。扩展可以提供命令视图、账号连接、菜单栏入口和 Agent 可调用工具，并由 Jingle 统一管理运行边界、用户设置和凭证安全。
+
+<Callout title="开发者预览" tone="info">
+  Jingle Developers 处于开发者预览阶段。标记为“预览可用”的能力可以用于早期扩展开发；标记为“规划中”的能力代表平台方向，API 和行为可能继续调整。
+</Callout>
+
+<Callout title="发布阶段" tone="warning">
+  当前文档面向开发者预览阶段，适合私有扩展、早期集成和平台能力验证。公开商店、稳定 OAuth、跨版本兼容策略和大规模第三方发布流程会随平台发布节奏逐步开放。
+</Callout>
+
+<MediaFrame
+  alt="命令式桌面扩展界面参考图"
+  caption="扩展体验应把搜索、结果、详情和动作放在同一个轻量上下文里，让用户不用离开当前工作流。"
+  src={developerMedia.introduction}
+/>
+
+<VideoFrame
+  caption="从扩展体验出发，再进入 API、账号连接和工具调用细节。"
+  href={developerMedia.developerVideoHref}
+  poster={developerMedia.developerVideoPoster}
+  title="开发者工作流参考视频"
+/>
+
+## 核心概念
+
+| 概念 | 作用 | 状态 |
+| --- | --- | --- |
+| Extension package | 扩展的分发单元，包含 manifest、runtime、main service、assets 和工具定义 | <StatusBadge tone="preview">预览可用</StatusBadge> |
+| Runtime SDK | 用 React 组件构建列表、详情、表单、动作面板、菜单栏入口和反馈 | <StatusBadge tone="preview">预览可用</StatusBadge> |
+| Connected accounts | 由宿主管理账号连接、凭证读取、连接状态和设置页跳转 | <StatusBadge tone="preview">预览可用</StatusBadge> |
+| OAuth / PKCE | 平台托管的浏览器授权、callback、token exchange、refresh 和 revoke | <StatusBadge tone="research">规划中</StatusBadge> |
+| Agent tools | 让 Agent 在用户可见、可审批的边界内调用扩展能力 | <StatusBadge tone="preview">预览可用</StatusBadge> |
+
+## 平台范围
+
+Jingle Developers 聚焦扩展作者需要接触的部分：扩展包、运行时 API、账号连接、OAuth、Agent 工具和分发流程。启动器、文件搜索、片段、剪贴板、窗口管理、团队同步和安全治理属于产品平台路线图，并会在对应文档中说明开发者可依赖的边界。
+
+查看 [平台路线图](/zh/developers/platform-roadmap)，了解每个能力面的阶段安排。
+
+## 推荐阅读顺序
+
+- 从 [扩展模型](/zh/developers/extensions) 开始，了解 package、manifest、runtime 和 main service 的职责。
+- 阅读 [API 参考](/zh/developers/api-reference)，确认运行时 SDK 中可使用的组件和工具函数。
+- 阅读 [平台路线图](/zh/developers/platform-roadmap)，确认各能力面的阶段安排。
+- 如果扩展需要访问 GitHub、Notion 或其他服务，阅读 [账号连接](/zh/developers/connections)。
+- 设计公开授权流程时，阅读 [OAuth](/zh/developers/oauth)，了解平台计划支持的 PKCE 和 callback 形态。
+- 需要 Agent 调用扩展能力时，阅读 [Agent 工具](/zh/developers/agent-tools)。
+
+## 一个最小命令
+
+扩展命令使用 React 描述桌面 UI，并通过 Jingle host 执行动作：
+
+```tsx
+import { Action, ActionPanel, List, showToast } from "@openwork/extension-api"
+
+export default function Command() {
+  return (
+    <List>
+      <List.Item
+        title="Run workflow"
+        actions={
+          <ActionPanel>
+            <Action title="Confirm" onAction={() => showToast({ title: "Done" })} />
+          </ActionPanel>
+        }
+      />
+    </List>
+  )
+}
+```
+
+命令代码不需要自己维护窗口、设置页或凭证存储。扩展声明所需能力，Jingle 负责把运行时、账号连接和用户操作串起来。

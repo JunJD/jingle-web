@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Jingle icon candidate B02">
+  <defs>
+    <radialGradient id="b02-bg" cx="31" cy="18" r="88" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F2FFF0"/>
+      <stop offset="0.52" stop-color="#78DB7D"/>
+      <stop offset="1" stop-color="#155B45"/>
+    </radialGradient>
+    <linearGradient id="b02-loop" x1="24" y1="21" x2="76" y2="81" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#11382E"/>
+      <stop offset="1" stop-color="#071D19"/>
+    </linearGradient>
+    <linearGradient id="b02-pocket" x1="26" y1="57" x2="75" y2="75" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#D9FFE2"/>
+    </linearGradient>
+    <filter id="b02-soft-shadow" x="-18%" y="-18%" width="136%" height="146%">
+      <feDropShadow dx="0" dy="7" stdDeviation="7" flood-color="#063E2C" flood-opacity="0.24"/>
+    </filter>
+  </defs>
+  <rect width="100" height="100" rx="22" fill="url(#b02-bg)"/>
+  <path d="M25 18C37 11 58 11 75 24" fill="none" stroke="#FFFFFF" stroke-width="2.3" stroke-linecap="round" opacity="0.48"/>
+  <g filter="url(#b02-soft-shadow)">
+    <path d="M50 22C59.2 22 66.6 29.4 66.6 38.6C66.6 47.6 59.5 55 50.5 55.2C41.1 55.4 33.5 47.9 33.5 38.6C33.5 31.2 38.2 24.9 44.8 22.7" fill="none" stroke="url(#b02-loop)" stroke-width="8.4" stroke-linecap="round"/>
+    <path d="M50 45C59 45 66.3 52.3 66.3 61.2C66.3 70.4 59 77.3 49.9 77.3C41 77.3 33.7 70.1 33.7 61.2" fill="none" stroke="url(#b02-loop)" stroke-width="8.4" stroke-linecap="round"/>
+    <path d="M25.5 59.5C33.5 70.6 66.4 70.6 74.5 59.5" fill="none" stroke="url(#b02-pocket)" stroke-width="8.2" stroke-linecap="round"/>
+    <path d="M29 59.8C37.8 64.7 62.1 64.7 71 59.8" fill="none" stroke="#123C31" stroke-width="2.6" stroke-linecap="round" opacity="0.25"/>
+  </g>
+  <path d="M67.5 28.7C74.8 32.5 78.7 39.2 78.1 47.2" fill="none" stroke="#CBFF70" stroke-width="4.2" stroke-linecap="round"/>
+  <path d="M73.8 22.6C83.2 29.2 87 38.5 84.8 49.5" fill="none" stroke="#F0FFB8" stroke-width="2.9" stroke-linecap="round" opacity="0.9"/>
+  <circle cx="50" cy="50" r="4.6" fill="#E9FFC8"/>
+</svg>

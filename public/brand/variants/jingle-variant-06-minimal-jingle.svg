@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Minimal Jingle app icon">
+  <defs>
+    <linearGradient id="v6-bg" x1="14" y1="12" x2="86" y2="90" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#303432"/>
+      <stop offset=".6" stop-color="#151817"/>
+      <stop offset="1" stop-color="#080a09"/>
+    </linearGradient>
+    <linearGradient id="v6-gold" x1="38" y1="28" x2="63" y2="79" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff0b7"/>
+      <stop offset=".5" stop-color="#d99a28"/>
+      <stop offset="1" stop-color="#8d5318"/>
+    </linearGradient>
+    <linearGradient id="v6-signal" x1="59" y1="24" x2="83" y2="43" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#91ee79"/>
+      <stop offset="1" stop-color="#27af73"/>
+    </linearGradient>
+  </defs>
+  <circle cx="50" cy="50" r="42" fill="url(#v6-bg)"/>
+  <path d="M62.5 28v30.5c0 11.3-7.5 18.2-18.3 18.2-6.6 0-12-2.5-15.5-7.1" fill="none" stroke="url(#v6-gold)" stroke-linecap="round" stroke-width="10"/>
+  <path d="M39.5 28h23" fill="none" stroke="#ffe6a5" stroke-linecap="round" stroke-width="10"/>
+  <circle cx="43.6" cy="70.4" r="5.5" fill="#d99a28"/>
+  <g fill="none" stroke="url(#v6-signal)" stroke-linecap="round" stroke-width="4.2">
+    <path d="M66.5 29.5c5.3 1.6 9.3 5.7 10.8 11"/>
+    <path d="M66 39c2.3 1 4.1 2.8 5.1 5.1"/>
+  </g>
+</svg>

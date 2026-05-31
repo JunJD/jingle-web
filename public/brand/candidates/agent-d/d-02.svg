@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-labelledby="title desc">
+  <title id="title">Jingle app icon candidate D-02</title>
+  <desc id="desc">A cute professional command launcher pocket with a bell-shaped prompt and green wake signal.</desc>
+  <defs>
+    <linearGradient id="bg" x1="14" y1="12" x2="88" y2="90" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#E8FFE8"/>
+      <stop offset=".45" stop-color="#3ED783"/>
+      <stop offset="1" stop-color="#0E8F68"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="24" y1="28" x2="76" y2="78" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F9FFFA"/>
+      <stop offset="1" stop-color="#B9F8CF"/>
+    </linearGradient>
+    <linearGradient id="bell" x1="43" y1="35" x2="61" y2="65" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFEFA2"/>
+      <stop offset=".58" stop-color="#FFC13B"/>
+      <stop offset="1" stop-color="#F28A1E"/>
+    </linearGradient>
+    <filter id="shadow" x="-18%" y="-18%" width="136%" height="150%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="7" stdDeviation="5" flood-color="#024232" flood-opacity=".24"/>
+    </filter>
+  </defs>
+  <rect width="100" height="100" rx="24" fill="url(#bg)"/>
+  <path d="M16 66c11 13 30 18 47 11 16-7 25-23 21-40-3-14-14-24-29-25 20 0 35 12 39 31 4 21-9 42-31 49-18 6-37-2-47-26Z" fill="#006E54" opacity=".13"/>
+  <g filter="url(#shadow)">
+    <rect x="22" y="28" width="56" height="50" rx="18" fill="url(#panel)"/>
+    <rect x="28" y="35" width="44" height="36" rx="12" fill="#0F5D4A"/>
+    <path d="M35 62c7 8 23 8 30 0v3c0 7-6 13-13 13h-4c-7 0-13-6-13-13v-3Z" fill="#083B34"/>
+    <path d="M32 42c0-3 2-5 5-5h26c3 0 5 2 5 5v3c0 3-2 5-5 5H37c-3 0-5-2-5-5v-3Z" fill="#F4FFF7"/>
+    <path d="M39 45h9" stroke="#14B875" stroke-width="4" stroke-linecap="round"/>
+    <path d="M55 45h6" stroke="#82ECAF" stroke-width="4" stroke-linecap="round"/>
+    <path d="M41 57c0-7 4-13 10-13s10 6 10 13v4c0 3 1 5 3 7H38c2-2 3-4 3-7v-4Z" fill="url(#bell)"/>
+    <path d="M46 44c0-3 2-5 5-5s5 2 5 5v2H46v-2Z" fill="#FFE789"/>
+    <path d="M42 60c4 2 14 2 18 0" fill="none" stroke="#FFF8BF" stroke-width="3.5" stroke-linecap="round" opacity=".8"/>
+    <circle cx="51" cy="68" r="4.8" fill="#FFE070"/>
+  </g>
+  <path d="M26 19l5 5-5 5-5-5 5-5Z" fill="#FFFFFF" opacity=".9"/>
+  <path d="M73 19c2 0 4 2 4 4s-2 4-4 4-4-2-4-4 2-4 4-4Z" fill="#EBFFF0"/>
+  <path d="M80 43c5 3 5 10 0 13" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" opacity=".88"/>
+  <path d="M20 43c-5 3-5 10 0 13" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" opacity=".88"/>
+  <path d="M85 34c7 6 7 21 0 27" fill="none" stroke="#BFFFF0" stroke-width="3.5" stroke-linecap="round" opacity=".8"/>
+</svg>

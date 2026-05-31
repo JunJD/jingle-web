@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-labelledby="title desc">
+  <title id="title">F-05A Calm Command</title>
+  <desc id="desc">A softer F-05 command capsule with a wider search form and quieter signal.</desc>
+  <defs>
+    <linearGradient id="bg" x1="14" y1="8" x2="86" y2="94" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2f3a36"/>
+      <stop offset=".52" stop-color="#121816"/>
+      <stop offset="1" stop-color="#060807"/>
+    </linearGradient>
+    <linearGradient id="capsule" x1="20" y1="36" x2="80" y2="66" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fbfff8"/>
+      <stop offset="1" stop-color="#d2ead8"/>
+    </linearGradient>
+    <linearGradient id="green" x1="56" y1="32" x2="76" y2="55" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#b8f46d"/>
+      <stop offset="1" stop-color="#25c577"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="7" stdDeviation="5.5" flood-color="#000000" flood-opacity=".32"/>
+    </filter>
+  </defs>
+  <rect x="5.5" y="5.5" width="89" height="89" rx="25.5" fill="url(#bg)"/>
+  <g filter="url(#shadow)">
+    <rect x="17" y="35.5" width="66" height="29" rx="14.5" fill="url(#capsule)"/>
+    <circle cx="32.5" cy="50" r="6" fill="none" stroke="#63716a" stroke-width="3"/>
+    <path d="M37 54.5l5 5" stroke="#63716a" stroke-width="3" stroke-linecap="round"/>
+    <path d="M49 50h14" stroke="#56625d" stroke-width="3.8" stroke-linecap="round"/>
+    <circle cx="70" cy="50" r="5.4" fill="url(#green)"/>
+  </g>
+  <path d="M59 29.5c6.4-4 14.2-2.7 19.2 3" fill="none" stroke="#69e58b" stroke-linecap="round" stroke-width="3.1"/>
+</svg>

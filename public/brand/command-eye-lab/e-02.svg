@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-labelledby="title desc">
+  <title id="title">Eye Lab E-02 Offset Status</title>
+  <desc id="desc">Command capsule with status dots offset vertically, reducing the face read while keeping liveliness.</desc>
+  <defs>
+    <linearGradient id="bg" x1="12" y1="7" x2="88" y2="94" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#34413c"/>
+      <stop offset=".46" stop-color="#121917"/>
+      <stop offset="1" stop-color="#050807"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="68" cy="36" r="46" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#67ea8b" stop-opacity=".2"/>
+      <stop offset=".46" stop-color="#25492f" stop-opacity=".1"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="capsule" x1="82" y1="34" x2="18" y2="67" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset=".42" stop-color="#edf7e8"/>
+      <stop offset="1" stop-color="#c4ddcc"/>
+    </linearGradient>
+    <linearGradient id="green" x1="57" y1="31" x2="76" y2="57" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#dcff86"/>
+      <stop offset="1" stop-color="#25c879"/>
+    </linearGradient>
+    <filter id="shadow" x="-24%" y="-24%" width="148%" height="160%">
+      <feDropShadow dx="-3" dy="9" stdDeviation="6" flood-color="#000000" flood-opacity=".36"/>
+    </filter>
+  </defs>
+  <rect x="5.5" y="5.5" width="89" height="89" rx="25.5" fill="url(#bg)"/>
+  <rect x="5.5" y="5.5" width="89" height="89" rx="25.5" fill="url(#glow)"/>
+  <g filter="url(#shadow)">
+    <rect x="18.5" y="34.5" width="64" height="31" rx="15.5" fill="url(#capsule)"/>
+    <circle cx="33.5" cy="49.5" r="6" fill="none" stroke="#627069" stroke-width="3"/>
+    <circle cx="33" cy="51.2" r="1.55" fill="#627069" opacity=".92"/>
+    <path d="M39.4 54.2l4.5 4.5" stroke="#627069" stroke-width="2.8" stroke-linecap="round"/>
+    <path d="M49.5 49.5h11.5" stroke="#56625d" stroke-width="3.8" stroke-linecap="round"/>
+    <circle cx="69" cy="48" r="5.9" fill="url(#green)"/>
+    <circle cx="67.2" cy="45.8" r="1.35" fill="#efffd5" opacity=".82"/>
+  </g>
+  <path d="M57.5 30c7.2-5 15.8-3.7 21.8 2.8" fill="none" stroke="#7bf09c" stroke-linecap="round" stroke-width="3.5"/>
+</svg>

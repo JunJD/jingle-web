@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-labelledby="title desc">
+  <title id="title">Jingle candidate F-01</title>
+  <desc id="desc">Single-subject icon: a golden bell as the only hero, with pocket implied by shadow.</desc>
+  <defs>
+    <linearGradient id="bg" x1="15" y1="7" x2="85" y2="94" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#29312d"/>
+      <stop offset=".54" stop-color="#131916"/>
+      <stop offset="1" stop-color="#060807"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50" cy="42" r="48" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#35483e" stop-opacity=".72"/>
+      <stop offset=".58" stop-color="#132018" stop-opacity=".24"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="bell" x1="34" y1="19" x2="66" y2="75" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff0ac"/>
+      <stop offset=".44" stop-color="#d99b2a"/>
+      <stop offset="1" stop-color="#895015"/>
+    </linearGradient>
+    <linearGradient id="signal" x1="23" y1="28" x2="77" y2="48" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#91ea72"/>
+      <stop offset="1" stop-color="#22bc74"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#000000" flood-opacity=".42"/>
+    </filter>
+  </defs>
+  <rect x="5.5" y="5.5" width="89" height="89" rx="25.5" fill="url(#bg)"/>
+  <rect x="5.5" y="5.5" width="89" height="89" rx="25.5" fill="url(#glow)"/>
+  <g fill="none" stroke="url(#signal)" stroke-linecap="round" opacity=".86">
+    <path d="M23.5 43.5c1.2-7.1 5-13 10.8-16.8" stroke-width="4.6"/>
+    <path d="M76.5 43.5c-1.2-7.1-5-13-10.8-16.8" stroke-width="4.6"/>
+  </g>
+  <ellipse cx="50" cy="77.5" rx="25" ry="8.5" fill="#000000" opacity=".28"/>
+  <g filter="url(#shadow)">
+    <path d="M50 19.5c4 0 6.6 2.5 6.6 6.4v3c7.2 3.4 11.7 10.8 11.7 20.7v6l5.1 8.3c1.3 2.1-.2 4.8-2.7 4.8H29.3c-2.5 0-4-2.7-2.7-4.8l5.1-8.3v-6c0-9.9 4.5-17.3 11.7-20.7v-3c0-3.9 2.6-6.4 6.6-6.4z" fill="url(#bell)"/>
+    <path d="M36.6 36.2c6.3-6.6 20.2-7.4 27.8 3.3" fill="none" stroke="#fff1b8" stroke-linecap="round" stroke-width="4.4" opacity=".78"/>
+    <path d="M36.5 56.5c5 2.2 22 2.2 27 0" fill="none" stroke="#ffe7a0" stroke-linecap="round" stroke-width="4.2"/>
+    <circle cx="50" cy="70.3" r="6.1" fill="#b96d1e"/>
+    <circle cx="50" cy="70.3" r="2.5" fill="#efc25d" opacity=".9"/>
+  </g>
+</svg>

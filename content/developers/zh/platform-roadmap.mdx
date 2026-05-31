@@ -1,0 +1,44 @@
+---
+title: "平台路线图"
+description: "Jingle Developers 的能力阶段、可用范围和后续方向。"
+---
+
+import { Callout, StatusBadge } from "@/components/developers/mdx-primitives"
+
+Jingle Developers 的路线图覆盖扩展包、运行时 API、账号连接、OAuth、AI 工具、分发和团队协作。每个能力会按发布阶段标注，帮助扩展作者判断当前可以依赖的 contract，以及后续需要关注的方向。
+
+<Callout title="发布阶段" tone="warning">
+  “预览可用”表示能力可用于私有扩展或早期集成；“正在研发中...”表示平台正在建设完整产品路径；“规划中”表示方向明确，但 API、体验和发布时间仍会随版本演进。
+</Callout>
+
+## 能力矩阵
+
+| 能力面 | 阶段 | 后续方向 |
+| --- | --- | --- |
+| [应用启动与命令搜索](/zh/developers/desktop-capabilities) | <StatusBadge tone="preview">核心建设中</StatusBadge> | 文件搜索、别名、快捷键、最近使用、结果排序和跨来源动作一致性 |
+| 扩展包模型 | <StatusBadge tone="preview">预览可用</StatusBadge> | 模板、脚手架、打包校验、版本兼容策略和公开发布流程 |
+| 扩展 UI 组件 | <StatusBadge tone="preview">预览可用</StatusBadge> | 组件行为一致性、可访问性、截图测试、视觉规范和跨版本 contract |
+| [扩展商店](/zh/developers/store-distribution) | <StatusBadge tone="research">正在研发中...</StatusBadge> | 公开目录、审核队列、签名、更新、评分、安装/卸载和私有分发 |
+| 账号连接 | <StatusBadge tone="preview">预览可用</StatusBadge> | 统一 Connect UI、provider registry、连接诊断和细粒度权限展示 |
+| OAuth / PKCE | <StatusBadge tone="research">正在研发中...</StatusBadge> | 授权页、callback state 校验、token exchange、refresh、revoke 和安全存储闭环 |
+| [AI 命令](/zh/developers/ai-capabilities) | <StatusBadge tone="preview">预览可用</StatusBadge> | AI 命令模板、上下文选择、审批回放、失败恢复和用户可见的结果解释 |
+| [Agent 工具调用](/zh/developers/ai-capabilities) | <StatusBadge tone="preview">预览可用</StatusBadge> | schema form 审批、参数编辑、工具权限策略、审计日志和 eval 覆盖 |
+| [团队能力](/zh/developers/teams-sync) | <StatusBadge tone="research">规划中</StatusBadge> | 组织、成员、共享快捷入口、私有扩展、团队设置和权限治理 |
+| [剪贴板、片段与笔记](/zh/developers/desktop-capabilities) | <StatusBadge tone="research">规划中</StatusBadge> | 剪贴板历史、片段展开、变量、快速笔记、搜索、同步和隐私过滤 |
+| [窗口与系统命令](/zh/developers/desktop-capabilities) | <StatusBadge tone="research">规划中</StatusBadge> | 窗口管理、系统命令、计算器、emoji、翻译、日历、Focus、脚本命令和高频本地工具 |
+| [数据迁移与同步](/zh/developers/teams-sync) | <StatusBadge tone="research">规划中</StatusBadge> | 导入、导出、备份、主题/Profile 同步、跨设备同步、冲突处理和本地优先删除语义 |
+| 安全与治理 | <StatusBadge tone="preview">持续建设</StatusBadge> | 扩展权限声明、审核、签名、脱敏日志、崩溃上报和兼容性治理 |
+
+## 开发者边界
+
+- 扩展作者可以依赖已标记为“预览可用”的 package、runtime SDK、账号连接和 Agent 工具能力。
+- OAuth、公开商店、签名更新和大规模第三方发布会由平台提供统一流程。
+- 账号、OAuth、团队、商店和同步相关能力由平台管理安全边界，扩展不直接保存 OAuth token 或 refresh token。
+- Jingle 当前路线图聚焦桌面端工作流；跨设备同步以桌面平台和未来明确支持的端为准。
+
+## 近期优先级
+
+1. 先把扩展包、运行时 SDK、账号连接和 Agent 工具的边界稳定下来。
+2. 再补 OAuth 平台服务和标准 Connect UI，让 GitHub、Notion 等公开 provider 可以完成真正授权闭环。
+3. 接着建设扩展分发：模板、打包校验、私有分发、公开目录和审核流程。
+4. 最后逐步扩展到团队共享、片段/剪贴板、窗口管理、同步和治理体系。

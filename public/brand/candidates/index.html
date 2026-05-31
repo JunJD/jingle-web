@@ -1,0 +1,751 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Jingle Logo Candidates</title>
+    <style>
+      :root {
+        color: #f5f0e8;
+        background: #070908;
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background:
+          radial-gradient(circle at 48% 0%, rgba(73, 88, 78, 0.46), transparent 48%),
+          linear-gradient(180deg, #0c1110 0%, #070908 100%);
+      }
+
+      main {
+        width: min(1500px, 100%);
+        margin: 0 auto;
+        padding: 44px 32px 64px;
+      }
+
+      header {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 36px;
+        align-items: end;
+        margin-bottom: 34px;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        max-width: 840px;
+        font-size: clamp(42px, 6.2vw, 88px);
+        letter-spacing: 0;
+        line-height: 0.95;
+      }
+
+      .intro {
+        max-width: 660px;
+        margin-top: 18px;
+        color: #b8b1a7;
+        font-size: 16px;
+        line-height: 1.72;
+      }
+
+      .hero-stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: center;
+        justify-content: flex-end;
+      }
+
+      .hero-stack img {
+        width: 72px;
+        height: 72px;
+        filter: drop-shadow(0 20px 24px rgba(0, 0, 0, 0.44));
+      }
+
+      .section {
+        margin-top: 34px;
+      }
+
+      .section-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 24px;
+        margin-bottom: 16px;
+        padding-inline: 4px;
+      }
+
+      .section h2 {
+        color: #f6efe4;
+        font-size: 20px;
+        letter-spacing: 0;
+      }
+
+      .section-header p {
+        max-width: 660px;
+        color: #9e968c;
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .card {
+        position: relative;
+        overflow: hidden;
+        min-height: 294px;
+        padding: 22px;
+        border: 1px solid rgba(255, 255, 255, 0.075);
+        border-radius: 24px;
+        background:
+          linear-gradient(145deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.018)),
+          rgba(16, 18, 17, 0.78);
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+      }
+
+      .card::before {
+        content: "";
+        position: absolute;
+        inset: -1px;
+        background: radial-gradient(circle at 50% 0%, rgba(216, 164, 64, 0.13), transparent 42%);
+        pointer-events: none;
+      }
+
+      .card-top,
+      .card-body,
+      .sizes {
+        position: relative;
+      }
+
+      .card-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .tag {
+        display: inline-flex;
+        min-width: 52px;
+        height: 28px;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(229, 184, 91, 0.45);
+        border-radius: 999px;
+        color: #f0c766;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .path {
+        color: #777168;
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 11px;
+      }
+
+      .card-body {
+        display: grid;
+        grid-template-columns: 144px minmax(0, 1fr);
+        gap: 20px;
+        align-items: center;
+        margin-top: 20px;
+      }
+
+      .mark {
+        display: block;
+        width: 144px;
+        height: 144px;
+        filter: drop-shadow(0 24px 24px rgba(0, 0, 0, 0.44));
+      }
+
+      h3 {
+        color: #f7f2e9;
+        font-size: 18px;
+        line-height: 1.25;
+      }
+
+      .card p {
+        margin-top: 10px;
+        color: #b3aca2;
+        font-size: 13px;
+        line-height: 1.6;
+      }
+
+      .meaning {
+        position: relative;
+        display: grid;
+        gap: 7px;
+        margin-top: 18px;
+        padding: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.035);
+      }
+
+      .meaning h4 {
+        margin: 0 0 2px;
+        color: #e4c879;
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .meaning p {
+        margin: 0;
+        color: #a9a197;
+        font-size: 12px;
+        line-height: 1.55;
+      }
+
+      .meaning strong {
+        color: #f2eadf;
+        font-weight: 650;
+      }
+
+      .sizes {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+        padding-top: 18px;
+        border-top: 1px solid rgba(255, 255, 255, 0.07);
+      }
+
+      .sizes img {
+        filter: drop-shadow(0 10px 12px rgba(0, 0, 0, 0.38));
+      }
+
+      .sizes span {
+        color: #827a70;
+        font-size: 12px;
+      }
+
+      .compare {
+        margin-top: 42px;
+        padding: 24px;
+        border: 1px solid rgba(255, 255, 255, 0.075);
+        border-radius: 26px;
+        background: rgba(13, 16, 15, 0.76);
+      }
+
+      .compare h2 {
+        margin-bottom: 18px;
+      }
+
+      .strip {
+        display: grid;
+        grid-template-columns: repeat(8, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .strip-cell {
+        text-align: center;
+      }
+
+      .strip-cell img {
+        width: 58px;
+        height: 58px;
+        filter: drop-shadow(0 12px 14px rgba(0, 0, 0, 0.4));
+      }
+
+      .strip-cell span {
+        display: block;
+        margin-top: 8px;
+        color: #d5b45d;
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 11px;
+      }
+
+      @media (max-width: 1120px) {
+        header,
+        .section-header {
+          display: block;
+        }
+
+        .hero-stack {
+          justify-content: flex-start;
+          margin-top: 24px;
+        }
+
+        .grid {
+          grid-template-columns: 1fr;
+        }
+
+        .strip {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 640px) {
+        main {
+          padding: 28px 18px 42px;
+        }
+
+        .card-body {
+          grid-template-columns: 1fr;
+        }
+
+        .mark {
+          justify-self: center;
+          width: 136px;
+          height: 136px;
+        }
+
+        .hero-stack img {
+          width: 60px;
+          height: 60px;
+        }
+
+        .strip {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div>
+          <h1>Jingle Logo Candidates</h1>
+          <p class="intro">
+            同一个 brief，多方向出稿：A 是原生 macOS 铃铛 icon，B 是抽象品牌符号，C 是
+            launcher / command surface，D 是更可爱但仍专业的 dock 图标，E 是基于前面候选继续收敛的精修组，
+            F 是单主体验证组：每个图标只允许一个主角，避免元素互相打架。
+          </p>
+        </div>
+        <div class="hero-stack" aria-hidden="true">
+          <img src="/brand/candidates/agent-a/a-01.svg" alt="" />
+          <img src="/brand/candidates/agent-b/b-01.svg" alt="" />
+          <img src="/brand/candidates/agent-c/c-02.svg" alt="" />
+          <img src="/brand/candidates/agent-d/d-03.svg" alt="" />
+          <img src="/brand/candidates/agent-e/e-01.svg" alt="" />
+          <img src="/brand/candidates/agent-f/f-01.svg" alt="" />
+        </div>
+      </header>
+
+      <section class="section">
+        <div class="section-header">
+          <h2>A. Native Bell Icon</h2>
+          <p>暗色 squircle、大金色铃铛、绿色振铃弧，最接近“原生 app icon”。</p>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <div class="card-top"><span class="tag">A-01</span><span class="path">agent-a/a-01.svg</span></div>
+            <div class="card-body">
+              <img class="mark" src="/brand/candidates/agent-a/a-01.svg" alt="" />
+              <div><h3>Bell Pocket Classic</h3><p>主铃铛占据中心，底部口袋承托，最直观表达“叮一下唤出工具”。</p></div>
+            </div>
+            <div class="meaning">
+              <h4>Meaning</h4>
+              <p><strong>暗色 squircle</strong> 是桌面 app 的稳定容器；<strong>金色铃铛</strong> 是“Jingle/叮一下”的声音入口；<strong>绿色双弧</strong> 表示被唤醒的信号；<strong>底部口袋和命令扣</strong> 表示工具从一个统一入口被取出。</p>
+            </div>
+            <div class="sizes"><img src="/brand/candidates/agent-a/a-01.svg" width="48" height="48" alt="" /><img src="/brand/candidates/agent-a/a-01.svg" width="32" height="32" alt="" /><span>48 / 32 px</span></div>
+          </article>
+          <article class="card">
+            <div class="card-top"><span class="tag">A-02</span><span class="path">agent-a/a-02.svg</span></div>
+            <div class="card-body">
+              <img class="mark" src="/brand/candidates/agent-a/a-02.svg" alt="" />
+              <div><h3>Signal Bell</h3><p>强调两侧绿色声波，声音记忆点更强，适合更活泼的品牌气质。</p></div>
+            </div>
+            <div class="meaning">
+              <h4>Meaning</h4>
+              <p><strong>尖一点的铃铛</strong> 像被按下的触发器；<strong>内外两层绿色弧</strong> 是从本地命令向外扩散的反馈；<strong>底部状态点</strong> 表示工具已就绪；<strong>黑色口袋</strong> 让所有能力被收束在一个地方。</p>
+            </div>
+            <div class="sizes"><img src="/brand/candidates/agent-a/a-02.svg" width="48" height="48" alt="" /><img src="/brand/candidates/agent-a/a-02.svg" width="32" height="32" alt="" /><span>48 / 32 px</span></div>
+          </article>
+          <article class="card">
+            <div class="card-top"><span class="tag">A-03</span><span class="path">agent-a/a-03.svg</span></div>
+            <div class="card-body">
+              <img class="mark" src="/brand/candidates/agent-a/a-03.svg" alt="" />
+              <div><h3>Command Bell</h3><p>铃铛和 command 结构结合更明显，桌面效率工具属性更强。</p></div>
+            </div>
+            <div class="meaning">
+              <h4>Meaning</h4>
+              <p><strong>顶部绿色弧</strong> 是召唤前的预备动作；<strong>中心铃铛</strong> 是用户发出的“叮”；<strong>底部胶囊</strong> 是 command bar 的抽象；<strong>整体上下结构</strong> 表示从提醒到执行的完整链路。</p>
+            </div>
+            <div class="sizes"><img src="/brand/candidates/agent-a/a-03.svg" width="48" height="48" alt="" /><img src="/brand/candidates/agent-a/a-03.svg" width="32" height="32" alt="" /><span>48 / 32 px</span></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <h2>B. Abstract Brand Mark</h2>
+          <p>不画完整铃铛，用 J、振铃弧、口袋开口和 command loop 形成更抽象的品牌识别。</p>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <div class="card-top"><span class="tag">B-01</span><span class="path">agent-b/b-01.svg</span></div>
+            <div class="card-body">
+              <img class="mark" src="/brand/candidates/agent-b/b-01.svg" alt="" />
+              <div><h3>J Chime Pocket</h3><p>抽象 J 形主笔画结合口袋开口，首字母识别最清楚。</p></div>
+            </div>
+            <div class="meaning">
+              <h4>Meaning</h4>
+              <p><strong>深色 J 形笔画</strong> 直接绑定 Jingle 的首字母；<strong>白色弧线</strong> 是口袋开口，也是声音的回响；<strong>右上绿色弧</strong> 表示唤起信号；<strong>浅绿底</strong> 把工具感从冷硬技术拉回友好效率。</p>
+            </div>
+            <div class="sizes"><img src="/brand/candidates/agent-b/b-01.svg" width="48" height="48" alt="" /><img src="/brand/candidates/agent-b/b-01.svg" width="32" height="32" alt="" /><span>48 / 32 px</span></div>
+          </article>
+          <article class="card">
+            <div class="card-top"><span class="tag">B-02</span><span class="path">agent-b/b-02.svg</span></div>
+            <div class="card-body">
+              <img class="mark" src="/brand/candidates/agent-b/b-02.svg" alt="" />
+              <div><h3>Command Loop</h3><p>command loop 和口袋弧线组合，偏 launcher / 万能工具入口。</p></div>
+            </div>
+            <div class="meaning">
+              <h4>Meaning</h4>
+              <p><strong>上下两个深色环</strong> 是 command loop，表示输入和结果回到同一入口；<strong>白色口袋弧</strong> 承接所有工具；<strong>中心亮点</strong> 是召唤点；<strong>右侧声波</strong> 让抽象符号仍保留“叮”的声音记忆。</p>
+            </div>
+            <div class="sizes"><img src="/brand/candidates/agent-b/b-02.svg" width="48" height="48" alt="" /><img src="/brand/candidates/agent-b/b-02.svg" width="32" height="32" alt="" /><span>48 / 32 px</span></div>
+          </article>
+          <article class="card">
+            <div class="card-top"><span class="tag">B-03</span><span class="path">agent-b/b-03.svg</span></div>
+            <div class="card-body">
+              <img class="mark" src="/brand/candidates/agent-b/b-03.svg" alt="" />
+              <div><h3>Minimal J Signal</h3><p>J 与多层绿色信号更简化，适合高级抽象符号方向。</p></div>
+            </div>
+            <div class="meaning">
+              <h4>Meaning</h4>
+              <p><strong>竖向 J</strong> 像一个从口袋里拉出的工具柄；<strong>底部白弧</strong> 是打开的万能口袋；<strong>三层绿色声波</strong> 是持续唤醒；<strong>顶部金点</strong> 保留铃铛的金属记忆，但不直接画完整铃铛。</p>
+            </div>
+            <div class="sizes"><img src="/brand/candidates/agent-b/b-03.svg" width="48" height="48" alt="" /><img src="/brand/candidates/agent-b/b-03.svg" width="32" height="32" alt="" /><span>48 / 32 px</span></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <h2>C. Launcher Surface</h2>
+          <p>更像桌面命令中心：搜索框、工具抽屉、command surface，铃铛作为唤起焦点。</p>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <div class="card-top"><span class="tag">C-01</span><span class="path">agent-c/c-01.svg</span></div>
+            <div class="card-body">
+              <img class="mark" src="/brand/candidates/agent-c/c-01.svg" alt="" />
+              <div><h3>Light Native Launcher</h3><p>浅色 macOS 底座配深色 launcher 面板，产品感最强。</p></div>
+            </div>
+            <div class="meaning">
+              <h4>Meaning</h4>
+              <p><strong>浅色原生底座</strong> 像 macOS 系统应用；<strong>深色面板</strong> 是 launcher 窗口；<strong>搜索框和小工具块</strong> 表示输入、选择、执行；<strong>右上绿铃</strong> 是通知和唤起入口。</p>
+            </div>
+            <div class="sizes"><img src="/brand/candidates/agent-c/c-01.svg" width="48" height="48" alt="" /><img src="/brand/candidates/agent-c/c-01.svg" width="32" height="32" alt="" /><span>48 / 32 px</span></div>
+          </article>
+          <article class="card">
+            <div class="card-top"><span class="tag">C-02</span><span class="path">agent-c/c-02.svg</span></div>
+            <div class="card-body">
+              <img class="mark" src="/brand/candidates/agent-c/c-02.svg" alt="" />
+              <div><h3>Dark Command Surface</h3><p>深色 command surface，工具从底部口袋浮出，效率工具气质更明确。</p></div>
+            </div>
+            <div class="meaning">
+              <h4>Meaning</h4>
+              <p><strong>深色底座</strong> 是夜间常驻的桌面命令中心；<strong>白色搜索层</strong> 是用户意图；<strong>下方抽屉</strong> 表示工具被打开；<strong>顶部小铃</strong> 是“叮一下开始”的触发信号。</p>
+            </div>
+            <div class="sizes"><img src="/brand/candidates/agent-c/c-02.svg" width="48" height="48" alt="" /><img src="/brand/candidates/agent-c/c-02.svg" width="32" height="32" alt="" /><span>48 / 32 px</span></div>
+          </article>
+          <article class="card">
+            <div class="card-top"><span class="tag">C-03</span><span class="path">agent-c/c-03.svg</span></div>
+            <div class="card-body">
+              <img class="mark" src="/brand/candidates/agent-c/c-03.svg" alt="" />
+              <div><h3>Soft Command Tray</h3><p>柔和金属底座，中部命令条和抽屉结构，Apple 感更平静。</p></div>
+            </div>
+            <div class="meaning">
+              <h4>Meaning</h4>
+              <p><strong>柔和金属底</strong> 降低工具的侵略性；<strong>中部命令条</strong> 是稳定输入区；<strong>底部托盘</strong> 是能力集合；<strong>绿色圆形信号</strong> 把铃铛藏进状态指示里，更像系统能力。</p>
+            </div>
+            <div class="sizes"><img src="/brand/candidates/agent-c/c-03.svg" width="48" height="48" alt="" /><img src="/brand/candidates/agent-c/c-03.svg" width="32" height="32" alt="" /><span>48 / 32 px</span></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <h2>D. Friendly Dock Icon</h2>
+          <p>更可爱、厚实、圆润，但仍保持桌面 app 的专业度，适合 Dock 和 favicon。</p>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <div class="card-top"><span class="tag">D-01</span><span class="path">agent-d/d-01.svg</span></div>
+            <div class="card-body">
+              <img class="mark" src="/brand/candidates/agent-d/d-01.svg" alt="" />
+              <div><h3>Pop Bell</h3><p>铃铛从万能口袋弹出，声音波纹明确，整体最亲近。</p></div>
+            </div>
+            <div class="meaning">
+              <h4>Meaning</h4>
+              <p><strong>亮绿色背景</strong> 给工具增加亲近感；<strong>弹出的铃铛</strong> 是“叮当”最直接的声音形象；<strong>白色波纹</strong> 表示回应；<strong>深绿色口袋</strong> 表示能力藏在底部，随叫随到。</p>
+            </div>
+            <div class="sizes"><img src="/brand/candidates/agent-d/d-01.svg" width="48" height="48" alt="" /><img src="/brand/candidates/agent-d/d-01.svg" width="32" height="32" alt="" /><span>48 / 32 px</span></div>
+          </article>
+          <article class="card">
+            <div class="card-top"><span class="tag">D-02</span><span class="path">agent-d/d-02.svg</span></div>
+            <div class="card-body">
+              <img class="mark" src="/brand/candidates/agent-d/d-02.svg" alt="" />
+              <div><h3>Command Pocket</h3><p>命令条和口袋结合，专业感更强，适合桌面效率定位。</p></div>
+            </div>
+            <div class="meaning">
+              <h4>Meaning</h4>
+              <p><strong>白色外壳</strong> 像一个友好的 app 容器；<strong>深色内屏</strong> 是命令面板；<strong>中间铃铛</strong> 把品牌声音放在工作流中心；<strong>左右声波</strong> 表示命令被触发后向两边扩散。</p>
+            </div>
+            <div class="sizes"><img src="/brand/candidates/agent-d/d-02.svg" width="48" height="48" alt="" /><img src="/brand/candidates/agent-d/d-02.svg" width="32" height="32" alt="" /><span>48 / 32 px</span></div>
+          </article>
+          <article class="card">
+            <div class="card-top"><span class="tag">D-03</span><span class="path">agent-d/d-03.svg</span></div>
+            <div class="card-body">
+              <img class="mark" src="/brand/candidates/agent-d/d-03.svg" alt="" />
+              <div><h3>Compact Jingle</h3><p>最紧凑，口袋、铃铛和绿色唤起信号都更图标化。</p></div>
+            </div>
+            <div class="meaning">
+              <h4>Meaning</h4>
+              <p><strong>圆形徽章</strong> 让图标在 Dock 里更集中；<strong>铃铛点</strong> 是声音核心；<strong>口袋托盘</strong> 是工具集合；<strong>外侧白色/绿色弧</strong> 是轻快的唤起手势，小尺寸仍能读出“响”。</p>
+            </div>
+            <div class="sizes"><img src="/brand/candidates/agent-d/d-03.svg" width="48" height="48" alt="" /><img src="/brand/candidates/agent-d/d-03.svg" width="32" height="32" alt="" /><span>48 / 32 px</span></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <h2>E. Refined Direction</h2>
+          <p>基于前面候选继续收敛：更稳定的居中、更清楚的小尺寸识别，以及更接近最终 app icon 的构图。</p>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <div class="card-top"><span class="tag">E-01</span><span class="path">agent-e/e-01.svg</span></div>
+            <div class="card-body">
+              <img class="mark" src="/brand/candidates/agent-e/e-01.svg" alt="" />
+              <div><h3>Centered Bell Pocket</h3><p>暗色原生底座，铃铛和命令口袋居中收紧，最接近可落地 app icon。</p></div>
+            </div>
+            <div class="meaning">
+              <h4>Meaning</h4>
+              <p><strong>暗色原生底座</strong> 保持专业和桌面感；<strong>中心大铃</strong> 是品牌名字的声音锚点；<strong>绿色弧线</strong> 是唤醒；<strong>底部命令口袋</strong> 把“万能口袋”和 launcher 合成一个可执行入口。</p>
+            </div>
+            <div class="sizes"><img src="/brand/candidates/agent-e/e-01.svg" width="48" height="48" alt="" /><img src="/brand/candidates/agent-e/e-01.svg" width="32" height="32" alt="" /><span>48 / 32 px</span></div>
+          </article>
+          <article class="card">
+            <div class="card-top"><span class="tag">E-02</span><span class="path">agent-e/e-02.svg</span></div>
+            <div class="card-body">
+              <img class="mark" src="/brand/candidates/agent-e/e-02.svg" alt="" />
+              <div><h3>Green Pocket Bell</h3><p>更友好的绿色底，铃铛和口袋更圆润，适合偏亲近的品牌气质。</p></div>
+            </div>
+            <div class="meaning">
+              <h4>Meaning</h4>
+              <p><strong>绿色渐变</strong> 是生命力和效率感；<strong>圆润口袋</strong> 表示工具不会散落，而是被安全收纳；<strong>金色铃铛</strong> 是轻快提醒；<strong>白色命令扣</strong> 像一个可按下的操作入口。</p>
+            </div>
+            <div class="sizes"><img src="/brand/candidates/agent-e/e-02.svg" width="48" height="48" alt="" /><img src="/brand/candidates/agent-e/e-02.svg" width="32" height="32" alt="" /><span>48 / 32 px</span></div>
+          </article>
+          <article class="card">
+            <div class="card-top"><span class="tag">E-03</span><span class="path">agent-e/e-03.svg</span></div>
+            <div class="card-body">
+              <img class="mark" src="/brand/candidates/agent-e/e-03.svg" alt="" />
+              <div><h3>Launcher Bell Tray</h3><p>把命令面板作为主体，铃铛作为唤起焦点，产品属性最明确。</p></div>
+            </div>
+            <div class="meaning">
+              <h4>Meaning</h4>
+              <p><strong>浅色系统底</strong> 指向 macOS 原生体验；<strong>深色 launcher 面板</strong> 是产品本体；<strong>搜索条</strong> 是输入意图；<strong>小铃和绿色点</strong> 是唤醒状态；<strong>托盘</strong> 是执行结果的出口。</p>
+            </div>
+            <div class="sizes"><img src="/brand/candidates/agent-e/e-03.svg" width="48" height="48" alt="" /><img src="/brand/candidates/agent-e/e-03.svg" width="32" height="32" alt="" /><span>48 / 32 px</span></div>
+          </article>
+          <article class="card">
+            <div class="card-top"><span class="tag">E-04</span><span class="path">agent-e/e-04.svg</span></div>
+            <div class="card-body">
+              <img class="mark" src="/brand/candidates/agent-e/e-04.svg" alt="" />
+              <div><h3>Abstract Jingle Mark</h3><p>偏 logo 的抽象 J 形铃声符号，保留口袋曲线和绿色唤起信号。</p></div>
+            </div>
+            <div class="meaning">
+              <h4>Meaning</h4>
+              <p><strong>J 形主笔画</strong> 是品牌首字母；<strong>白色口袋弧</strong> 是万能口袋的打开状态；<strong>金色圆点</strong> 是铃铛被抽象后的声音核心；<strong>绿色多层弧</strong> 表示信号从一个命令扩散成行动。</p>
+            </div>
+            <div class="sizes"><img src="/brand/candidates/agent-e/e-04.svg" width="48" height="48" alt="" /><img src="/brand/candidates/agent-e/e-04.svg" width="32" height="32" alt="" /><span>48 / 32 px</span></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <h2>F. Single Subject Pass</h2>
+          <p>这组专门解决“多个主体互相打架”：每个图标只保留一个主角，其他元素只做暗示。</p>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <div class="card-top"><span class="tag">F-01</span><span class="path">agent-f/f-01.svg</span></div>
+            <div class="card-body">
+              <img class="mark" src="/brand/candidates/agent-f/f-01.svg" alt="" />
+              <div><h3>Bell As Hero</h3><p>主角只有铃铛。口袋被弱化成阴影，命令感被收进底部空间。</p></div>
+            </div>
+            <div class="meaning">
+              <h4>Meaning</h4>
+              <p><strong>金色铃铛</strong> 是唯一主体，直接占住品牌名 Jingle；<strong>暗色底座</strong> 是桌面 app；<strong>绿色短弧</strong> 只说明“正在响”；<strong>底部阴影</strong> 暗示口袋，但不再和铃铛争主角。</p>
+            </div>
+            <div class="sizes"><img src="/brand/candidates/agent-f/f-01.svg" width="48" height="48" alt="" /><img src="/brand/candidates/agent-f/f-01.svg" width="32" height="32" alt="" /><span>48 / 32 px</span></div>
+          </article>
+          <article class="card">
+            <div class="card-top"><span class="tag">F-02</span><span class="path">agent-f/f-02.svg</span></div>
+            <div class="card-body">
+              <img class="mark" src="/brand/candidates/agent-f/f-02.svg" alt="" />
+              <div><h3>Pocket As Hero</h3><p>主角只有万能口袋。铃铛退成顶部小信号，强调“工具都在这里”。</p></div>
+            </div>
+            <div class="meaning">
+              <h4>Meaning</h4>
+              <p><strong>深色大口袋</strong> 是唯一主体，代表万能工具入口；<strong>白色开口</strong> 是可被打开的边界；<strong>顶部金点</strong> 只是铃声提示；<strong>上方双弧</strong> 表示口袋被唤醒。</p>
+            </div>
+            <div class="sizes"><img src="/brand/candidates/agent-f/f-02.svg" width="48" height="48" alt="" /><img src="/brand/candidates/agent-f/f-02.svg" width="32" height="32" alt="" /><span>48 / 32 px</span></div>
+          </article>
+          <article class="card">
+            <div class="card-top"><span class="tag">F-03</span><span class="path">agent-f/f-03.svg</span></div>
+            <div class="card-body">
+              <img class="mark" src="/brand/candidates/agent-f/f-03.svg" alt="" />
+              <div><h3>J As Hero</h3><p>主角只有 J 形铃声符号。更像 logo，适合品牌识别而不是具象 app icon。</p></div>
+            </div>
+            <div class="meaning">
+              <h4>Meaning</h4>
+              <p><strong>J 形主笔画</strong> 是唯一主体，绑定 Jingle 首字母；<strong>金色圆点</strong> 是被抽象成一个音点的铃；<strong>绿色弧</strong> 只做声音方向；没有完整口袋和面板，避免语义过载。</p>
+            </div>
+            <div class="sizes"><img src="/brand/candidates/agent-f/f-03.svg" width="48" height="48" alt="" /><img src="/brand/candidates/agent-f/f-03.svg" width="32" height="32" alt="" /><span>48 / 32 px</span></div>
+          </article>
+          <article class="card">
+            <div class="card-top"><span class="tag">F-04</span><span class="path">agent-f/f-04.svg</span></div>
+            <div class="card-body">
+              <img class="mark" src="/brand/candidates/agent-f/f-04.svg" alt="" />
+              <div><h3>Command As Hero</h3><p>主角只有命令胶囊。铃铛退成唤醒状态，口袋不再具象出现。</p></div>
+            </div>
+            <div class="meaning">
+              <h4>Meaning</h4>
+              <p><strong>白色命令胶囊</strong> 是唯一主体，代表输入即行动；<strong>搜索圆和横线</strong> 表示 launcher；<strong>绿色点</strong> 是唤醒状态；<strong>下方投影</strong> 只负责托住主体，不再承担口袋语义。</p>
+            </div>
+            <div class="sizes"><img src="/brand/candidates/agent-f/f-04.svg" width="48" height="48" alt="" /><img src="/brand/candidates/agent-f/f-04.svg" width="32" height="32" alt="" /><span>48 / 32 px</span></div>
+          </article>
+          <article class="card">
+            <div class="card-top"><span class="tag">F-05</span><span class="path">agent-f/f-05.svg</span></div>
+            <div class="card-body">
+              <img class="mark" src="/brand/candidates/agent-f/f-05.svg" alt="" />
+              <div><h3>Command Clean</h3><p>保留 F-04 的命令胶囊方向，去掉底部多余的空间暗示。</p></div>
+            </div>
+            <div class="meaning">
+              <h4>Meaning</h4>
+              <p><strong>白色命令胶囊</strong> 是唯一主体，代表输入即行动；<strong>搜索圆和横线</strong> 表示 launcher；<strong>绿色点和短弧</strong> 表示 Jingle 的唤醒信号；移除底部口袋暗影后，图标更像一个干净的桌面命令入口。</p>
+            </div>
+            <div class="sizes"><img src="/brand/candidates/agent-f/f-05.svg" width="48" height="48" alt="" /><img src="/brand/candidates/agent-f/f-05.svg" width="32" height="32" alt="" /><span>48 / 32 px</span></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <h2>G-K. Fresh Draw</h2>
+          <p>再抽 5 个新类型，继续坚持单主体：传送门、声音粒子、命令键、工具火花、抽屉槽。</p>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <div class="card-top"><span class="tag">G-01</span><span class="path">agent-g/g-01.svg</span></div>
+            <div class="card-body">
+              <img class="mark" src="/brand/candidates/agent-g/g-01.svg" alt="" />
+              <div><h3>Portal Ring</h3><p>主角是一个竖向传送门，表示“叮一下，工具入口打开”。</p></div>
+            </div>
+            <div class="meaning">
+              <h4>Meaning</h4>
+              <p><strong>绿色/金色圆角环</strong> 是唯一主体，表达召唤入口；<strong>中央暗洞</strong> 是万能口袋的抽象，不画具体口袋；<strong>弱光点和底部阴影</strong> 只暗示铃声和空间，不形成第二主体。</p>
+            </div>
+            <div class="sizes"><img src="/brand/candidates/agent-g/g-01.svg" width="48" height="48" alt="" /><img src="/brand/candidates/agent-g/g-01.svg" width="32" height="32" alt="" /><span>48 / 32 px</span></div>
+          </article>
+          <article class="card">
+            <div class="card-top"><span class="tag">H-01</span><span class="path">agent-h/h-01.svg</span></div>
+            <div class="card-body">
+              <img class="mark" src="/brand/candidates/agent-h/h-01.svg" alt="" />
+              <div><h3>Chime Dot</h3><p>主角是一个发光声音粒子，表达触发工具的那一下。</p></div>
+            </div>
+            <div class="meaning">
+              <h4>Meaning</h4>
+              <p><strong>中心发光音点</strong> 是唯一主体，代表 Jingle 的“叮”；<strong>单道绿色弧</strong> 是声音信号；底部承载层被移除，让图标只保留“触发瞬间”这一件事。</p>
+            </div>
+            <div class="sizes"><img src="/brand/candidates/agent-h/h-01.svg" width="48" height="48" alt="" /><img src="/brand/candidates/agent-h/h-01.svg" width="32" height="32" alt="" /><span>48 / 32 px</span></div>
+          </article>
+          <article class="card">
+            <div class="card-top"><span class="tag">I-01</span><span class="path">agent-i/i-01.svg</span></div>
+            <div class="card-body">
+              <img class="mark" src="/brand/candidates/agent-i/i-01.svg" alt="" />
+              <div><h3>Command Key</h3><p>主角是快捷键 tile，直接表达效率入口和桌面命令感。</p></div>
+            </div>
+            <div class="meaning">
+              <h4>Meaning</h4>
+              <p><strong>深色按键 tile</strong> 是唯一主体；<strong>白色 Command 符号</strong> 表示效率入口；<strong>右上金点和短弧</strong> 只是“叮”的状态提示，不画完整铃铛或口袋。</p>
+            </div>
+            <div class="sizes"><img src="/brand/candidates/agent-i/i-01.svg" width="48" height="48" alt="" /><img src="/brand/candidates/agent-i/i-01.svg" width="32" height="32" alt="" /><span>48 / 32 px</span></div>
+          </article>
+          <article class="card">
+            <div class="card-top"><span class="tag">J-01</span><span class="path">agent-j/j-01.svg</span></div>
+            <div class="card-body">
+              <img class="mark" src="/brand/candidates/agent-j/j-01.svg" alt="" />
+              <div><h3>Tool Spark</h3><p>主角是工具出现瞬间的四角火花，更抽象、更轻。</p></div>
+            </div>
+            <div class="meaning">
+              <h4>Meaning</h4>
+              <p><strong>单个四角火花</strong> 是唯一主体，表示工具被召唤出来的瞬间；<strong>金绿渐变</strong> 连接声音和行动；<strong>底部弱阴影</strong> 只是出现位置，不具象化口袋、铃铛或 command。</p>
+            </div>
+            <div class="sizes"><img src="/brand/candidates/agent-j/j-01.svg" width="48" height="48" alt="" /><img src="/brand/candidates/agent-j/j-01.svg" width="32" height="32" alt="" /><span>48 / 32 px</span></div>
+          </article>
+          <article class="card">
+            <div class="card-top"><span class="tag">K-01</span><span class="path">agent-k/k-01.svg</span></div>
+            <div class="card-body">
+              <img class="mark" src="/brand/candidates/agent-k/k-01.svg" alt="" />
+              <div><h3>Drawer Slot</h3><p>主角是打开的抽屉槽，表达工具从槽里出现。</p></div>
+            </div>
+            <div class="meaning">
+              <h4>Meaning</h4>
+              <p><strong>打开的抽屉槽</strong> 是唯一主体；<strong>绿色上沿</strong> 表示召唤入口；<strong>槽内两条工具片</strong> 是工具出现的暗示；<strong>右上金点</strong> 只是 Jingle 的提示音。</p>
+            </div>
+            <div class="sizes"><img src="/brand/candidates/agent-k/k-01.svg" width="48" height="48" alt="" /><img src="/brand/candidates/agent-k/k-01.svg" width="32" height="32" alt="" /><span>48 / 32 px</span></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="compare">
+        <h2>Small Size Strip</h2>
+        <div class="strip">
+          <div class="strip-cell"><img src="/brand/candidates/agent-a/a-01.svg" alt="" /><span>A-01</span></div>
+          <div class="strip-cell"><img src="/brand/candidates/agent-a/a-02.svg" alt="" /><span>A-02</span></div>
+          <div class="strip-cell"><img src="/brand/candidates/agent-a/a-03.svg" alt="" /><span>A-03</span></div>
+          <div class="strip-cell"><img src="/brand/candidates/agent-b/b-01.svg" alt="" /><span>B-01</span></div>
+          <div class="strip-cell"><img src="/brand/candidates/agent-b/b-02.svg" alt="" /><span>B-02</span></div>
+          <div class="strip-cell"><img src="/brand/candidates/agent-b/b-03.svg" alt="" /><span>B-03</span></div>
+          <div class="strip-cell"><img src="/brand/candidates/agent-c/c-01.svg" alt="" /><span>C-01</span></div>
+          <div class="strip-cell"><img src="/brand/candidates/agent-c/c-02.svg" alt="" /><span>C-02</span></div>
+          <div class="strip-cell"><img src="/brand/candidates/agent-c/c-03.svg" alt="" /><span>C-03</span></div>
+          <div class="strip-cell"><img src="/brand/candidates/agent-d/d-01.svg" alt="" /><span>D-01</span></div>
+          <div class="strip-cell"><img src="/brand/candidates/agent-d/d-02.svg" alt="" /><span>D-02</span></div>
+          <div class="strip-cell"><img src="/brand/candidates/agent-d/d-03.svg" alt="" /><span>D-03</span></div>
+          <div class="strip-cell"><img src="/brand/candidates/agent-e/e-01.svg" alt="" /><span>E-01</span></div>
+          <div class="strip-cell"><img src="/brand/candidates/agent-e/e-02.svg" alt="" /><span>E-02</span></div>
+          <div class="strip-cell"><img src="/brand/candidates/agent-e/e-03.svg" alt="" /><span>E-03</span></div>
+          <div class="strip-cell"><img src="/brand/candidates/agent-e/e-04.svg" alt="" /><span>E-04</span></div>
+          <div class="strip-cell"><img src="/brand/candidates/agent-f/f-01.svg" alt="" /><span>F-01</span></div>
+          <div class="strip-cell"><img src="/brand/candidates/agent-f/f-02.svg" alt="" /><span>F-02</span></div>
+          <div class="strip-cell"><img src="/brand/candidates/agent-f/f-03.svg" alt="" /><span>F-03</span></div>
+          <div class="strip-cell"><img src="/brand/candidates/agent-f/f-04.svg" alt="" /><span>F-04</span></div>
+          <div class="strip-cell"><img src="/brand/candidates/agent-f/f-05.svg" alt="" /><span>F-05</span></div>
+          <div class="strip-cell"><img src="/brand/candidates/agent-g/g-01.svg" alt="" /><span>G-01</span></div>
+          <div class="strip-cell"><img src="/brand/candidates/agent-h/h-01.svg" alt="" /><span>H-01</span></div>
+          <div class="strip-cell"><img src="/brand/candidates/agent-i/i-01.svg" alt="" /><span>I-01</span></div>
+          <div class="strip-cell"><img src="/brand/candidates/agent-j/j-01.svg" alt="" /><span>J-01</span></div>
+          <div class="strip-cell"><img src="/brand/candidates/agent-k/k-01.svg" alt="" /><span>K-01</span></div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

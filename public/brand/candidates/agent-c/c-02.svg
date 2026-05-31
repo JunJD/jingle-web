@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Jingle app icon candidate C02">
+  <defs>
+    <linearGradient id="c02-bg" x1="17" y1="11" x2="84" y2="91" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1E2631"/>
+      <stop offset="0.52" stop-color="#121820"/>
+      <stop offset="1" stop-color="#06080B"/>
+    </linearGradient>
+    <linearGradient id="c02-surface" x1="26" y1="23" x2="76" y2="77" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FAFCFF"/>
+      <stop offset="1" stop-color="#C5CED7"/>
+    </linearGradient>
+    <linearGradient id="c02-pocket" x1="28" y1="56" x2="72" y2="76" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2A333D"/>
+      <stop offset="1" stop-color="#0E1319"/>
+    </linearGradient>
+    <linearGradient id="c02-green" x1="28" y1="25" x2="74" y2="70" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#C7FF5F"/>
+      <stop offset="1" stop-color="#20D875"/>
+    </linearGradient>
+    <filter id="c02-shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="7" stdDeviation="5" flood-color="#000000" flood-opacity="0.28"/>
+    </filter>
+    <clipPath id="c02-clip">
+      <rect x="10" y="10" width="80" height="80" rx="23"/>
+    </clipPath>
+  </defs>
+
+  <rect x="10" y="10" width="80" height="80" rx="23" fill="url(#c02-bg)"/>
+  <g clip-path="url(#c02-clip)">
+    <path d="M14 66C27 74 40 75 53 66C65 58 78 58 91 66V91H10V67Z" fill="#252F3A" opacity="0.72"/>
+    <path d="M24 21L80 77" stroke="#FFFFFF" stroke-width="1.2" opacity="0.09"/>
+    <path d="M15 39L61 85" stroke="#FFFFFF" stroke-width="1.2" opacity="0.07"/>
+  </g>
+
+  <g filter="url(#c02-shadow)">
+    <rect x="22" y="25" width="56" height="39" rx="15" fill="url(#c02-surface)"/>
+    <rect x="30" y="34" width="40" height="15" rx="7.5" fill="#FFFFFF"/>
+    <circle cx="39" cy="41.5" r="3.3" fill="none" stroke="#68727C" stroke-width="1.8"/>
+    <path d="M41.4 43.9L44.2 46.7" stroke="#68727C" stroke-width="1.8" stroke-linecap="round"/>
+    <rect x="49" y="40.1" width="12.5" height="2.8" rx="1.4" fill="#8D97A2"/>
+    <circle cx="66" cy="41.5" r="2" fill="url(#c02-green)"/>
+
+    <path d="M27 59C27 55.7 29.7 53 33 53H67C70.3 53 73 55.7 73 59V69C73 72.3 70.3 75 67 75H33C29.7 75 27 72.3 27 69Z" fill="url(#c02-pocket)"/>
+    <path d="M33 59C38 62 44 63.5 50 63.5C56 63.5 62 62 67 59" fill="none" stroke="#4A5663" stroke-width="1.6" stroke-linecap="round"/>
+  </g>
+
+  <g>
+    <rect x="35" y="50" width="11" height="11" rx="3" fill="#F7FAFC" transform="rotate(-9 40.5 55.5)"/>
+    <path d="M39 55.6H43" stroke="#68727C" stroke-width="1.6" stroke-linecap="round"/>
+    <path d="M41 53.6V57.6" stroke="#68727C" stroke-width="1.6" stroke-linecap="round"/>
+
+    <rect x="53.5" y="49" width="11" height="11" rx="3" fill="#F7FAFC" transform="rotate(8 59 54.5)"/>
+    <path d="M57 53.1H61" stroke="#68727C" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M57 56.1H61" stroke="#68727C" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+
+  <g>
+    <path d="M42 25.8C42 22.6 44.6 20 47.8 20C51 20 53.6 22.6 53.6 25.8V30.3L56 33.2H39.6L42 30.3Z" fill="url(#c02-green)"/>
+    <path d="M45.4 35C46 36 46.8 36.5 47.8 36.5C48.8 36.5 49.6 36 50.2 35" stroke="#0D6D3B" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M38.2 21.7C34.8 23.8 32.7 27.1 32.4 31" fill="none" stroke="#69F091" stroke-width="2" stroke-linecap="round"/>
+    <path d="M56.2 20.8C59.4 22.8 61.5 26 62 29.6" fill="none" stroke="#69F091" stroke-width="2" stroke-linecap="round"/>
+  </g>
+</svg>

@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>F-05 Eye Lab</title>
+    <style>
+      :root {
+        color: #f5f0e8;
+        background: #080b09;
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        --line: rgba(255, 255, 255, 0.1);
+        --muted: #aaa296;
+        --gold: #e5bf62;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background:
+          radial-gradient(circle at 48% 0%, rgba(70, 92, 76, 0.48), transparent 44%),
+          linear-gradient(180deg, #121a16 0%, #080b09 54%);
+      }
+
+      img {
+        display: block;
+      }
+
+      main {
+        width: min(1460px, 100%);
+        margin: 0 auto;
+        padding: 44px 28px 72px;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      header {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 32px;
+        align-items: end;
+        padding-bottom: 26px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .eyebrow {
+        color: var(--gold);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        max-width: 800px;
+        margin-top: 12px;
+        color: #fff8ee;
+        font-size: clamp(44px, 6vw, 86px);
+        letter-spacing: 0;
+        line-height: 0.94;
+      }
+
+      .intro {
+        max-width: 720px;
+        margin-top: 18px;
+        color: #c5bdb1;
+        font-size: 16px;
+        line-height: 1.72;
+      }
+
+      .hero-stack {
+        display: grid;
+        grid-template-columns: repeat(3, 72px);
+        gap: 12px;
+      }
+
+      .hero-stack img {
+        width: 72px;
+        height: 72px;
+        filter: drop-shadow(0 20px 24px rgba(0, 0, 0, 0.45));
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 24px;
+      }
+
+      .card {
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.068), rgba(255, 255, 255, 0.025)),
+          rgba(12, 16, 14, 0.78);
+      }
+
+      .card-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 14px;
+      }
+
+      .tag {
+        color: var(--gold);
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .type {
+        color: #827b70;
+        font-size: 12px;
+      }
+
+      .hero-icon {
+        display: grid;
+        min-height: 214px;
+        place-items: center;
+      }
+
+      .hero-icon img {
+        width: 150px;
+        height: 150px;
+        filter: drop-shadow(0 24px 24px rgba(0, 0, 0, 0.4));
+      }
+
+      .card-body {
+        padding: 0 14px 14px;
+      }
+
+      .card h3 {
+        color: #f8f1e8;
+        font-size: 18px;
+      }
+
+      .card p {
+        margin-top: 8px;
+        min-height: 46px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.55;
+      }
+
+      .sizes {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-top: 14px;
+        padding-top: 14px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .sizes img:nth-child(1) {
+        width: 48px;
+        height: 48px;
+      }
+
+      .sizes img:nth-child(2) {
+        width: 32px;
+        height: 32px;
+      }
+
+      .sizes img:nth-child(3) {
+        width: 16px;
+        height: 16px;
+      }
+
+      .comparison {
+        margin-top: 24px;
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .comparison h2 {
+        color: #f8f1e8;
+        font-size: 20px;
+      }
+
+      .strip {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 16px;
+      }
+
+      .strip-cell {
+        display: grid;
+        grid-template-columns: 48px minmax(0, 1fr);
+        gap: 10px;
+        align-items: center;
+        width: 220px;
+        padding: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 8px;
+        background: rgba(0, 0, 0, 0.18);
+      }
+
+      .strip-cell img {
+        width: 48px;
+        height: 48px;
+      }
+
+      .strip-cell strong {
+        display: block;
+        color: #f4ecdf;
+        font-size: 13px;
+      }
+
+      .strip-cell span {
+        display: block;
+        margin-top: 3px;
+        color: #938c82;
+        font-size: 11px;
+      }
+
+      @media (max-width: 1040px) {
+        .grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 720px) {
+        main {
+          padding-inline: 18px;
+        }
+
+        header,
+        .grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-stack {
+          grid-template-columns: repeat(3, 64px);
+          justify-content: start;
+        }
+
+        .hero-stack img {
+          width: 64px;
+          height: 64px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div>
+          <p class="eyebrow">F-05 eye lab</p>
+          <h1>只研究眼神和纵深怎么成立</h1>
+          <p class="intro">
+            底色、大图标轮廓和命令胶囊方向保持不变，只测试眼神和纵深这一小块：去掉瞳孔、错位状态点、眯眼、单眼、内凹、浮起、遮挡。目标是保留一点生命感，但不要像脸在盯人。
+          </p>
+        </div>
+        <div class="hero-stack">
+          <img src="/brand/command-eye-lab/e-11.svg" alt="E-11" />
+          <img src="/brand/command-eye-lab/e-13.svg" alt="E-13" />
+          <img src="/brand/command-eye-lab/e-15.svg" alt="E-15" />
+        </div>
+      </header>
+
+      <section class="grid" aria-label="Eye experiments">
+        <article class="card">
+          <div class="card-head"><span class="tag">E-01</span><span class="type">No Pupil</span></div>
+          <div class="hero-icon"><img src="/brand/command-eye-lab/e-01.svg" alt="E-01" /></div>
+          <div class="card-body">
+            <h3>去掉左眼瞳孔</h3>
+            <p>最稳的一刀：左边重新读成搜索，右边还是状态点，基本不再像脸。</p>
+            <div class="sizes"><img src="/brand/command-eye-lab/e-01.svg" alt="" /><img src="/brand/command-eye-lab/e-01.svg" alt="" /><img src="/brand/command-eye-lab/e-01.svg" alt="" /></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-head"><span class="tag">E-02</span><span class="type">Offset Status</span></div>
+          <div class="hero-icon"><img src="/brand/command-eye-lab/e-02.svg" alt="E-02" /></div>
+          <div class="card-body">
+            <h3>上下错位，不成脸</h3>
+            <p>两个点不在同一水平线上，减少“眼睛”联想，保留一点活感。</p>
+            <div class="sizes"><img src="/brand/command-eye-lab/e-02.svg" alt="" /><img src="/brand/command-eye-lab/e-02.svg" alt="" /><img src="/brand/command-eye-lab/e-02.svg" alt="" /></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-head"><span class="tag">E-03</span><span class="type">Slit Focus</span></div>
+          <div class="hero-icon"><img src="/brand/command-eye-lab/e-03.svg" alt="E-03" /></div>
+          <div class="card-body">
+            <h3>短横眼神，更专注</h3>
+            <p>不用圆瞳孔，改成小横线。更冷静，但可能稍微有点表情化。</p>
+            <div class="sizes"><img src="/brand/command-eye-lab/e-03.svg" alt="" /><img src="/brand/command-eye-lab/e-03.svg" alt="" /><img src="/brand/command-eye-lab/e-03.svg" alt="" /></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-head"><span class="tag">E-04</span><span class="type">One Eye Status</span></div>
+          <div class="hero-icon"><img src="/brand/command-eye-lab/e-04.svg" alt="E-04" /></div>
+          <div class="card-body">
+            <h3>只让右边有眼神</h3>
+            <p>左边完全回到搜索，右边是活的状态点。拟人化最克制。</p>
+            <div class="sizes"><img src="/brand/command-eye-lab/e-04.svg" alt="" /><img src="/brand/command-eye-lab/e-04.svg" alt="" /><img src="/brand/command-eye-lab/e-04.svg" alt="" /></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-head"><span class="tag">E-05</span><span class="type">Sleepy Focus</span></div>
+          <div class="hero-icon"><img src="/brand/command-eye-lab/e-05.svg" alt="E-05" /></div>
+          <div class="card-body">
+            <h3>眯眼，降低直视感</h3>
+            <p>两个圆点都变成短弧，像安静观察。更有角色感，也更冒险。</p>
+            <div class="sizes"><img src="/brand/command-eye-lab/e-05.svg" alt="" /><img src="/brand/command-eye-lab/e-05.svg" alt="" /><img src="/brand/command-eye-lab/e-05.svg" alt="" /></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-head"><span class="tag">E-06</span><span class="type">Pure Command</span></div>
+          <div class="hero-icon"><img src="/brand/command-eye-lab/e-06.svg" alt="E-06" /></div>
+          <div class="card-body">
+            <h3>完全不要眼神</h3>
+            <p>右边改成命令光标，去掉脸的可能性，回到纯效率工具。</p>
+            <div class="sizes"><img src="/brand/command-eye-lab/e-06.svg" alt="" /><img src="/brand/command-eye-lab/e-06.svg" alt="" /><img src="/brand/command-eye-lab/e-06.svg" alt="" /></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-head"><span class="tag">E-07</span><span class="type">Recessed Search</span></div>
+          <div class="hero-icon"><img src="/brand/command-eye-lab/e-07.svg" alt="E-07" /></div>
+          <div class="card-body">
+            <h3>左边内凹，右边浮起</h3>
+            <p>搜索被放进浅槽里，状态点浮在上层，纵深比表情更明显。</p>
+            <div class="sizes"><img src="/brand/command-eye-lab/e-07.svg" alt="" /><img src="/brand/command-eye-lab/e-07.svg" alt="" /><img src="/brand/command-eye-lab/e-07.svg" alt="" /></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-head"><span class="tag">E-08</span><span class="type">Glass Shelf</span></div>
+          <div class="hero-icon"><img src="/brand/command-eye-lab/e-08.svg" alt="E-08" /></div>
+          <div class="card-body">
+            <h3>上方加玻璃层</h3>
+            <p>用一条透明高光制造前后层，不再靠眼神承担生命感。</p>
+            <div class="sizes"><img src="/brand/command-eye-lab/e-08.svg" alt="" /><img src="/brand/command-eye-lab/e-08.svg" alt="" /><img src="/brand/command-eye-lab/e-08.svg" alt="" /></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-head"><span class="tag">E-09</span><span class="type">Layered Dot</span></div>
+          <div class="hero-icon"><img src="/brand/command-eye-lab/e-09.svg" alt="E-09" /></div>
+          <div class="card-body">
+            <h3>状态点浮在命令线上</h3>
+            <p>右侧绿点明显高一层，遮住命令线一点点，空间关系更清楚。</p>
+            <div class="sizes"><img src="/brand/command-eye-lab/e-09.svg" alt="" /><img src="/brand/command-eye-lab/e-09.svg" alt="" /><img src="/brand/command-eye-lab/e-09.svg" alt="" /></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-head"><span class="tag">E-10</span><span class="type">Inset Slot</span></div>
+          <div class="hero-icon"><img src="/brand/command-eye-lab/e-10.svg" alt="E-10" /></div>
+          <div class="card-body">
+            <h3>命令线放进浅槽</h3>
+            <p>中间横线不再像鼻子，而像嵌在胶囊里的输入槽。</p>
+            <div class="sizes"><img src="/brand/command-eye-lab/e-10.svg" alt="" /><img src="/brand/command-eye-lab/e-10.svg" alt="" /><img src="/brand/command-eye-lab/e-10.svg" alt="" /></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-head"><span class="tag">E-11</span><span class="type">Deep Slot</span></div>
+          <div class="hero-icon"><img src="/brand/command-eye-lab/e-11.svg" alt="E-11" /></div>
+          <div class="card-body">
+            <h3>整条胶囊坐进凹槽</h3>
+            <p>先给底座挖一个浅槽，再让白色胶囊浮起来，纵深关系最明确。</p>
+            <div class="sizes"><img src="/brand/command-eye-lab/e-11.svg" alt="" /><img src="/brand/command-eye-lab/e-11.svg" alt="" /><img src="/brand/command-eye-lab/e-11.svg" alt="" /></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-head"><span class="tag">E-12</span><span class="type">Floating Lens</span></div>
+          <div class="hero-icon"><img src="/brand/command-eye-lab/e-12.svg" alt="E-12" /></div>
+          <div class="card-body">
+            <h3>胶囊像浮在镜片上</h3>
+            <p>下面加一层暗影椭圆，表达“抬起来”的感觉，小尺寸也不容易糊。</p>
+            <div class="sizes"><img src="/brand/command-eye-lab/e-12.svg" alt="" /><img src="/brand/command-eye-lab/e-12.svg" alt="" /><img src="/brand/command-eye-lab/e-12.svg" alt="" /></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-head"><span class="tag">E-13</span><span class="type">Side Light</span></div>
+          <div class="hero-icon"><img src="/brand/command-eye-lab/e-13.svg" alt="E-13" /></div>
+          <div class="card-body">
+            <h3>右侧来光，视线更有方向</h3>
+            <p>用右侧边缘高光建立空间来源，让“向右看”不是眼珠硬挪。</p>
+            <div class="sizes"><img src="/brand/command-eye-lab/e-13.svg" alt="" /><img src="/brand/command-eye-lab/e-13.svg" alt="" /><img src="/brand/command-eye-lab/e-13.svg" alt="" /></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-head"><span class="tag">E-14</span><span class="type">Front Glass</span></div>
+          <div class="hero-icon"><img src="/brand/command-eye-lab/e-14.svg" alt="E-14" /></div>
+          <div class="card-body">
+            <h3>前景玻璃压一层</h3>
+            <p>一条柔和玻璃高光跨过胶囊，空间更丰富，但不新增主体。</p>
+            <div class="sizes"><img src="/brand/command-eye-lab/e-14.svg" alt="" /><img src="/brand/command-eye-lab/e-14.svg" alt="" /><img src="/brand/command-eye-lab/e-14.svg" alt="" /></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-head"><span class="tag">E-15</span><span class="type">Pocket Aperture</span></div>
+          <div class="hero-icon"><img src="/brand/command-eye-lab/e-15.svg" alt="E-15" /></div>
+          <div class="card-body">
+            <h3>从口袋开口里浮出来</h3>
+            <p>把“万能口袋”的空间感收得很轻，只作为后景，不和命令胶囊抢主体。</p>
+            <div class="sizes"><img src="/brand/command-eye-lab/e-15.svg" alt="" /><img src="/brand/command-eye-lab/e-15.svg" alt="" /><img src="/brand/command-eye-lab/e-15.svg" alt="" /></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="comparison">
+        <h2>小尺寸快速比较</h2>
+        <div class="strip">
+          <div class="strip-cell"><img src="/brand/command-eye-lab/e-01.svg" alt="" /><div><strong>E-01</strong><span>无左瞳孔</span></div></div>
+          <div class="strip-cell"><img src="/brand/command-eye-lab/e-02.svg" alt="" /><div><strong>E-02</strong><span>错位状态点</span></div></div>
+          <div class="strip-cell"><img src="/brand/command-eye-lab/e-03.svg" alt="" /><div><strong>E-03</strong><span>短横专注</span></div></div>
+          <div class="strip-cell"><img src="/brand/command-eye-lab/e-04.svg" alt="" /><div><strong>E-04</strong><span>单眼状态</span></div></div>
+          <div class="strip-cell"><img src="/brand/command-eye-lab/e-05.svg" alt="" /><div><strong>E-05</strong><span>眯眼观察</span></div></div>
+          <div class="strip-cell"><img src="/brand/command-eye-lab/e-06.svg" alt="" /><div><strong>E-06</strong><span>纯命令线</span></div></div>
+          <div class="strip-cell"><img src="/brand/command-eye-lab/e-07.svg" alt="" /><div><strong>E-07</strong><span>内凹/浮起</span></div></div>
+          <div class="strip-cell"><img src="/brand/command-eye-lab/e-08.svg" alt="" /><div><strong>E-08</strong><span>玻璃层</span></div></div>
+          <div class="strip-cell"><img src="/brand/command-eye-lab/e-09.svg" alt="" /><div><strong>E-09</strong><span>浮动状态点</span></div></div>
+          <div class="strip-cell"><img src="/brand/command-eye-lab/e-10.svg" alt="" /><div><strong>E-10</strong><span>嵌入命令槽</span></div></div>
+          <div class="strip-cell"><img src="/brand/command-eye-lab/e-11.svg" alt="" /><div><strong>E-11</strong><span>整条凹槽</span></div></div>
+          <div class="strip-cell"><img src="/brand/command-eye-lab/e-12.svg" alt="" /><div><strong>E-12</strong><span>浮起镜片</span></div></div>
+          <div class="strip-cell"><img src="/brand/command-eye-lab/e-13.svg" alt="" /><div><strong>E-13</strong><span>右侧来光</span></div></div>
+          <div class="strip-cell"><img src="/brand/command-eye-lab/e-14.svg" alt="" /><div><strong>E-14</strong><span>前景玻璃</span></div></div>
+          <div class="strip-cell"><img src="/brand/command-eye-lab/e-15.svg" alt="" /><div><strong>E-15</strong><span>口袋开口</span></div></div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

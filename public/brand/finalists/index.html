@@ -1,0 +1,894 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Jingle Logo Finalists</title>
+    <style>
+      :root {
+        color: #f5f0e8;
+        background: #090c0a;
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        --paper: #f7f3ea;
+        --ink: #0b0f0d;
+        --muted: #9d988d;
+        --line: rgba(255, 255, 255, 0.1);
+        --panel: rgba(255, 255, 255, 0.055);
+        --gold: #e7bf62;
+        --green: #58d878;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background:
+          linear-gradient(180deg, rgba(28, 39, 33, 0.96), #090c0a 32%),
+          #090c0a;
+      }
+
+      img,
+      svg {
+        display: block;
+      }
+
+      main {
+        width: min(1480px, 100%);
+        margin: 0 auto;
+        padding: 44px 28px 76px;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 32px;
+        align-items: end;
+        padding-bottom: 28px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .eyebrow {
+        color: var(--gold);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        max-width: 780px;
+        margin-top: 12px;
+        color: #fff8ee;
+        font-size: clamp(44px, 6.2vw, 86px);
+        letter-spacing: 0;
+        line-height: 0.94;
+      }
+
+      .intro {
+        max-width: 680px;
+        margin-top: 18px;
+        color: #c4beb3;
+        font-size: 16px;
+        line-height: 1.72;
+      }
+
+      .hero-icons {
+        display: grid;
+        grid-template-columns: repeat(3, 82px);
+        gap: 14px;
+      }
+
+      .hero-icons img {
+        width: 82px;
+        height: 82px;
+        filter: drop-shadow(0 22px 24px rgba(0, 0, 0, 0.46));
+      }
+
+      .summary {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 24px;
+      }
+
+      .summary-item,
+      .finalist,
+      .use-case,
+      .surface {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.045);
+      }
+
+      .summary-item {
+        display: grid;
+        grid-template-columns: 48px minmax(0, 1fr);
+        gap: 12px;
+        align-items: center;
+        padding: 12px;
+      }
+
+      .summary-item img {
+        width: 48px;
+        height: 48px;
+      }
+
+      .summary-item h3 {
+        color: #f6efe4;
+        font-size: 15px;
+      }
+
+      .summary-item p {
+        margin-top: 4px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.45;
+      }
+
+      .finalist {
+        margin-top: 28px;
+        padding: 22px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.068), rgba(255, 255, 255, 0.025)),
+          rgba(11, 14, 12, 0.78);
+      }
+
+      .finalist-head {
+        display: grid;
+        grid-template-columns: 132px minmax(0, 1fr);
+        gap: 22px;
+        align-items: center;
+      }
+
+      .finalist-head img {
+        width: 132px;
+        height: 132px;
+        filter: drop-shadow(0 24px 26px rgba(0, 0, 0, 0.42));
+      }
+
+      .finalist h2 {
+        margin-top: 8px;
+        color: #fff8ee;
+        font-size: clamp(28px, 4vw, 48px);
+        letter-spacing: 0;
+        line-height: 1;
+      }
+
+      .finalist-copy {
+        max-width: 820px;
+        margin-top: 12px;
+        color: #beb7aa;
+        font-size: 14px;
+        line-height: 1.72;
+      }
+
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 14px;
+      }
+
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        min-height: 28px;
+        padding: 0 10px;
+        border: 1px solid rgba(231, 191, 98, 0.32);
+        border-radius: 999px;
+        color: #eed38c;
+        font-size: 12px;
+      }
+
+      .use-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 22px;
+      }
+
+      .use-case {
+        min-height: 248px;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .use-case h3 {
+        padding: 14px 14px 0;
+        color: #f4ecdf;
+        font-size: 14px;
+      }
+
+      .use-case p {
+        padding: 7px 14px 14px;
+        color: #a7a095;
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
+      .surface {
+        display: grid;
+        min-height: 148px;
+        margin: 14px;
+        place-items: center;
+        overflow: hidden;
+      }
+
+      .surface.light {
+        color: #101410;
+        background: #f6f1e8;
+      }
+
+      .surface.dark {
+        color: #f5f0e8;
+        background: #0b100d;
+      }
+
+      .desktop {
+        background:
+          linear-gradient(140deg, #1b241f, #0a0d0b 70%),
+          #0a0d0b;
+      }
+
+      .dock {
+        display: flex;
+        gap: 10px;
+        align-items: end;
+        padding: 12px 14px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.08);
+        box-shadow: 0 18px 46px rgba(0, 0, 0, 0.35);
+      }
+
+      .dock-icon {
+        width: 34px;
+        height: 34px;
+        border-radius: 8px;
+        background: linear-gradient(145deg, #f6f1e8, #bfc8bd);
+      }
+
+      .dock img {
+        width: 56px;
+        height: 56px;
+        margin-bottom: 4px;
+      }
+
+      .browser {
+        width: min(320px, 92%);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.85);
+        box-shadow: 0 18px 38px rgba(0, 0, 0, 0.14);
+      }
+
+      .browser-bar {
+        display: flex;
+        gap: 5px;
+        padding: 9px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      }
+
+      .browser-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        background: #c9c1b5;
+      }
+
+      .web-logo {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        padding: 20px 18px;
+      }
+
+      .web-logo img {
+        width: 36px;
+        height: 36px;
+      }
+
+      .wordmark {
+        display: grid;
+        gap: 2px;
+      }
+
+      .wordmark strong {
+        color: #121712;
+        font-size: 20px;
+        letter-spacing: 0;
+        line-height: 1;
+      }
+
+      .wordmark span {
+        color: #60675f;
+        font-size: 11px;
+      }
+
+      .favicon-row {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .favicon-row img {
+        object-fit: contain;
+      }
+
+      .favicon-row .s64 {
+        width: 64px;
+        height: 64px;
+      }
+
+      .favicon-row .s32 {
+        width: 32px;
+        height: 32px;
+      }
+
+      .favicon-row .s16 {
+        width: 16px;
+        height: 16px;
+      }
+
+      .mode-pair {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: 100%;
+        min-height: 148px;
+      }
+
+      .mode-pair > div {
+        display: grid;
+        place-items: center;
+      }
+
+      .mode-pair img {
+        width: 72px;
+        height: 72px;
+      }
+
+      .flat-stage {
+        background: #f7f3ea;
+      }
+
+      .flat-mark {
+        width: 98px;
+        height: 98px;
+      }
+
+      .full-lockup {
+        display: flex;
+        align-items: center;
+        gap: 13px;
+      }
+
+      .full-lockup img {
+        width: 58px;
+        height: 58px;
+      }
+
+      .full-lockup strong {
+        display: block;
+        color: currentColor;
+        font-size: 30px;
+        line-height: 1;
+      }
+
+      .full-lockup span {
+        display: block;
+        margin-top: 5px;
+        color: currentColor;
+        font-size: 12px;
+        opacity: 0.66;
+      }
+
+      .shirt {
+        position: relative;
+        width: 160px;
+        height: 132px;
+        clip-path: polygon(22% 16%, 37% 6%, 63% 6%, 78% 16%, 94% 34%, 78% 47%, 75% 100%, 25% 100%, 22% 47%, 6% 34%);
+        background: #eee8db;
+        box-shadow: inset 0 -24px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .shirt.dark-shirt {
+        background: #111612;
+      }
+
+      .shirt img {
+        position: absolute;
+        left: 50%;
+        top: 44%;
+        width: 44px;
+        height: 44px;
+        transform: translate(-50%, -50%);
+      }
+
+      .merch-set {
+        position: relative;
+        width: 210px;
+        height: 128px;
+      }
+
+      .mug,
+      .sticker,
+      .tote {
+        position: absolute;
+        display: grid;
+        place-items: center;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        background: #f8f4ea;
+        box-shadow: 0 18px 34px rgba(0, 0, 0, 0.18);
+      }
+
+      .mug {
+        right: 5px;
+        bottom: 10px;
+        width: 64px;
+        height: 74px;
+        border-radius: 8px 8px 18px 18px;
+      }
+
+      .sticker {
+        left: 0;
+        top: 8px;
+        width: 74px;
+        height: 74px;
+        border-radius: 999px;
+        transform: rotate(-8deg);
+      }
+
+      .tote {
+        left: 66px;
+        bottom: 0;
+        width: 82px;
+        height: 102px;
+        border-radius: 8px 8px 4px 4px;
+      }
+
+      .mug img,
+      .sticker img,
+      .tote img {
+        width: 34px;
+        height: 34px;
+      }
+
+      .tote::before {
+        content: "";
+        position: absolute;
+        top: -13px;
+        width: 44px;
+        height: 24px;
+        border: 3px solid #d6cdbc;
+        border-bottom: 0;
+        border-radius: 999px 999px 0 0;
+      }
+
+      .notes {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 18px;
+      }
+
+      .note {
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.035);
+      }
+
+      .note strong {
+        color: #f3eadf;
+        font-size: 13px;
+      }
+
+      .note p {
+        margin-top: 8px;
+        color: #a9a196;
+        font-size: 12px;
+        line-height: 1.58;
+      }
+
+      @media (max-width: 1160px) {
+        .use-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 760px) {
+        main {
+          padding-inline: 18px;
+        }
+
+        .hero,
+        .finalist-head,
+        .summary,
+        .notes {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-icons {
+          grid-template-columns: repeat(3, 64px);
+          justify-content: start;
+        }
+
+        .hero-icons img {
+          width: 64px;
+          height: 64px;
+        }
+
+        .use-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Jingle brand finalists</p>
+          <h1>三条入围方向的真实落地感</h1>
+          <p class="intro">
+            G-05、H-01、F-04 单独展开。这里不再继续抽卡，而是看它们在桌面 app、Web 标志、favicon、小尺寸、light / dark、flat、全貌 lockup、衣服和周边上的气质差异。
+          </p>
+        </div>
+        <div class="hero-icons" aria-label="Finalist icons">
+          <img src="/brand/candidates/agent-g/g-05.svg" alt="G-05" />
+          <img src="/brand/candidates/agent-h/h-01.svg" alt="H-01" />
+          <img src="/brand/candidates/agent-f/f-04.svg" alt="F-04" />
+        </div>
+      </header>
+
+      <section class="summary" aria-label="Direction summary">
+        <article class="summary-item">
+          <img src="/brand/candidates/agent-g/g-05.svg" alt="" />
+          <div>
+            <h3>G-05 · Portal</h3>
+            <p>最像“万能入口”。品牌故事强，适合讲工具被召唤出来。</p>
+          </div>
+        </article>
+        <article class="summary-item">
+          <img src="/brand/candidates/agent-h/h-01.svg" alt="" />
+          <div>
+            <h3>H-01 · Chime</h3>
+            <p>最极简。记忆点是声音和光点，更适合长期品牌符号。</p>
+          </div>
+        </article>
+        <article class="summary-item">
+          <img src="/brand/candidates/agent-f/f-04.svg" alt="" />
+          <div>
+            <h3>F-04 · Command</h3>
+            <p>最产品化。打开就知道是 launcher / command 工具。</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="finalist" id="g-05">
+        <div class="finalist-head">
+          <img src="/brand/candidates/agent-g/g-05.svg" alt="G-05 logo" />
+          <div>
+            <p class="eyebrow">G-05 · Clean Portal</p>
+            <h2>入口感最强，像一个被唤醒的工具门</h2>
+            <p class="finalist-copy">
+              这个方向把“万能口袋”翻译成一个干净的传送门。它不直接画口袋，也不画工具列表，而是把核心体验压成一个动作：入口打开，工具出现。适合做有故事感的品牌主标。
+            </p>
+            <div class="chips">
+              <span class="chip">品牌故事强</span>
+              <span class="chip">App icon 有存在感</span>
+              <span class="chip">Web 端偏神秘</span>
+            </div>
+          </div>
+        </div>
+        <div class="use-grid">
+          <article class="use-case">
+            <h3>Desktop app</h3>
+            <div class="surface desktop">
+              <div class="dock">
+                <span class="dock-icon"></span><img src="/brand/candidates/agent-g/g-05.svg" alt="" /><span class="dock-icon"></span>
+              </div>
+            </div>
+            <p>在 dock 里最像一个“入口”，不依赖文字也能成立。</p>
+          </article>
+          <article class="use-case">
+            <h3>Web logo</h3>
+            <div class="surface light">
+              <div class="browser">
+                <div class="browser-bar"><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span></div>
+                <div class="web-logo"><img src="/brand/candidates/agent-g/g-05.svg" alt="" /><span class="wordmark"><strong>Jingle</strong><span>Open your command pocket</span></span></div>
+              </div>
+            </div>
+            <p>配 wordmark 时有“产品入口”的叙事感，但会比 H-01 更厚重。</p>
+          </article>
+          <article class="use-case">
+            <h3>Favicon / icon</h3>
+            <div class="surface dark">
+              <div class="favicon-row">
+                <img class="s64" src="/brand/candidates/agent-g/g-05.svg" alt="" />
+                <img class="s32" src="/brand/candidates/agent-g/g-05.svg" alt="" />
+                <img class="s16" src="/brand/candidates/agent-g/g-05.svg" alt="" />
+              </div>
+            </div>
+            <p>64 和 32 很稳；16px 仍能看出“门”的轮廓。</p>
+          </article>
+          <article class="use-case">
+            <h3>Light / dark</h3>
+            <div class="surface">
+              <div class="mode-pair">
+                <div style="background:#f7f3ea"><img src="/brand/candidates/agent-g/g-05.svg" alt="" /></div>
+                <div style="background:#080b09"><img src="/brand/candidates/agent-g/g-05.svg" alt="" /></div>
+              </div>
+            </div>
+            <p>深色里最自然；浅色里也能靠深底 icon 自洽。</p>
+          </article>
+          <article class="use-case">
+            <h3>Flat system</h3>
+            <div class="surface flat-stage">
+              <svg class="flat-mark" viewBox="0 0 100 100" aria-label="G-05 flat">
+                <rect x="24" y="14" width="52" height="72" rx="26" fill="#111612"/>
+                <rect x="33" y="25" width="34" height="50" rx="17" fill="none" stroke="#52cc70" stroke-width="8"/>
+                <path d="M38 33c6-6 18-6 24 0" fill="none" stroke="#e6bd55" stroke-linecap="round" stroke-width="5"/>
+              </svg>
+            </div>
+            <p>扁平后像“门洞 + 唤醒光”，可用于单色系统图标。</p>
+          </article>
+          <article class="use-case">
+            <h3>Full lockup</h3>
+            <div class="surface dark">
+              <div class="full-lockup">
+                <img src="/brand/candidates/agent-g/g-05.svg" alt="" />
+                <span><strong>Jingle</strong><span>金狗 · 万能入口</span></span>
+              </div>
+            </div>
+            <p>适合官网 hero、启动页、发布图，故事完整。</p>
+          </article>
+          <article class="use-case">
+            <h3>Apparel</h3>
+            <div class="surface light">
+              <div class="shirt"><img src="/brand/candidates/agent-g/g-05.svg" alt="" /></div>
+            </div>
+            <p>印在衣服上像一个徽章，品牌感强但稍偏科技神秘。</p>
+          </article>
+          <article class="use-case">
+            <h3>Merch</h3>
+            <div class="surface light">
+              <div class="merch-set">
+                <div class="sticker"><img src="/brand/candidates/agent-g/g-05.svg" alt="" /></div>
+                <div class="tote"><img src="/brand/candidates/agent-g/g-05.svg" alt="" /></div>
+                <div class="mug"><img src="/brand/candidates/agent-g/g-05.svg" alt="" /></div>
+              </div>
+            </div>
+            <p>适合贴纸和胸针，像“入口徽章”。</p>
+          </article>
+        </div>
+        <div class="notes">
+          <div class="note"><strong>强项</strong><p>最能承接“万能口袋”的想象，但没有直接复刻任何具体角色。</p></div>
+          <div class="note"><strong>风险</strong><p>如果产品想更工具化，它可能稍微偏奇幻，Web B2B 语境要收一下。</p></div>
+          <div class="note"><strong>适合</strong><p>品牌主图、启动页、社区头像、发布物料。</p></div>
+        </div>
+      </section>
+
+      <section class="finalist" id="h-01">
+        <div class="finalist-head">
+          <img src="/brand/candidates/agent-h/h-01.svg" alt="H-01 logo" />
+          <div>
+            <p class="eyebrow">H-01 · Chime Dot</p>
+            <h2>最轻，像“叮”的声音被看见</h2>
+            <p class="finalist-copy">
+              H-01 把品牌压到最小：一个声音点，一道信号弧。它不急着解释产品功能，而是建立一个可以长期重复的识别符号。越小越干净，越适合 favicon、菜单栏、状态点和贴纸。
+            </p>
+            <div class="chips">
+              <span class="chip">最极简</span>
+              <span class="chip">小尺寸最好</span>
+              <span class="chip">品牌延展最灵活</span>
+            </div>
+          </div>
+        </div>
+        <div class="use-grid">
+          <article class="use-case">
+            <h3>Desktop app</h3>
+            <div class="surface desktop">
+              <div class="dock">
+                <span class="dock-icon"></span><img src="/brand/candidates/agent-h/h-01.svg" alt="" /><span class="dock-icon"></span>
+              </div>
+            </div>
+            <p>在 dock 里很安静，像一个被点亮的动作按钮。</p>
+          </article>
+          <article class="use-case">
+            <h3>Web logo</h3>
+            <div class="surface light">
+              <div class="browser">
+                <div class="browser-bar"><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span></div>
+                <div class="web-logo"><img src="/brand/candidates/agent-h/h-01.svg" alt="" /><span class="wordmark"><strong>Jingle</strong><span>Tools appear at the chime</span></span></div>
+              </div>
+            </div>
+            <p>配文字后很现代，留白多，适合官网和开发者文档。</p>
+          </article>
+          <article class="use-case">
+            <h3>Favicon / icon</h3>
+            <div class="surface dark">
+              <div class="favicon-row">
+                <img class="s64" src="/brand/candidates/agent-h/h-01.svg" alt="" />
+                <img class="s32" src="/brand/candidates/agent-h/h-01.svg" alt="" />
+                <img class="s16" src="/brand/candidates/agent-h/h-01.svg" alt="" />
+              </div>
+            </div>
+            <p>16px 还保留“亮点”，是三个方案里小尺寸最稳的。</p>
+          </article>
+          <article class="use-case">
+            <h3>Light / dark</h3>
+            <div class="surface">
+              <div class="mode-pair">
+                <div style="background:#f7f3ea"><img src="/brand/candidates/agent-h/h-01.svg" alt="" /></div>
+                <div style="background:#080b09"><img src="/brand/candidates/agent-h/h-01.svg" alt="" /></div>
+              </div>
+            </div>
+            <p>深浅环境都不抢，适合放在导航、托盘和状态位。</p>
+          </article>
+          <article class="use-case">
+            <h3>Flat system</h3>
+            <div class="surface flat-stage">
+              <svg class="flat-mark" viewBox="0 0 100 100" aria-label="H-01 flat">
+                <circle cx="50" cy="56" r="18" fill="#e5ad32"/>
+                <circle cx="46" cy="50" r="5" fill="#fff1b0"/>
+                <path d="M35 38c4-6 9-9 15-9s11 3 15 9" fill="none" stroke="#50cc72" stroke-linecap="round" stroke-width="7"/>
+              </svg>
+            </div>
+            <p>扁平后只剩“音点 + 弧”，可以变成一套系统符号。</p>
+          </article>
+          <article class="use-case">
+            <h3>Full lockup</h3>
+            <div class="surface dark">
+              <div class="full-lockup">
+                <img src="/brand/candidates/agent-h/h-01.svg" alt="" />
+                <span><strong>Jingle</strong><span>金狗 · 叮一下</span></span>
+              </div>
+            </div>
+            <p>全貌很轻，适合长期主品牌，但产品功能感要靠文案补。</p>
+          </article>
+          <article class="use-case">
+            <h3>Apparel</h3>
+            <div class="surface light">
+              <div class="shirt dark-shirt"><img src="/brand/candidates/agent-h/h-01.svg" alt="" /></div>
+            </div>
+            <p>在衣服上更像潮牌小标，低调但识别点明确。</p>
+          </article>
+          <article class="use-case">
+            <h3>Merch</h3>
+            <div class="surface light">
+              <div class="merch-set">
+                <div class="sticker"><img src="/brand/candidates/agent-h/h-01.svg" alt="" /></div>
+                <div class="tote"><img src="/brand/candidates/agent-h/h-01.svg" alt="" /></div>
+                <div class="mug"><img src="/brand/candidates/agent-h/h-01.svg" alt="" /></div>
+              </div>
+            </div>
+            <p>周边感最好，像一个声音印章，容易做贴纸和 pin。</p>
+          </article>
+        </div>
+        <div class="notes">
+          <div class="note"><strong>强项</strong><p>极简、耐看、小尺寸稳，最容易从 app icon 扩展到系统符号。</p></div>
+          <div class="note"><strong>风险</strong><p>第一眼不直接说明“效率工具”，需要 Jingle 的产品语言一起建立。</p></div>
+          <div class="note"><strong>适合</strong><p>favicon、菜单栏、状态点、品牌水印、开发者页导航。</p></div>
+        </div>
+      </section>
+
+      <section class="finalist" id="f-04">
+        <div class="finalist-head">
+          <img src="/brand/candidates/agent-f/f-04.svg" alt="F-04 logo" />
+          <div>
+            <p class="eyebrow">F-04 · Command Capsule</p>
+            <h2>最像产品本身，输入框就是入口</h2>
+            <p class="finalist-copy">
+              F-04 直接把 launcher / command surface 抽成一个胶囊。它是三个方案里最容易让用户理解产品用途的一个：打开、输入、找到工具、执行。气质更产品化，也更适合官网和桌面工具定位。
+            </p>
+            <div class="chips">
+              <span class="chip">功能识别最快</span>
+              <span class="chip">Web 端最稳</span>
+              <span class="chip">更像工具品牌</span>
+            </div>
+          </div>
+        </div>
+        <div class="use-grid">
+          <article class="use-case">
+            <h3>Desktop app</h3>
+            <div class="surface desktop">
+              <div class="dock">
+                <span class="dock-icon"></span><img src="/brand/candidates/agent-f/f-04.svg" alt="" /><span class="dock-icon"></span>
+              </div>
+            </div>
+            <p>在 dock 里能直接读成命令入口，产品属性最强。</p>
+          </article>
+          <article class="use-case">
+            <h3>Web logo</h3>
+            <div class="surface light">
+              <div class="browser">
+                <div class="browser-bar"><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span></div>
+                <div class="web-logo"><img src="/brand/candidates/agent-f/f-04.svg" alt="" /><span class="wordmark"><strong>Jingle</strong><span>Command everything from one place</span></span></div>
+              </div>
+            </div>
+            <p>Web 导航最清楚，像一个成熟效率软件的主标。</p>
+          </article>
+          <article class="use-case">
+            <h3>Favicon / icon</h3>
+            <div class="surface dark">
+              <div class="favicon-row">
+                <img class="s64" src="/brand/candidates/agent-f/f-04.svg" alt="" />
+                <img class="s32" src="/brand/candidates/agent-f/f-04.svg" alt="" />
+                <img class="s16" src="/brand/candidates/agent-f/f-04.svg" alt="" />
+              </div>
+            </div>
+            <p>64 和 32 很清晰；16px 会变成一个发光胶囊，细节会损失。</p>
+          </article>
+          <article class="use-case">
+            <h3>Light / dark</h3>
+            <div class="surface">
+              <div class="mode-pair">
+                <div style="background:#f7f3ea"><img src="/brand/candidates/agent-f/f-04.svg" alt="" /></div>
+                <div style="background:#080b09"><img src="/brand/candidates/agent-f/f-04.svg" alt="" /></div>
+              </div>
+            </div>
+            <p>深浅都可用，尤其适合官网产品图和应用商店图。</p>
+          </article>
+          <article class="use-case">
+            <h3>Flat system</h3>
+            <div class="surface flat-stage">
+              <svg class="flat-mark" viewBox="0 0 100 100" aria-label="F-04 flat">
+                <rect x="16" y="33" width="68" height="34" rx="17" fill="#101612"/>
+                <circle cx="34" cy="50" r="8" fill="none" stroke="#f6f1e8" stroke-width="5"/>
+                <path d="M40 56l7 7" stroke="#f6f1e8" stroke-linecap="round" stroke-width="5"/>
+                <path d="M53 50h14" stroke="#f6f1e8" stroke-linecap="round" stroke-width="6"/>
+                <circle cx="72" cy="50" r="7" fill="#58d878"/>
+              </svg>
+            </div>
+            <p>扁平后仍然很产品化，可以直接成为功能图标。</p>
+          </article>
+          <article class="use-case">
+            <h3>Full lockup</h3>
+            <div class="surface dark">
+              <div class="full-lockup">
+                <img src="/brand/candidates/agent-f/f-04.svg" alt="" />
+                <span><strong>Jingle</strong><span>金狗 · 命令入口</span></span>
+              </div>
+            </div>
+            <p>官网和开发者文档最稳，第一眼就是效率工具。</p>
+          </article>
+          <article class="use-case">
+            <h3>Apparel</h3>
+            <div class="surface light">
+              <div class="shirt"><img src="/brand/candidates/agent-f/f-04.svg" alt="" /></div>
+            </div>
+            <p>衣服上更像产品团队周边，不如 H-01 那么抽象潮牌。</p>
+          </article>
+          <article class="use-case">
+            <h3>Merch</h3>
+            <div class="surface light">
+              <div class="merch-set">
+                <div class="sticker"><img src="/brand/candidates/agent-f/f-04.svg" alt="" /></div>
+                <div class="tote"><img src="/brand/candidates/agent-f/f-04.svg" alt="" /></div>
+                <div class="mug"><img src="/brand/candidates/agent-f/f-04.svg" alt="" /></div>
+              </div>
+            </div>
+            <p>贴纸可用，但更像软件 icon，不像独立符号。</p>
+          </article>
+        </div>
+        <div class="notes">
+          <div class="note"><strong>强项</strong><p>产品识别最快，官网、文档、应用图标都很稳。</p></div>
+          <div class="note"><strong>风险</strong><p>品牌想象力比 G-05、H-01 少一些，容易和普通搜索/命令工具靠近。</p></div>
+          <div class="note"><strong>适合</strong><p>官网主标、应用商店、桌面 app、开发者平台。</p></div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

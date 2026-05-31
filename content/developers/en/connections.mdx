@@ -1,0 +1,98 @@
+---
+title: "Connections"
+description: "Declare providers, credential requirements, settings handoff, and connection state for extensions."
+---
+
+import { Callout, StatusBadge } from "@/components/developers/mdx-primitives"
+
+Connected accounts let extensions access external services while credential management stays with Jingle. An extension declares its provider, secret names, and public configuration; Jingle owns settings, credential resolution, connection state, and runtime context.
+
+## Connection types
+
+| Type | Use case | Status |
+| --- | --- | --- |
+| `none` | Local capability that does not require sign-in, such as system reminders | <StatusBadge tone="preview">Preview</StatusBadge> |
+| `apiKey` | User-saved API key, such as an internal integration token | <StatusBadge tone="preview">Preview</StatusBadge> |
+| `personalAccessToken` | User-saved personal access token | <StatusBadge tone="preview">Preview</StatusBadge> |
+| `oauth` | Platform-owned OAuth sign-in and token lifecycle | <StatusBadge tone="research">Planned</StatusBadge> |
+
+## Manifest contract
+
+```ts
+connection: {
+  id: "default",
+  provider: "github",
+  title: "GitHub",
+  auth: {
+    type: "personalAccessToken",
+    secretNames: ["accessToken"]
+  },
+  publicPreferenceNames: ["apiBaseUrl"],
+  connectGuide: "Create a GitHub personal access token and save it in Settings."
+}
+```
+
+Runtime code receives a resolved connection object:
+
+```ts
+interface NativeExtensionResolvedConnection {
+  connectionId: string
+  extensionName: string
+  provider: string
+  publicConfig: Record<string, unknown>
+  missingSecretNames: string[]
+  status: "connected" | "failed" | "missing" | "unsupported"
+}
+```
+
+<Callout title="Connection state" tone="info">
+  Current connection state focuses on `connected` and `missing`. When platform OAuth ships, Jingle will provide lifecycle states such as `expired`, `revoked`, and `scope-missing`.
+</Callout>
+
+## Provider reuse
+
+An extension can reuse another provider extension's connection. Jingle reads the provider's public config and secret values, then injects the values needed by the current command.
+
+This is useful for generated, migration, or vertical workflow packages: users connect a provider once, and multiple packages can share the same platform-managed connection.
+
+## Settings handoff
+
+When a connection is missing, commands should open platform settings:
+
+```tsx
+import { openExtensionPreferences } from "@openwork/extension-api"
+
+await openExtensionPreferences()
+```
+
+Available entry points:
+
+- `openExtensionPreferences()`
+- `openCommandPreferences()`
+- `openNativeExtensionSettings({ extensionName, commandName })`
+- `withAccessToken()` connection empty view and settings action
+
+## Provider examples
+
+| Provider | Developer Preview method | Use case |
+| --- | --- | --- |
+| GitHub | `personalAccessToken` + `accessToken` secret | Issues, PRs, notifications, repositories, workflow runs |
+| Notion | `apiKey` + internal integration token | Pages, data sources, quick capture |
+
+<Callout title="OAuth roadmap" tone="research">
+  Public user-facing providers should move to platform-owned OAuth. Jingle will own the authorization page, callback, token exchange, refresh, and revoke lifecycle.
+</Callout>
+
+## Security boundary
+
+Connection access should stay layered:
+
+```txt
+extension code
+  -> extension runtime SDK
+  -> host capability request
+  -> main connection service
+  -> secure credential store
+```
+
+Ordinary preferences can store non-sensitive settings such as `apiBaseUrl`, default database, or open behavior. Access tokens, refresh tokens, and client secrets should not enter ordinary settings, logs, renderer state, or agent prompts.

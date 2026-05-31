@@ -1,0 +1,43 @@
+---
+title: "桌面能力"
+description: "Jingle 对启动器、文件搜索、快捷入口、片段、剪贴板、窗口管理和系统命令的状态说明。"
+---
+
+import { Callout, StatusBadge } from "@/components/developers/mdx-primitives"
+
+成熟桌面命令中心首先要把高频本地动作做好。扩展和 AI 是上层能力，但底层必须有可靠的启动器、搜索、快捷入口、片段、剪贴板、笔记、窗口管理和系统命令。
+
+<Callout title="可用范围" tone="warning">
+  开发者预览阶段优先开放扩展运行时、命令入口和本地边界。文件搜索、剪贴板、窗口管理和系统命令会随桌面平台能力逐步开放给扩展作者。
+</Callout>
+
+## 能力状态
+
+| 能力 | 状态 | 目标 |
+| --- | --- | --- |
+| 应用启动 | <StatusBadge tone="preview">核心建设中</StatusBadge> | 快速搜索、键盘启动、最近使用和结果排序 |
+| 命令搜索 | <StatusBadge tone="preview">核心建设中</StatusBadge> | 统一搜索应用命令、扩展命令、Agent 工具和本地动作 |
+| 文件搜索 | <StatusBadge tone="research">规划中</StatusBadge> | 搜索文件、打开文件、复制路径、对文件运行扩展动作 |
+| 快捷入口 | <StatusBadge tone="research">规划中</StatusBadge> | 保存 URL、模板化参数、动态查询和团队共享 |
+| 片段 | <StatusBadge tone="research">规划中</StatusBadge> | 文本片段、变量、日期、剪贴板输入和跨应用展开 |
+| 剪贴板历史 | <StatusBadge tone="research">规划中</StatusBadge> | 搜索历史、固定条目、隐私过滤和本地优先存储 |
+| 快速笔记 | <StatusBadge tone="research">规划中</StatusBadge> | 浮窗笔记、临时记录、Markdown、搜索和桌面同步 |
+| 窗口管理 | <StatusBadge tone="research">规划中</StatusBadge> | 移动窗口、调整尺寸、布局快捷键和多屏状态 |
+| 系统命令 | <StatusBadge tone="research">规划中</StatusBadge> | 计算器、emoji、翻译、日历、Focus、脚本命令、睡眠/锁屏等高频本地工具 |
+
+## 产品边界
+
+- 桌面能力属于 Jingle host，不应由单个扩展重复实现。
+- 扩展可以声明命令、动作和文件处理能力，但搜索索引、快捷键、剪贴板权限、窗口权限和系统权限由宿主统一管理。
+- 涉及敏感内容的能力，例如剪贴板历史、笔记和文件搜索，默认本地优先，并需要用户可见的隐私设置。
+
+## 对扩展 API 的影响
+
+桌面能力会决定扩展 API 的边界：
+
+- 文件搜索需要扩展命令能接收文件路径、MIME 类型和选择上下文。
+- 快捷入口需要命令支持参数模板、默认值和可读的输入说明。
+- 片段和剪贴板需要明确哪些 API 能读、哪些只能写，以及何时需要用户授权。
+- 窗口管理和系统命令需要严格区分普通扩展能力和宿主级能力。
+
+相关 contract 稳定后，会在 API 参考和扩展模型文档中开放。

@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Jingle Logo Exploration</title>
+    <style>
+      :root {
+        color: #f5f0e8;
+        background: #070908;
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background:
+          radial-gradient(circle at 50% 0%, rgba(64, 78, 69, 0.54), transparent 48%),
+          linear-gradient(180deg, #0d1110 0%, #070908 100%);
+      }
+
+      main {
+        width: min(1440px, 100%);
+        margin: 0 auto;
+        padding: 42px 32px 56px;
+      }
+
+      header {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 32px;
+        margin-bottom: 38px;
+      }
+
+      h1,
+      h2,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        max-width: 680px;
+        font-size: clamp(44px, 7vw, 92px);
+        letter-spacing: 0;
+        line-height: 0.94;
+      }
+
+      header p {
+        max-width: 520px;
+        color: #b9b1a4;
+        font-size: 16px;
+        line-height: 1.65;
+      }
+
+      .hero-mark {
+        width: 88px;
+        height: 88px;
+        filter: drop-shadow(0 22px 24px rgba(0, 0, 0, 0.42));
+      }
+
+      .variant-grid {
+        display: grid;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .variant {
+        min-height: 324px;
+        padding: 22px 16px 18px;
+        border: 1px solid rgba(255, 255, 255, 0.075);
+        border-radius: 24px;
+        background:
+          linear-gradient(145deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.018)),
+          rgba(16, 18, 17, 0.76);
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+      }
+
+      .variant-number {
+        display: grid;
+        width: 30px;
+        height: 30px;
+        margin: 0 auto 18px;
+        place-items: center;
+        border: 1px solid #e1b64d;
+        border-radius: 999px;
+        color: #f4cf72;
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .variant h2 {
+        min-height: 44px;
+        text-align: center;
+        font-size: 15px;
+        line-height: 1.35;
+      }
+
+      .variant p {
+        min-height: 42px;
+        margin-top: 8px;
+        color: #b8b0a4;
+        text-align: center;
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      .variant-mark {
+        display: block;
+        width: 132px;
+        height: 132px;
+        margin: 24px auto 26px;
+        filter: drop-shadow(0 22px 24px rgba(0, 0, 0, 0.42));
+      }
+
+      .sizes {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .sizes img {
+        filter: drop-shadow(0 12px 12px rgba(0, 0, 0, 0.38));
+      }
+
+      .examples-title {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        gap: 20px;
+        margin: 44px 0 22px;
+        color: #d3bf83;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+      }
+
+      .examples-title::before,
+      .examples-title::after {
+        content: "";
+        height: 1px;
+        background: rgba(255, 255, 255, 0.12);
+      }
+
+      .examples {
+        display: grid;
+        grid-template-columns: 320px minmax(360px, 1fr) 210px 280px;
+        gap: 28px;
+        align-items: start;
+      }
+
+      .panel {
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 24px;
+        background:
+          linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
+          rgba(14, 16, 15, 0.82);
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+      }
+
+      .dock {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+        padding: 28px;
+      }
+
+      .dock-icon {
+        width: 52px;
+        height: 52px;
+        border-radius: 13px;
+      }
+
+      .launcher {
+        padding: 22px;
+      }
+
+      .launcher-top {
+        display: grid;
+        grid-template-columns: 34px 1fr auto;
+        align-items: center;
+        gap: 14px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        color: #bdb5aa;
+        font-size: 14px;
+      }
+
+      kbd {
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.08);
+        padding: 6px 8px;
+        color: #d9d3ca;
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 11px;
+      }
+
+      .tabs {
+        display: flex;
+        gap: 8px;
+        padding: 16px 0;
+        color: #aaa39a;
+        font-size: 12px;
+      }
+
+      .tab-active {
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.12);
+        color: #f4efe6;
+        padding: 7px 15px;
+      }
+
+      .tab {
+        padding: 7px 10px;
+      }
+
+      .command-row {
+        display: grid;
+        grid-template-columns: 34px 1fr auto;
+        gap: 14px;
+        align-items: center;
+        min-height: 54px;
+        border-radius: 14px;
+        padding: 10px;
+      }
+
+      .command-row:first-of-type {
+        background: rgba(255, 255, 255, 0.06);
+      }
+
+      .command-row strong {
+        display: block;
+        color: #fbf7ef;
+        font-size: 14px;
+      }
+
+      .command-row span {
+        color: #aaa39a;
+        font-size: 12px;
+      }
+
+      .command-swatch {
+        display: grid;
+        width: 34px;
+        height: 34px;
+        place-items: center;
+        border-radius: 10px;
+        color: white;
+      }
+
+      .sidebar {
+        padding: 20px;
+      }
+
+      .sidebar img {
+        width: 42px;
+        height: 42px;
+      }
+
+      .side-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 0;
+        color: #b8b0a4;
+        font-size: 13px;
+      }
+
+      .side-row.active {
+        margin-top: 14px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.07);
+        padding: 9px 10px;
+        color: #f4efe6;
+      }
+
+      .gallery {
+        padding: 22px;
+      }
+
+      .gallery-title {
+        color: #8f897f;
+        font-size: 12px;
+        margin: 0 0 18px;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+
+      .gallery-cell {
+        text-align: center;
+      }
+
+      .gallery-cell img {
+        width: 44px;
+        height: 44px;
+      }
+
+      .gallery-cell span {
+        display: block;
+        margin-top: 8px;
+        color: #d7b963;
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 11px;
+      }
+
+      .board-preview {
+        display: block;
+        width: 100%;
+        margin-top: 44px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 24px;
+      }
+
+      @media (max-width: 1120px) {
+        .variant-grid,
+        .examples {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 720px) {
+        main {
+          padding: 28px 18px 40px;
+        }
+
+        header,
+        .variant-grid,
+        .examples {
+          display: block;
+        }
+
+        .hero-mark {
+          margin-top: 28px;
+        }
+
+        .variant,
+        .panel {
+          margin-top: 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div>
+          <h1>Jingle / 金狗</h1>
+          <p>
+            Logo exploration around a bell chime, a universal pocket, and a desktop command
+            surface. The richer direction keeps the "summon any tool" idea while staying away from
+            character imitation.
+          </p>
+        </div>
+        <img class="hero-mark" src="/brand/jingle-mark.svg" alt="Selected Jingle logo" />
+      </header>
+
+      <section class="variant-grid" aria-label="Logo variants">
+        <article class="variant">
+          <div class="variant-number">1</div>
+          <h2>Bell + Command Pocket</h2>
+          <p>A bell signal inside a command pocket.</p>
+          <img class="variant-mark" src="/brand/variants/jingle-variant-01-bell-pocket.svg" alt="" />
+          <div class="sizes">
+            <img src="/brand/variants/jingle-variant-01-bell-pocket.svg" width="56" height="56" alt="" />
+            <img src="/brand/variants/jingle-variant-01-bell-pocket.svg" width="38" height="38" alt="" />
+          </div>
+        </article>
+        <article class="variant">
+          <div class="variant-number">2</div>
+          <h2>Abstract J-Shaped Chime</h2>
+          <p>A J that rings. Simple and memorable.</p>
+          <img class="variant-mark" src="/brand/variants/jingle-variant-02-j-chime.svg" alt="" />
+          <div class="sizes">
+            <img src="/brand/variants/jingle-variant-02-j-chime.svg" width="56" height="56" alt="" />
+            <img src="/brand/variants/jingle-variant-02-j-chime.svg" width="38" height="38" alt="" />
+          </div>
+        </article>
+        <article class="variant">
+          <div class="variant-number">3</div>
+          <h2>Utility Pocket with Signal</h2>
+          <p>A compact pocket holding your tools.</p>
+          <img class="variant-mark" src="/brand/variants/jingle-variant-03-utility-pocket.svg" alt="" />
+          <div class="sizes">
+            <img src="/brand/variants/jingle-variant-03-utility-pocket.svg" width="56" height="56" alt="" />
+            <img src="/brand/variants/jingle-variant-03-utility-pocket.svg" width="38" height="38" alt="" />
+          </div>
+        </article>
+        <article class="variant">
+          <div class="variant-number">4</div>
+          <h2>Desktop Command Tile</h2>
+          <p>A command key tile that summons everything.</p>
+          <img class="variant-mark" src="/brand/variants/jingle-variant-04-command-tile.svg" alt="" />
+          <div class="sizes">
+            <img src="/brand/variants/jingle-variant-04-command-tile.svg" width="56" height="56" alt="" />
+            <img src="/brand/variants/jingle-variant-04-command-tile.svg" width="38" height="38" alt="" />
+          </div>
+        </article>
+        <article class="variant">
+          <div class="variant-number">5</div>
+          <h2>Magical Drawer / Portal</h2>
+          <p>Open the drawer, tools appear.</p>
+          <img class="variant-mark" src="/brand/variants/jingle-variant-05-magic-drawer.svg" alt="" />
+          <div class="sizes">
+            <img src="/brand/variants/jingle-variant-05-magic-drawer.svg" width="56" height="56" alt="" />
+            <img src="/brand/variants/jingle-variant-05-magic-drawer.svg" width="38" height="38" alt="" />
+          </div>
+        </article>
+        <article class="variant">
+          <div class="variant-number">6</div>
+          <h2>Minimal App Icon</h2>
+          <p>A compact mark for macOS and beyond.</p>
+          <img class="variant-mark" src="/brand/variants/jingle-variant-06-minimal-jingle.svg" alt="" />
+          <div class="sizes">
+            <img src="/brand/variants/jingle-variant-06-minimal-jingle.svg" width="56" height="56" alt="" />
+            <img src="/brand/variants/jingle-variant-06-minimal-jingle.svg" width="38" height="38" alt="" />
+          </div>
+        </article>
+      </section>
+
+      <div class="examples-title">Usage Examples</div>
+
+      <section class="examples" aria-label="Logo usage examples">
+        <div class="panel dock">
+          <div class="dock-icon" style="background:#69b6ed"></div>
+          <img class="dock-icon" src="/brand/jingle-mark.svg" alt="" />
+          <div class="dock-icon" style="background:#4cc36a"></div>
+          <div class="dock-icon" style="background:#e7ecea"></div>
+        </div>
+
+        <div class="panel launcher">
+          <div class="launcher-top">
+            <img src="/brand/jingle-mark.svg" width="34" height="34" alt="" />
+            <span>Ask Jingle or type a command...</span>
+            <kbd>⌘K</kbd>
+          </div>
+          <div class="tabs">
+            <span class="tab-active">All</span>
+            <span class="tab">Tools</span>
+            <span class="tab">AI</span>
+            <span class="tab">Extensions</span>
+            <span class="tab">Files</span>
+            <span class="tab">Apps</span>
+          </div>
+          <div class="command-row">
+            <div class="command-swatch" style="background:#2dbb74">□</div>
+            <div><strong>Screenshot</strong><span>Capture area or window</span></div>
+            <kbd>⌘1</kbd>
+          </div>
+          <div class="command-row">
+            <div class="command-swatch" style="background:#8057d8">✦</div>
+            <div><strong>Summarize</strong><span>AI summarize selected text</span></div>
+            <kbd>⌘2</kbd>
+          </div>
+          <div class="command-row">
+            <div class="command-swatch" style="background:#2f76d8">◎</div>
+            <div><strong>Translate</strong><span>Translate to English</span></div>
+            <kbd>⌘3</kbd>
+          </div>
+        </div>
+
+        <div class="panel sidebar">
+          <img src="/brand/jingle-mark.svg" alt="" />
+          <div class="side-row active"><span>All</span><span>12</span></div>
+          <div class="side-row"><span>Tools</span><span>28</span></div>
+          <div class="side-row"><span>AI Actions</span><span>14</span></div>
+          <div class="side-row"><span>Extensions</span><span>23</span></div>
+          <div class="side-row"><span>Files</span><span>8</span></div>
+        </div>
+
+        <div class="panel gallery">
+          <p class="gallery-title">All concepts at small sizes</p>
+          <div class="gallery-grid">
+            <div class="gallery-cell"><img src="/brand/variants/jingle-variant-01-bell-pocket.svg" alt="" /><span>1</span></div>
+            <div class="gallery-cell"><img src="/brand/variants/jingle-variant-02-j-chime.svg" alt="" /><span>2</span></div>
+            <div class="gallery-cell"><img src="/brand/variants/jingle-variant-03-utility-pocket.svg" alt="" /><span>3</span></div>
+            <div class="gallery-cell"><img src="/brand/variants/jingle-variant-04-command-tile.svg" alt="" /><span>4</span></div>
+            <div class="gallery-cell"><img src="/brand/variants/jingle-variant-05-magic-drawer.svg" alt="" /><span>5</span></div>
+            <div class="gallery-cell"><img src="/brand/variants/jingle-variant-06-minimal-jingle.svg" alt="" /><span>6</span></div>
+          </div>
+        </div>
+      </section>
+
+      <img class="board-preview" src="/brand/jingle-logo-showcase.svg" alt="Jingle logo board SVG" />
+    </main>
+  </body>
+</html>

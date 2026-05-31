@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Jingle app icon candidate C03">
+  <defs>
+    <radialGradient id="c03-bg" cx="34" cy="20" r="86" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.38" stop-color="#ECF1F4"/>
+      <stop offset="1" stop-color="#A9B4BC"/>
+    </radialGradient>
+    <linearGradient id="c03-slate" x1="22" y1="22" x2="78" y2="79" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#313B47"/>
+      <stop offset="1" stop-color="#0C1117"/>
+    </linearGradient>
+    <linearGradient id="c03-green" x1="27" y1="19" x2="77" y2="70" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#D8FF6F"/>
+      <stop offset="1" stop-color="#23D779"/>
+    </linearGradient>
+    <filter id="c03-shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="7" stdDeviation="5" flood-color="#0B1118" flood-opacity="0.2"/>
+    </filter>
+    <clipPath id="c03-clip">
+      <rect x="10" y="10" width="80" height="80" rx="23"/>
+    </clipPath>
+  </defs>
+
+  <rect x="10" y="10" width="80" height="80" rx="23" fill="url(#c03-bg)"/>
+  <g clip-path="url(#c03-clip)">
+    <circle cx="29" cy="20" r="34" fill="#FFFFFF" opacity="0.35"/>
+    <path d="M14 78C31 69 47 70 60 78C70 84 81 82 91 72V91H10V80Z" fill="#7A8791" opacity="0.26"/>
+  </g>
+
+  <g filter="url(#c03-shadow)">
+    <path d="M22 44C22 38.5 26.5 34 32 34H68C73.5 34 78 38.5 78 44V69C78 74.5 73.5 79 68 79H32C26.5 79 22 74.5 22 69Z" fill="url(#c03-slate)"/>
+    <path d="M30 59C30 55.1 33.1 52 37 52H63C66.9 52 70 55.1 70 59V65C70 68.9 66.9 72 63 72H37C33.1 72 30 68.9 30 65Z" fill="#151B23"/>
+    <path d="M32 59C37.1 62.1 43.2 63.7 50 63.7C56.8 63.7 62.9 62.1 68 59" fill="none" stroke="#3A4550" stroke-width="1.6" stroke-linecap="round"/>
+
+    <rect x="29" y="39" width="42" height="13" rx="6.5" fill="#F8FAFC"/>
+    <path d="M38 45.5H46" stroke="#6E7882" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M52 45.5H59" stroke="#ABB4BD" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M63 42.8L66 45.5L63 48.2" fill="none" stroke="#36D979" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <g>
+    <rect x="37" y="50" width="11" height="11" rx="3" fill="#F1F5F7" transform="rotate(-14 42.5 55.5)"/>
+    <path d="M40.5 55.7H44.5" stroke="#5E6872" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M42.5 53.7V57.7" stroke="#5E6872" stroke-width="1.5" stroke-linecap="round"/>
+
+    <rect x="52" y="49.5" width="11" height="11" rx="3" fill="#F1F5F7" transform="rotate(14 57.5 55)"/>
+    <path d="M55.5 54H59.5" stroke="#5E6872" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M55.5 57H59.5" stroke="#5E6872" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+
+  <g>
+    <circle cx="50" cy="31" r="13" fill="url(#c03-green)"/>
+    <path d="M44.9 30.4C44.9 27.6 47.2 25.3 50 25.3C52.8 25.3 55.1 27.6 55.1 30.4V34L57.1 36.4H42.9L44.9 34Z" fill="#102016" opacity="0.83"/>
+    <path d="M47.8 38.2C48.3 39 49 39.4 50 39.4C51 39.4 51.7 39 52.2 38.2" stroke="#102016" stroke-width="1.7" stroke-linecap="round"/>
+    <path d="M38.9 23.5C35.9 27 35.1 31.2 36.2 35.3" fill="none" stroke="#2EDB7A" stroke-width="2" stroke-linecap="round"/>
+    <path d="M61.1 23.5C64.1 27 64.9 31.2 63.8 35.3" fill="none" stroke="#2EDB7A" stroke-width="2" stroke-linecap="round"/>
+  </g>
+</svg>

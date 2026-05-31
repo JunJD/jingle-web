@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-labelledby="title desc">
+  <title id="title">Eye Lab E-12 Floating Lens</title>
+  <desc id="desc">Command capsule floating above a dark lens shadow, making the mark feel like a raised control surface.</desc>
+  <defs>
+    <linearGradient id="bg" x1="12" y1="7" x2="88" y2="94" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#303d37"/>
+      <stop offset=".5" stop-color="#111816"/>
+      <stop offset="1" stop-color="#060807"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="34" cy="34" r="52" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f0f6c9" stop-opacity=".18"/>
+      <stop offset=".45" stop-color="#52d978" stop-opacity=".11"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="floor" cx="52" cy="62" r="32" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000000" stop-opacity=".48"/>
+      <stop offset=".64" stop-color="#000000" stop-opacity=".22"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="capsule" x1="18" y1="34" x2="82" y2="66" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset=".5" stop-color="#f3faef"/>
+      <stop offset="1" stop-color="#c4dfcc"/>
+    </linearGradient>
+    <linearGradient id="green" x1="58" y1="31" x2="77" y2="57" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#dcff86"/>
+      <stop offset="1" stop-color="#25c879"/>
+    </linearGradient>
+    <filter id="lift" x="-28%" y="-34%" width="156%" height="176%">
+      <feDropShadow dx="0" dy="2" stdDeviation="1.2" flood-color="#ffffff" flood-opacity=".18"/>
+      <feDropShadow dx="0" dy="10" stdDeviation="6.5" flood-color="#000000" flood-opacity=".42"/>
+    </filter>
+    <filter id="dotLift" x="-90%" y="-90%" width="280%" height="280%">
+      <feDropShadow dx="0" dy="4" stdDeviation="2.8" flood-color="#000000" flood-opacity=".32"/>
+    </filter>
+  </defs>
+  <rect x="5.5" y="5.5" width="89" height="89" rx="25.5" fill="url(#bg)"/>
+  <rect x="5.5" y="5.5" width="89" height="89" rx="25.5" fill="url(#glow)"/>
+  <ellipse cx="51" cy="63.5" rx="32" ry="11.5" fill="url(#floor)"/>
+  <g filter="url(#lift)">
+    <rect x="18" y="34.5" width="64" height="30.5" rx="15.25" fill="url(#capsule)"/>
+    <path d="M23.5 39.2c12.5-4.2 35.5-4.1 51 .1" fill="none" stroke="#ffffff" stroke-opacity=".42" stroke-linecap="round" stroke-width="2"/>
+    <circle cx="33.3" cy="49.5" r="5.9" fill="none" stroke="#627069" stroke-width="3"/>
+    <circle cx="35" cy="49.1" r="1.7" fill="#627069"/>
+    <path d="M39.2 54.2l4.5 4.5" stroke="#627069" stroke-width="2.8" stroke-linecap="round"/>
+    <path d="M49.6 49.5h11.4" stroke="#56625d" stroke-width="3.8" stroke-linecap="round"/>
+    <g filter="url(#dotLift)">
+      <circle cx="69.2" cy="48.8" r="6" fill="url(#green)"/>
+      <circle cx="70" cy="47" r="1.45" fill="#efffd5" opacity=".82"/>
+    </g>
+  </g>
+  <path d="M59 29c6.7-4.6 14.8-3.4 20.4 2.5" fill="none" stroke="#75ed98" stroke-linecap="round" stroke-width="3.3"/>
+</svg>

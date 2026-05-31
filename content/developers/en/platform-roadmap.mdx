@@ -1,0 +1,44 @@
+---
+title: "Platform roadmap"
+description: "Capability stages, availability, and direction for Jingle Developers."
+---
+
+import { Callout, StatusBadge } from "@/components/developers/mdx-primitives"
+
+The Jingle Developers roadmap covers extension packages, runtime APIs, connected accounts, OAuth, AI tools, distribution, and team collaboration. Each capability is marked by release stage so extension authors can see which contracts are available today and which areas to follow next.
+
+<Callout title="Release stages" tone="warning">
+  “Preview” means the capability can be used for private extensions or early integrations. “In development” means the platform is building the full product path. “Planned” means the direction is clear while APIs, experience, and timing continue to evolve.
+</Callout>
+
+## Capability Matrix
+
+| Capability area | Stage | Direction |
+| --- | --- | --- |
+| [App launch and command search](/en/developers/desktop-capabilities) | <StatusBadge tone="preview">Core buildout</StatusBadge> | File search, aliases, hotkeys, recent items, ranking, and consistent actions across sources |
+| Extension package model | <StatusBadge tone="preview">Preview</StatusBadge> | Templates, scaffolding, packaging checks, compatibility policy, and public publishing |
+| Extension UI components | <StatusBadge tone="preview">Preview</StatusBadge> | Behavior consistency, accessibility, screenshot tests, visual guidelines, and cross-version contracts |
+| [Extension store](/en/developers/store-distribution) | <StatusBadge tone="research">In development</StatusBadge> | Public directory, review queue, signing, updates, ratings, install/uninstall, and private distribution |
+| Connected accounts | <StatusBadge tone="preview">Preview</StatusBadge> | Standard Connect UI, provider registry, connection diagnostics, and permission display |
+| OAuth / PKCE | <StatusBadge tone="research">In development</StatusBadge> | Authorization page, callback state validation, token exchange, refresh, revoke, and secure storage loop |
+| [AI commands](/en/developers/ai-capabilities) | <StatusBadge tone="preview">Preview</StatusBadge> | AI command templates, context selection, approval replay, failure recovery, and explainable results |
+| [Agent tool calls](/en/developers/ai-capabilities) | <StatusBadge tone="preview">Preview</StatusBadge> | Schema-form approvals, parameter editing, tool permission policy, audit logs, and eval coverage |
+| [Team features](/en/developers/teams-sync) | <StatusBadge tone="research">Planned</StatusBadge> | Organizations, members, shared quicklinks, private extensions, team settings, and permission governance |
+| [Clipboard, snippets, and notes](/en/developers/desktop-capabilities) | <StatusBadge tone="research">Planned</StatusBadge> | Clipboard history, snippet expansion, variables, quick notes, search, sync, and privacy filters |
+| [Window and system commands](/en/developers/desktop-capabilities) | <StatusBadge tone="research">Planned</StatusBadge> | Window management, system commands, calculator, emoji, translator, calendar, Focus, script commands, and high-frequency local tools |
+| [Migration and sync](/en/developers/teams-sync) | <StatusBadge tone="research">Planned</StatusBadge> | Import, export, backup, theme/profile sync, cross-device sync, conflict handling, and local-first deletion semantics |
+| Security and governance | <StatusBadge tone="preview">Ongoing</StatusBadge> | Extension permission declarations, review, signing, redacted logs, crash reporting, and compatibility governance |
+
+## Developer boundaries
+
+- Extension authors can rely on package, runtime SDK, connected account, and agent-tool capabilities marked as “Preview”.
+- OAuth, public store submission, signing, updates, and large-scale third-party publishing will be provided through platform-owned flows.
+- Accounts, OAuth, teams, store, and sync are managed by platform security boundaries; extensions do not directly store OAuth tokens or refresh tokens.
+- Jingle's current roadmap focuses on desktop workflows. Cross-device sync targets desktop platforms and future explicitly supported surfaces.
+
+## Near-term priorities
+
+1. Stabilize extension packages, runtime SDK, connected accounts, and agent-tool boundaries.
+2. Build platform OAuth and the standard Connect UI so public providers such as GitHub and Notion can complete a real authorization loop.
+3. Build extension distribution: templates, packaging checks, private distribution, public directory, and review.
+4. Expand into team sharing, snippets and clipboard, window management, sync, and governance.

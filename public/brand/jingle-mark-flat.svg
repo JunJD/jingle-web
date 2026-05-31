@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-labelledby="title desc">
+  <title id="title">Jingle flat app icon</title>
+  <desc id="desc">A flat command capsule version of the Jingle app icon.</desc>
+  <rect x="6" y="6" width="88" height="88" rx="25" fill="#111816"/>
+  <rect x="18.5" y="35" width="63" height="30" rx="15" fill="#f8fff1"/>
+  <circle cx="33" cy="49.5" r="6" fill="none" stroke="#627069" stroke-width="3"/>
+  <circle cx="34.5" cy="49" r="1.8" fill="#627069"/>
+  <path d="M39.1 54.2l4.5 4.5" stroke="#627069" stroke-width="2.8" stroke-linecap="round"/>
+  <path d="M49.5 49.5h11" stroke="#56625d" stroke-width="3.8" stroke-linecap="round"/>
+  <circle cx="69" cy="49.5" r="5.8" fill="#28c97b"/>
+  <circle cx="69.8" cy="47.8" r="1.5" fill="#efffd5" opacity=".78"/>
+  <path d="M59 29c6.7-4.6 14.8-3.4 20.4 2.5" fill="none" stroke="#75ed98" stroke-linecap="round" stroke-width="3.3"/>
+</svg>

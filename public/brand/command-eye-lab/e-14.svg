@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-labelledby="title desc">
+  <title id="title">Eye Lab E-14 Front Glass</title>
+  <desc id="desc">Command capsule seen through a subtle front glass plane, giving the icon depth without turning the controls into a face.</desc>
+  <defs>
+    <linearGradient id="bg" x1="12" y1="8" x2="88" y2="94" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#303c36"/>
+      <stop offset=".5" stop-color="#111816"/>
+      <stop offset="1" stop-color="#050807"/>
+    </linearGradient>
+    <radialGradient id="ambient" cx="62" cy="38" r="48" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#74eb95" stop-opacity=".18"/>
+      <stop offset=".46" stop-color="#254930" stop-opacity=".1"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="capsule" x1="18" y1="34" x2="82" y2="66" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fffff6"/>
+      <stop offset=".52" stop-color="#f2faee"/>
+      <stop offset="1" stop-color="#c7e1ce"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="18" y1="33" x2="82" y2="65" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".44"/>
+      <stop offset=".48" stop-color="#ffffff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="green" x1="58" y1="31" x2="77" y2="57" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#dcff86"/>
+      <stop offset="1" stop-color="#25c879"/>
+    </linearGradient>
+    <filter id="shadow" x="-24%" y="-28%" width="148%" height="170%">
+      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#000000" flood-opacity=".36"/>
+    </filter>
+  </defs>
+  <rect x="5.5" y="5.5" width="89" height="89" rx="25.5" fill="url(#bg)"/>
+  <rect x="5.5" y="5.5" width="89" height="89" rx="25.5" fill="url(#ambient)"/>
+  <g filter="url(#shadow)">
+    <rect x="18.2" y="35" width="63.6" height="30" rx="15" fill="url(#capsule)"/>
+    <circle cx="33.4" cy="49.6" r="5.8" fill="none" stroke="#627069" stroke-width="3"/>
+    <circle cx="35" cy="49.1" r="1.7" fill="#627069"/>
+    <path d="M39.3 54.3l4.4 4.4" stroke="#627069" stroke-width="2.8" stroke-linecap="round"/>
+    <path d="M49.6 49.5h11.3" stroke="#56625d" stroke-width="3.8" stroke-linecap="round"/>
+    <circle cx="69.2" cy="49.1" r="5.9" fill="url(#green)"/>
+    <circle cx="70" cy="47.4" r="1.45" fill="#efffd5" opacity=".82"/>
+    <path d="M23 39.7c14.6-5.6 38.8-5 54.2 1.1" fill="none" stroke="url(#glass)" stroke-linecap="round" stroke-width="4"/>
+    <path d="M22.5 43.7c15.4-3.5 38.8-3.1 55 .9" fill="none" stroke="#ffffff" stroke-opacity=".1" stroke-linecap="round" stroke-width="1.7"/>
+  </g>
+  <path d="M58.6 29.2c6.8-4.5 15-3.3 20.6 2.6" fill="none" stroke="#76ee99" stroke-linecap="round" stroke-width="3.3"/>
+</svg>

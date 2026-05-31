@@ -1,0 +1,16 @@
+{
+  "title": "Jingle Developers",
+  "pages": [
+    "index",
+    "extensions",
+    "api-reference",
+    "platform-roadmap",
+    "desktop-capabilities",
+    "ai-capabilities",
+    "store-distribution",
+    "teams-sync",
+    "connections",
+    "oauth",
+    "agent-tools"
+  ]
+}

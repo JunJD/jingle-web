@@ -1,0 +1,43 @@
+---
+title: "AI capabilities"
+description: "Jingle status for AI commands, agent tools, context, approvals, and inspectable results."
+---
+
+import { Callout, StatusBadge } from "@/components/developers/mdx-primitives"
+
+Jingle's AI direction is not another chat box. AI should use extension tools, local context, and explicitly configured user preferences within boundaries that are visible, approvable, and replayable by the user.
+
+<Callout title="Availability" tone="warning">
+  Agent tool calls are available in preview. AI Commands, Quick AI, context selection, parameter editing, audit logs, failure recovery, and evals will open progressively through the platform roadmap.
+</Callout>
+
+## Capability Status
+
+| Capability | Status | Target |
+| --- | --- | --- |
+| AI Chat | <StatusBadge tone="preview">Preview</StatusBadge> | Work with the current workspace, local context, and extension tools |
+| Quick AI | <StatusBadge tone="research">In development</StatusBadge> | Start lightweight AI tasks from the current context without interrupting the main workflow |
+| AI Commands | <StatusBadge tone="research">In development</StatusBadge> | Turn repeated prompts into reusable commands with input, model, and output contracts |
+| Agent tool calls | <StatusBadge tone="preview">Preview</StatusBadge> | Extensions expose tools that agents call within user-visible boundaries |
+| Context selection | <StatusBadge tone="research">In development</StatusBadge> | Combine files, memory, connection state, selected text, and command input for a task |
+| AI Profile | <StatusBadge tone="research">Planned</StatusBadge> | User-editable preferences, writing style, common context, and personalization boundaries |
+| Human approval | <StatusBadge tone="preview">Preview</StatusBadge> | Show tool name, arguments, description, and risk before execution |
+| Schema-form approval | <StatusBadge tone="research">Planned</StatusBadge> | Let users edit arguments, confirm a form, and then execute the tool |
+| Result explanation | <StatusBadge tone="research">In development</StatusBadge> | Present tool results in a human-readable way and provide recovery paths on failure |
+| Evals | <StatusBadge tone="research">Planned</StatusBadge> | Cover use cases, permissions, arguments, and failure semantics with automated checks |
+
+## Platform Boundary
+
+- Agents should not directly receive access tokens, refresh tokens, or client secrets.
+- Agents can see tool descriptions, connection state, input arguments, and approval outcomes.
+- AI profile / personalization belongs in user-editable settings, not invisible profiling.
+- Extension tools execute in the main service, while the host owns permission, connection resolution, and result presentation.
+- Tools that mutate external systems need richer approval and argument display than a simple confirmation button.
+
+## Product Direction
+
+1. Stabilize tool registration, connection state, and presentation metadata.
+2. Add schema-form approval and argument editing for mutating tools.
+3. Add end-to-end evals for provider tools such as GitHub and Notion.
+4. Turn AI Commands from prompts into reusable, publishable, and shareable command units.
+5. Make Quick AI and AI Profile visible, editable, and optional in the product.

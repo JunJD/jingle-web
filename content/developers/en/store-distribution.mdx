@@ -1,0 +1,36 @@
+---
+title: "Store and distribution"
+description: "Jingle status for extension store, public publishing, private distribution, review, and updates."
+---
+
+import { Callout, StatusBadge } from "@/components/developers/mdx-primitives"
+
+A mature extension platform lets developers do more than write a package. They should be able to test, package, publish, update, withdraw, and let users install safely. Store and distribution are the product loop for the extension ecosystem.
+
+<Callout title="Availability" tone="warning">
+  Developer Preview supports local extension packages and private extension validation. Public store submission, review, signing, and automatic updates will open progressively as platform distribution capabilities mature.
+</Callout>
+
+## Capability Status
+
+| Capability | Status | Target |
+| --- | --- | --- |
+| Local extension packages | <StatusBadge tone="preview">Preview</StatusBadge> | Load and validate extension packages in local development environments |
+| Templates and scaffolding | <StatusBadge tone="research">In development</StatusBadge> | Generate commands, manifest, runtime, main service, and test skeletons |
+| Packaging checks | <StatusBadge tone="research">In development</StatusBadge> | Validate manifest, assets, permissions, entry files, and API compatibility |
+| Private distribution | <StatusBadge tone="research">Planned</StatusBadge> | Team install, version pinning, rollback, and member permissions |
+| Public directory | <StatusBadge tone="research">Planned</StatusBadge> | Display extensions, screenshots, permissions, changelog, author, and install entry |
+| Review queue | <StatusBadge tone="research">Planned</StatusBadge> | Human and automated review for permissions, network access, credential use, and user risk |
+| Signing and updates | <StatusBadge tone="research">Planned</StatusBadge> | Package signing, version updates, compatibility checks, and withdrawal |
+
+## Publishing Governance
+
+- Extension permission declarations must be understandable to users.
+- Packages need a stable manifest schema and compatibility policy.
+- Updates need to know whether they break existing settings, connections, and local data.
+- Public extensions need review for provider usage, external requests, file access, and dangerous actions.
+- Private extensions need team boundaries and should not be mixed with the public store.
+
+## Impact on Developer Docs
+
+Developer docs cover package contracts and local runtime flows first. Public publishing content will expand as store, review, signing, and update paths become available.

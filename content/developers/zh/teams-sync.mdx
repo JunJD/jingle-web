@@ -1,0 +1,36 @@
+---
+title: "团队与同步"
+description: "Jingle 对团队共享、私有扩展、组织权限、同步和迁移的状态说明。"
+---
+
+import { Callout, StatusBadge } from "@/components/developers/mdx-primitives"
+
+个人桌面工作流稳定后，下一层是团队共享：共享快捷入口、片段、私有扩展、组织设置、成员权限和跨设备同步。这里必须非常谨慎，因为它会改变本地优先和用户可控的边界。
+
+<Callout title="平台范围" tone="warning">
+  Jingle 当前聚焦桌面端工作流。未来同步目标是桌面平台和明确支持的端，并保留本地所有权、可关闭同步、可导出和可删除语义。
+</Callout>
+
+## 能力状态
+
+| 能力 | 状态 | 目标 |
+| --- | --- | --- |
+| 本地设置、主题与记忆 | <StatusBadge tone="preview">持续建设</StatusBadge> | 本地优先、用户可见、可编辑、可删除 |
+| 快捷入口共享 | <StatusBadge tone="research">规划中</StatusBadge> | 团队共享 URL、参数模板、默认浏览器和访问范围 |
+| 片段共享 | <StatusBadge tone="research">规划中</StatusBadge> | 团队片段、变量、审核和同步冲突处理 |
+| 私有扩展 | <StatusBadge tone="research">规划中</StatusBadge> | 团队内扩展发布、安装、更新和权限治理 |
+| 组织与成员 | <StatusBadge tone="research">规划中</StatusBadge> | 成员、角色、权限、审计和组织设置 |
+| 跨设备同步 | <StatusBadge tone="research">规划中</StatusBadge> | 设置、主题、AI profile、扩展、快捷入口、片段和本地知识的显式同步 |
+| 导入与迁移 | <StatusBadge tone="research">规划中</StatusBadge> | 从旧配置、其他启动器或导出文件迁移到 Jingle |
+
+## 同步边界
+
+- 本地数据仍然是主权源，服务器只能作为显式开启的同步层或备份层。
+- 用户必须知道哪些内容留在本地，哪些内容会同步。
+- 删除、撤销、断开连接和关闭同步必须有明确语义。
+- 账号凭证不应作为普通设置同步；OAuth token 和 secret 需要独立安全策略。
+- 团队共享内容需要来源、所有者、权限和审计信息。
+
+## 发布阶段
+
+团队与同步会影响隐私、凭证、权限和协作边界。相关能力会按平台发布阶段开放，并在开发者文档中同步说明可依赖的接口和安全语义。

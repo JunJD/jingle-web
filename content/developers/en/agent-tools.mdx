@@ -1,0 +1,87 @@
+---
+title: "Agent tools"
+description: "Declare tools agents can call with input schemas, access levels, approval metadata, and user-facing displays."
+---
+
+import { Callout, StatusBadge } from "@/components/developers/mdx-primitives"
+
+Agent tools let agents call extension capabilities. A good tool does not expose an internal function directly to AI; it provides an access level, input schema, approval semantics, and user-readable presentation.
+
+## Manifest capability
+
+Extensions declare AI capability in the manifest:
+
+```ts
+aiCapability: {
+  id: "notion",
+  title: "Notion",
+  description: "Notion workspace pages, data sources, tasks, and docs.",
+  requiredPreferenceNames: ["accessToken"],
+  publicPreferenceNames: ["apiBaseUrl"],
+  toolNames: ["searchPages", "getPage", "addToPage"],
+  guide: "Use this capability for Notion work only after the user connects Notion."
+}
+```
+
+| Capability | Status |
+| --- | --- |
+| Tool-name registration | <StatusBadge tone="preview">Preview</StatusBadge> |
+| Capability guide injected into agent context | <StatusBadge tone="preview">Preview</StatusBadge> |
+| Connection status affects tool availability | <StatusBadge tone="preview">Preview</StatusBadge> |
+| Tool display title / description | <StatusBadge tone="preview">Preview</StatusBadge> |
+| Fine-grained per-tool permission UI | <StatusBadge tone="research">Planned</StatusBadge> |
+
+## Tool definition
+
+Tools are declared in the main definition:
+
+| Field | Meaning |
+| --- | --- |
+| `name` | Tool id |
+| `description` | Human and agent-facing description |
+| `inputSchema` | Tool input schema |
+| `access` | `read`, `write`, or `external` |
+| `approval` | Human confirmation for writes, external actions, or high-risk work |
+| `handler` | The execution function |
+
+The handler receives host-resolved context, including connection state, public config, and allowed secrets. Tools should not guess tokens or read renderer state.
+
+## Access levels
+
+| access | Meaning | Example |
+| --- | --- | --- |
+| `read` | Read remote or local data | Search Notion pages, list GitHub issues |
+| `write` | Modify an external system | Create a GitHub issue, append content to Notion |
+| `external` | Open external apps, websites, or workflows | Open Notion, trigger an external workflow |
+
+## Approval
+
+Write operations and external side effects should be understandable before they run. A tool can provide a confirmation title, risk label, facts, and a confirm action.
+
+```ts
+approval: {
+  required: true,
+  buildConfirmation(input) {
+    return {
+      title: "Create GitHub issue",
+      facts: [
+        { label: "Repository", value: input.repository },
+        { label: "Title", value: input.title }
+      ]
+    }
+  }
+}
+```
+
+<Callout title="Control boundary" tone="info">
+  Agents can request tools; Jingle owns availability, approval, and presentation. Credentials should not enter prompts, and tool results should follow the presentation contract.
+</Callout>
+
+## Provider examples
+
+| Provider | Read tools | Write tools |
+| --- | --- | --- |
+| GitHub | Issues, PRs, repositories, notifications, workflow runs | createIssue |
+| Notion | Pages, blocks, data sources, database queries | addToPage, createPage, createDatabasePage |
+
+When a connection is missing, the agent should ask the user to connect the extension in Settings before it reads or writes provider data.

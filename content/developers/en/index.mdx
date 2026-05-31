@@ -1,0 +1,85 @@
+---
+title: "Introduction"
+description: "Learn how Jingle Developers works across extension packages, runtime APIs, connected accounts, and agent tools."
+---
+
+import {
+  Callout,
+  MediaFrame,
+  StatusBadge,
+  VideoFrame,
+  developerMedia
+} from "@/components/developers/mdx-primitives"
+
+Jingle Developers helps you build extensions for desktop workflows. Extensions can provide command views, connected accounts, menu bar surfaces, and agent-callable tools while Jingle owns runtime boundaries, user settings, and credential safety.
+
+<Callout title="Developer Preview" tone="info">
+  Jingle Developers is in Developer Preview. Capabilities marked “Preview” can be used for early extension development. Capabilities marked “Planned” describe the platform direction and may continue to evolve.
+</Callout>
+
+<Callout title="Release stage" tone="warning">
+  These docs cover the Developer Preview stage for private extensions, early integrations, and platform validation. Public store submission, stable OAuth, cross-version compatibility policy, and large-scale third-party publishing will open in later platform releases.
+</Callout>
+
+<MediaFrame
+  alt="Reference visual for a command-style desktop extension"
+  caption="Extension experiences should keep search, results, details, and actions in one lightweight context so users stay inside their workflow."
+  src={developerMedia.introduction}
+/>
+
+<VideoFrame
+  caption="Start from the extension experience, then move into APIs, connected accounts, and tool calls."
+  href={developerMedia.developerVideoHref}
+  poster={developerMedia.developerVideoPoster}
+  title="Reference video for developer workflows"
+/>
+
+## Core concepts
+
+| Concept | Role | Status |
+| --- | --- | --- |
+| Extension package | Distribution unit for manifest, runtime, main service, assets, and tool definitions | <StatusBadge tone="preview">Preview</StatusBadge> |
+| Runtime SDK | React components for lists, details, forms, action panels, menu bar surfaces, and feedback | <StatusBadge tone="preview">Preview</StatusBadge> |
+| Connected accounts | Host-managed account connections, credential resolution, connection status, and settings handoff | <StatusBadge tone="preview">Preview</StatusBadge> |
+| OAuth / PKCE | Platform-owned authorization, callback, token exchange, refresh, and revoke | <StatusBadge tone="research">Planned</StatusBadge> |
+| Agent tools | Extension capabilities agents can call within user-visible approval boundaries | <StatusBadge tone="preview">Preview</StatusBadge> |
+
+## Platform scope
+
+Jingle Developers focuses on the surfaces extension authors need: extension packages, runtime APIs, connected accounts, OAuth, agent tools, and distribution. Launcher, file search, snippets, clipboard history, window management, team sync, and security governance belong to the product platform roadmap, with developer-facing boundaries documented as they become available.
+
+See the [platform roadmap](/en/developers/platform-roadmap) for phased availability across each capability area.
+
+## Recommended path
+
+- Start with [Extension model](/en/developers/extensions) to understand packages, manifests, runtime code, and main services.
+- Read [API reference](/en/developers/api-reference) for the runtime SDK components and host capabilities.
+- Read [Platform roadmap](/en/developers/platform-roadmap) for phased availability across platform capabilities.
+- Use [Connections](/en/developers/connections) when your extension needs GitHub, Notion, or another provider.
+- Use [OAuth](/en/developers/oauth) when designing public authorization flows with PKCE and callback URLs.
+- Use [Agent tools](/en/developers/agent-tools) when agents should call extension capabilities.
+
+## A minimal command
+
+Extension commands use React to describe desktop UI and rely on the Jingle host for actions:
+
+```tsx
+import { Action, ActionPanel, List, showToast } from "@openwork/extension-api"
+
+export default function Command() {
+  return (
+    <List>
+      <List.Item
+        title="Run workflow"
+        actions={
+          <ActionPanel>
+            <Action title="Confirm" onAction={() => showToast({ title: "Done" })} />
+          </ActionPanel>
+        }
+      />
+    </List>
+  )
+}
+```
+
+Command code does not need to manage windows, settings screens, or credential storage. The extension declares what it needs, and Jingle connects runtime UI, account state, and user actions.

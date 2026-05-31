@@ -1,0 +1,43 @@
+---
+title: "Desktop capabilities"
+description: "Jingle status for launcher, file search, quicklinks, snippets, clipboard, window management, and system commands."
+---
+
+import { Callout, StatusBadge } from "@/components/developers/mdx-primitives"
+
+A mature desktop command center starts with high-frequency local actions. Extensions and AI sit above that foundation, but the base layer needs reliable launch, search, quicklinks, snippets, clipboard history, notes, window management, and system commands.
+
+<Callout title="Availability" tone="warning">
+  Developer Preview opens the extension runtime, command surface, and local boundaries first. File search, clipboard, window management, and system commands will become available to extension authors as the desktop platform matures.
+</Callout>
+
+## Capability Status
+
+| Capability | Status | Target |
+| --- | --- | --- |
+| App launch | <StatusBadge tone="preview">Core buildout</StatusBadge> | Fast search, keyboard launch, recent usage, and result ranking |
+| Command search | <StatusBadge tone="preview">Core buildout</StatusBadge> | Search app commands, extension commands, agent tools, and local actions from one surface |
+| File search | <StatusBadge tone="research">Planned</StatusBadge> | Search files, open files, copy paths, and run extension actions on files |
+| Quicklinks | <StatusBadge tone="research">Planned</StatusBadge> | Saved URLs, templated parameters, dynamic queries, and team sharing |
+| Snippets | <StatusBadge tone="research">Planned</StatusBadge> | Text snippets, variables, dates, clipboard input, and expansion across apps |
+| Clipboard history | <StatusBadge tone="research">Planned</StatusBadge> | Searchable history, pinned items, privacy filters, and local-first storage |
+| Quick notes | <StatusBadge tone="research">Planned</StatusBadge> | Floating notes, temporary capture, Markdown, search, and desktop sync |
+| Window management | <StatusBadge tone="research">Planned</StatusBadge> | Move windows, resize windows, layout shortcuts, and multi-display state |
+| System commands | <StatusBadge tone="research">Planned</StatusBadge> | Calculator, emoji, translator, calendar, Focus, script commands, sleep, lock, and other frequent local tools |
+
+## Product Boundary
+
+- Desktop capabilities belong to the Jingle host and should not be reimplemented by each extension.
+- Extensions can declare commands, actions, and file handling, but the host owns search indexing, hotkeys, clipboard permission, window permission, and system permission.
+- Sensitive surfaces such as clipboard history, notes, and file search are local-first by default and need visible privacy controls.
+
+## Impact on Extension APIs
+
+Desktop capabilities shape extension API boundaries:
+
+- File search requires commands to receive file paths, MIME types, and selection context.
+- Quicklinks require commands to support parameter templates, defaults, and readable input descriptions.
+- Snippets and clipboard require clear read/write boundaries and explicit authorization where needed.
+- Window management and system commands require a strict split between normal extension capabilities and host-level capabilities.
+
+As these contracts stabilize, they will be added to the API reference and extension model docs.

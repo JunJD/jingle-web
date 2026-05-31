@@ -14,8 +14,10 @@ export function AuthDiagram({ steps }: { steps: readonly AuthDiagramStep[] }) {
         const Icon = step.icon
         return (
           <div key={step.title} className="contents">
-            <div className="rounded-md border border-[color:var(--line)] bg-white p-5 shadow-sm">
-              <Icon className="h-5 w-5 text-[color:var(--green)]" aria-hidden="true" />
+            <div className="grouped-panel rounded-[22px] p-5">
+              <span className="grid h-9 w-9 place-items-center rounded-2xl bg-[var(--soft)]">
+                <Icon className="h-5 w-5 text-[color:var(--green)]" aria-hidden="true" />
+              </span>
               <h3 className="mt-4 text-base font-semibold">{step.title}</h3>
               <p className="mt-2 text-sm leading-6 text-[color:var(--muted)]">{step.description}</p>
             </div>

@@ -1,0 +1,43 @@
+---
+title: "AI 能力"
+description: "Jingle 对 AI 命令、Agent 工具、上下文、审批和可检查结果的状态说明。"
+---
+
+import { Callout, StatusBadge } from "@/components/developers/mdx-primitives"
+
+Jingle 的 AI 方向不是再放一个聊天框，而是让 AI 能在用户可见、可审批、可回放的边界内使用扩展工具、本地上下文和用户明确配置的个人偏好。
+
+<Callout title="可用范围" tone="warning">
+  Agent 工具调用已进入预览阶段。AI Commands、Quick AI、上下文选择、参数编辑、审计日志、失败恢复和 eval 会按平台路线逐步开放。
+</Callout>
+
+## 能力状态
+
+| 能力 | 状态 | 目标 |
+| --- | --- | --- |
+| AI Chat | <StatusBadge tone="preview">预览能力</StatusBadge> | 和当前工作区、本地上下文、扩展工具一起工作 |
+| Quick AI | <StatusBadge tone="research">正在研发中...</StatusBadge> | 从当前上下文快速发起轻量 AI 任务，不打断主工作流 |
+| AI Commands | <StatusBadge tone="research">正在研发中...</StatusBadge> | 把常用 prompt 做成可复用命令，并能绑定输入、模型和输出格式 |
+| Agent 工具调用 | <StatusBadge tone="preview">预览可用</StatusBadge> | 扩展暴露工具，Agent 在用户可见边界内调用 |
+| 上下文选择 | <StatusBadge tone="research">正在研发中...</StatusBadge> | 文件、记忆、连接状态、选中文本和命令输入可组合进一次任务 |
+| AI Profile | <StatusBadge tone="research">规划中</StatusBadge> | 用户可编辑的偏好、写作风格、常用上下文和个性化边界 |
+| 人类审批 | <StatusBadge tone="preview">预览可用</StatusBadge> | 调用前展示工具名称、参数、说明和风险 |
+| schema form 审批 | <StatusBadge tone="research">规划中</StatusBadge> | 用户能编辑参数、确认表单、再执行工具 |
+| 结果解释 | <StatusBadge tone="research">正在研发中...</StatusBadge> | 工具结果以用户能理解的方式展示，失败时给出可恢复路径 |
+| Evals | <StatusBadge tone="research">规划中</StatusBadge> | 用例、权限、参数和失败语义进入自动化验证 |
+
+## 平台边界
+
+- Agent 不应该直接拿到 access token、refresh token 或 client secret。
+- Agent 可以看到工具描述、连接状态、输入参数和审批结果。
+- AI profile / personalization 属于用户可编辑设置，不应变成不可见的隐式画像。
+- 扩展工具在 main service 执行，宿主负责权限、连接解析和结果展示。
+- 对会修改外部系统的工具，审批和参数展示必须比“单纯确认按钮”更细。
+
+## 建设方向
+
+1. 稳定工具注册、连接状态和展示元数据。
+2. 给修改型工具补 schema form 审批和参数编辑。
+3. 给 GitHub、Notion 等 provider 工具补端到端 eval。
+4. 把 AI Command 从 prompt 变成可复用、可发布、可共享的命令单元。
+5. 让 Quick AI 和 AI Profile 在产品上可见、可关闭、可编辑。

@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-labelledby="title desc">
+  <title id="title">Eye Lab E-15 Pocket Aperture</title>
+  <desc id="desc">Command capsule partly emerging from a quiet aperture, giving the mark a pocket-like spatial origin while preserving small-size readability.</desc>
+  <defs>
+    <linearGradient id="bg" x1="13" y1="8" x2="87" y2="94" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#303b36"/>
+      <stop offset=".5" stop-color="#111816"/>
+      <stop offset="1" stop-color="#050807"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="70" cy="37" r="46" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#67ea8b" stop-opacity=".19"/>
+      <stop offset=".48" stop-color="#25492f" stop-opacity=".1"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="pocket" x1="24" y1="43" x2="76" y2="73" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#29362f"/>
+      <stop offset=".45" stop-color="#111715"/>
+      <stop offset="1" stop-color="#060807"/>
+    </linearGradient>
+    <linearGradient id="rim" x1="25" y1="43" x2="75" y2="52" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".18"/>
+      <stop offset=".58" stop-color="#75ef99" stop-opacity=".1"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity=".04"/>
+    </linearGradient>
+    <linearGradient id="capsule" x1="19" y1="35" x2="81" y2="66" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fffff6"/>
+      <stop offset=".52" stop-color="#eff8eb"/>
+      <stop offset="1" stop-color="#c4dfcd"/>
+    </linearGradient>
+    <linearGradient id="green" x1="58" y1="31" x2="77" y2="57" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#dcff86"/>
+      <stop offset="1" stop-color="#25c879"/>
+    </linearGradient>
+    <filter id="lift" x="-26%" y="-32%" width="152%" height="176%">
+      <feDropShadow dx="0" dy="9" stdDeviation="6" flood-color="#000000" flood-opacity=".4"/>
+    </filter>
+  </defs>
+  <rect x="5.5" y="5.5" width="89" height="89" rx="25.5" fill="url(#bg)"/>
+  <rect x="5.5" y="5.5" width="89" height="89" rx="25.5" fill="url(#glow)"/>
+  <path d="M22 51c3.5-8.7 13.1-14 27.7-14 14.2 0 24.3 5.3 28.3 14v17.5H22z" fill="url(#pocket)" opacity=".78"/>
+  <path d="M23.8 50.5c6.3-8.4 16.4-12.4 30.1-11.8 10.8.5 19.1 4.4 24.2 11.8" fill="none" stroke="url(#rim)" stroke-linecap="round" stroke-width="2.5"/>
+  <g filter="url(#lift)">
+    <rect x="18.5" y="35" width="63" height="30" rx="15" fill="url(#capsule)"/>
+    <path d="M24.6 39.5h30.8" stroke="#ffffff" stroke-opacity=".45" stroke-linecap="round" stroke-width="2"/>
+    <circle cx="33.4" cy="49.6" r="5.8" fill="none" stroke="#627069" stroke-width="3"/>
+    <circle cx="35" cy="49.1" r="1.7" fill="#627069"/>
+    <path d="M39.3 54.3l4.4 4.4" stroke="#627069" stroke-width="2.8" stroke-linecap="round"/>
+    <path d="M49.6 49.5h11.3" stroke="#56625d" stroke-width="3.8" stroke-linecap="round"/>
+    <circle cx="69.2" cy="49.1" r="5.9" fill="url(#green)"/>
+    <circle cx="70" cy="47.4" r="1.45" fill="#efffd5" opacity=".82"/>
+  </g>
+  <path d="M58.8 29.2c6.8-4.5 15.1-3.3 20.7 2.7" fill="none" stroke="#76ee99" stroke-linecap="round" stroke-width="3.3"/>
+</svg>

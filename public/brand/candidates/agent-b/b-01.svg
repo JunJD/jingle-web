@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Jingle icon candidate B01">
+  <defs>
+    <linearGradient id="b01-bg" x1="18" y1="8" x2="84" y2="92" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F8FFF7"/>
+      <stop offset="0.48" stop-color="#D9F4DD"/>
+      <stop offset="1" stop-color="#5FC26E"/>
+    </linearGradient>
+    <linearGradient id="b01-mark" x1="30" y1="23" x2="70" y2="80" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#173A33"/>
+      <stop offset="1" stop-color="#0E221E"/>
+    </linearGradient>
+    <linearGradient id="b01-signal" x1="61" y1="22" x2="77" y2="50" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#B9FF72"/>
+      <stop offset="1" stop-color="#2DDC69"/>
+    </linearGradient>
+    <filter id="b01-shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#1B5C3A" flood-opacity="0.22"/>
+    </filter>
+  </defs>
+  <rect width="100" height="100" rx="22" fill="url(#b01-bg)"/>
+  <path d="M19 25C25 15 38 10 50 10C66 10 80 18 87 31" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" opacity="0.58"/>
+  <g filter="url(#b01-shadow)">
+    <path d="M37 24H62C66.4 24 70 27.6 70 32V61C70 72.6 61.2 80 49.6 80C38.8 80 31 73.3 31 63.9" fill="none" stroke="url(#b01-mark)" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M33 60C39 66.8 59.8 67.7 68 58" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" opacity="0.92"/>
+    <path d="M34 60.5C40.7 65.5 58.4 66 67.2 58.5" fill="none" stroke="#12322C" stroke-width="3.2" stroke-linecap="round" opacity="0.22"/>
+  </g>
+  <path d="M62.8 29.2C68.7 31.9 72.4 36.9 72.7 43" fill="none" stroke="url(#b01-signal)" stroke-width="4.8" stroke-linecap="round"/>
+  <path d="M70.7 23.1C78.4 28.6 82.3 36.9 81.4 46.3" fill="none" stroke="#DDFEC1" stroke-width="3.4" stroke-linecap="round" opacity="0.92"/>
+  <circle cx="63.5" cy="27.8" r="3.7" fill="#EDFFB7"/>
+</svg>

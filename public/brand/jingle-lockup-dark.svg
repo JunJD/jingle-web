@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 120" role="img" aria-labelledby="title desc">
+  <title id="title">Jingle dark lockup</title>
+  <desc id="desc">Jingle wordmark with the finalized command capsule app icon.</desc>
+  <defs>
+    <linearGradient id="text" x1="105" y1="24" x2="302" y2="94" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff8ee"/>
+      <stop offset="1" stop-color="#d9e7d7"/>
+    </linearGradient>
+  </defs>
+  <image href="/brand/jingle-mark.svg" x="16" y="18" width="84" height="84"/>
+  <text x="118" y="62" fill="url(#text)" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="44" font-weight="760" letter-spacing="0">Jingle</text>
+  <text x="120" y="86" fill="#aeb8ae" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="560" letter-spacing="0">金狗 · command companion</text>
+</svg>

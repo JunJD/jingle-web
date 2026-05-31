@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-labelledby="title desc">
+  <title id="title">F-05B Command Key</title>
+  <desc id="desc">An F-05 command capsule variant that reads more like a desktop shortcut key.</desc>
+  <defs>
+    <linearGradient id="bg" x1="14" y1="8" x2="86" y2="94" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2b3431"/>
+      <stop offset=".52" stop-color="#111715"/>
+      <stop offset="1" stop-color="#060807"/>
+    </linearGradient>
+    <linearGradient id="capsule" x1="20" y1="35" x2="80" y2="67" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff8df"/>
+      <stop offset="1" stop-color="#d9ecd7"/>
+    </linearGradient>
+    <linearGradient id="green" x1="56" y1="32" x2="75" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#b7f36c"/>
+      <stop offset="1" stop-color="#25c878"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="7" stdDeviation="5.5" flood-color="#000000" flood-opacity=".33"/>
+    </filter>
+  </defs>
+  <rect x="5.5" y="5.5" width="89" height="89" rx="25.5" fill="url(#bg)"/>
+  <g filter="url(#shadow)">
+    <rect x="18" y="34.5" width="64" height="31" rx="15.5" fill="url(#capsule)"/>
+    <path d="M33 44v12M27 50h12" stroke="#5d6a64" stroke-width="3.3" stroke-linecap="round"/>
+    <path d="M48 50h14" stroke="#56625d" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="69" cy="50" r="5.7" fill="url(#green)"/>
+  </g>
+  <path d="M59 29c6.7-4.3 14.6-3.1 20 2.7" fill="none" stroke="#69e58b" stroke-linecap="round" stroke-width="3.2"/>
+</svg>
