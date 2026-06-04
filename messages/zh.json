@@ -11,6 +11,7 @@
     "languageSwitch": "EN"
   },
   "Nav": {
+    "starter": "模型连接",
     "features": "功能",
     "extensions": "扩展",
     "roadmap": "路线图",
@@ -22,6 +23,7 @@
     "product": "产品",
     "resources": "资源",
     "company": "公司",
+    "starter": "模型连接",
     "features": "功能",
     "extensions": "扩展",
     "roadmap": "路线图",
@@ -213,7 +215,8 @@
       "footerStatus": "本地上下文已就绪",
       "footerAction": "回车运行",
       "actions": [
-        { "href": "/roadmap", "label": "查看路线图", "primary": true },
+        { "href": "/api/download?platform=macos", "label": "下载 macOS 版", "primary": true },
+        { "href": "/api/download?platform=windows", "label": "下载 Windows 版", "primary": false },
         { "href": "/#features", "label": "了解功能", "primary": false }
       ],
       "demoItems": ["打开项目笔记", "创建发布计划", "检查今天的改动"],
@@ -354,6 +357,115 @@
       "body": "了解桌面平台能力、后续方向和开发者资源。",
       "guide": "产品路线图",
       "developers": "开发者文档"
+    }
+  },
+  "Starter": {
+    "metadataTitle": "连接你的 AI 模型",
+    "hero": {
+      "eyebrow": "Jingle 模型连接",
+      "title": "把你的 AI 模型接入 Jingle 桌面端。",
+      "body": "Jingle 支持内置模型服务、自定义 OpenAI / Anthropic / Ollama 兼容 endpoint，也可以使用本地或不需要 API key 的连接方式。你选择模型来源；Jingle 只在你使用 AI 功能时调用对应模型，并把凭证加密保存在本机。",
+      "actions": [
+        { "href": "/starter#flow", "label": "查看连接流程", "primary": true },
+        { "href": "/privacy", "label": "查看隐私说明", "primary": false }
+      ]
+    },
+    "visual": {
+      "windowLabel": "设置 / AI 模型",
+      "title": "模型连接中心",
+      "activeBadge": "可用",
+      "defaultBadge": "默认",
+      "intentLabel": "默认模型",
+      "defaultModelValue": "Assistant 与 Agent 使用",
+      "secretLabel": "凭证",
+      "secretValue": "本机加密保存",
+      "providerRows": [
+        { "label": "内置服务商", "model": "OpenAI、Anthropic、Google 等", "status": "active" },
+        {
+          "label": "自定义 endpoint",
+          "model": "OpenAI / Anthropic / Ollama 兼容",
+          "status": "active"
+        },
+        { "label": "默认模型", "model": "按工作流随时切换", "status": "default" }
+      ]
+    },
+    "flow": {
+      "eyebrow": "连接流程",
+      "title": "第一次使用，按一条清晰路径完成模型连接。",
+      "body": "在桌面端完成模型连接：选择内置服务商、添加自定义 endpoint 或启用本地模型，填入所需凭证，验证可用模型，再设为默认。",
+      "steps": [
+        {
+          "title": "选择模型来源",
+          "description": "从内置 provider 目录开始，或添加兼容 OpenAI、Anthropic、Ollama 的自定义服务。"
+        },
+        {
+          "title": "填写连接信息",
+          "description": "按 provider 要求填写 API key、API URL、模型名或本地地址；无需鉴权的本地服务也可以直接配置。"
+        },
+        {
+          "title": "验证可用模型",
+          "description": "保存时 Jingle 会读取或确认可用模型，连接失败会明确显示原因。"
+        },
+        {
+          "title": "设为默认模型",
+          "description": "选择 Assistant 和 Agent 默认使用的模型，也可以在之后按任务切换。"
+        }
+      ]
+    },
+    "boundary": {
+      "eyebrow": "信任边界",
+      "title": "模型连接由你控制，凭证只服务于你授权的 AI 功能。",
+      "items": [
+        {
+          "title": "你选择模型来源",
+          "body": "Jingle 不绑定单一模型服务商。内置 provider、自定义 endpoint、本地模型都可以进入同一个模型设置入口。"
+        },
+        {
+          "title": "凭证本机加密",
+          "body": "API key 等敏感信息由桌面端加密保存在本机，模型配置和凭证分开管理，界面不会暴露完整 key。"
+        },
+        {
+          "title": "连接状态可检查",
+          "body": "你可以看到哪些 provider 已可用、默认模型是什么，以及当前连接是否能正常读取模型。"
+        },
+        {
+          "title": "随时更换或移除",
+          "body": "当模型策略变化时，可以更新 key、修改 endpoint、切换默认模型，或移除不再使用的连接。"
+        }
+      ]
+    },
+    "usage": {
+      "eyebrow": "连接之后",
+      "title": "模型连接完成后，Jingle 才能真正成为你的桌面 AI 工作台。",
+      "body": "默认模型会用于 AI 助手、Agent 任务和需要模型推理的桌面流程。你保持对模型来源、成本、速度和上下文共享的控制。",
+      "cards": [
+        {
+          "title": "AI 助手",
+          "body": "围绕当前任务提问、总结内容、生成草稿，并使用你选择的默认模型回答。"
+        },
+        {
+          "title": "Agent 工作流",
+          "body": "让 Agent 在你确认的边界内使用工具、处理任务，并把执行过程展示给你检查。"
+        },
+        {
+          "title": "本地上下文",
+          "body": "结合桌面端可见的文件、记忆和任务上下文工作，重要访问保持可见、可控。"
+        },
+        {
+          "title": "模型选择",
+          "body": "根据速度、价格、质量、推理能力或团队要求切换模型，不需要改变其他工作流。"
+        }
+      ]
+    },
+    "principles": {
+      "eyebrow": "安全原则",
+      "title": "清楚、可控、可撤销。",
+      "items": [
+        "你决定使用内置 provider、自定义 endpoint、本地模型，或是否提供 API key。",
+        "Jingle 只在你使用 AI 功能时调用模型连接，不会用模型 key 代替其他账号登录。",
+        "API key 等敏感信息加密保存在本机，不会在普通界面或 AI 输出中显示。",
+        "连接失败会明确提示；你可以随时更新、切换或移除模型连接。"
+      ]
     }
   },
   "Docs": {

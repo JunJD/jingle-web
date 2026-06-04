@@ -11,6 +11,7 @@
     "languageSwitch": "中文"
   },
   "Nav": {
+    "starter": "Model Setup",
     "features": "Features",
     "extensions": "Extensions",
     "roadmap": "Roadmap",
@@ -22,6 +23,7 @@
     "product": "Product",
     "resources": "Resources",
     "company": "Company",
+    "starter": "Model Setup",
     "features": "Features",
     "extensions": "Extensions",
     "roadmap": "Roadmap",
@@ -213,7 +215,8 @@
       "footerStatus": "Local context ready",
       "footerAction": "Return to run",
       "actions": [
-        { "href": "/roadmap", "label": "View roadmap", "primary": true },
+        { "href": "/api/download?platform=macos", "label": "Download for macOS", "primary": true },
+        { "href": "/api/download?platform=windows", "label": "Download for Windows", "primary": false },
         { "href": "/#features", "label": "Explore features", "primary": false }
       ],
       "demoItems": ["Open project notes", "Create launch plan", "Review today's changes"],
@@ -354,6 +357,115 @@
       "body": "See desktop platform capabilities, upcoming direction, and developer resources.",
       "guide": "Product roadmap",
       "developers": "Developer docs"
+    }
+  },
+  "Starter": {
+    "metadataTitle": "Connect Your AI Model",
+    "hero": {
+      "eyebrow": "Jingle model connection",
+      "title": "Bring your AI model into Jingle Desktop.",
+      "body": "Jingle supports built-in model providers, custom OpenAI / Anthropic / Ollama-compatible endpoints, and local or keyless connections. You choose the model source; Jingle calls it only when you use AI features and stores credentials encrypted on your device.",
+      "actions": [
+        { "href": "/starter#flow", "label": "See connection flow", "primary": true },
+        { "href": "/privacy", "label": "Read privacy notes", "primary": false }
+      ]
+    },
+    "visual": {
+      "windowLabel": "Settings / AI models",
+      "title": "Model connection center",
+      "activeBadge": "Ready",
+      "defaultBadge": "Default",
+      "intentLabel": "Default model",
+      "defaultModelValue": "Used by Assistant and Agents",
+      "secretLabel": "Credential",
+      "secretValue": "Encrypted on device",
+      "providerRows": [
+        { "label": "Built-in providers", "model": "OpenAI, Anthropic, Google, and more", "status": "active" },
+        {
+          "label": "Custom endpoint",
+          "model": "OpenAI / Anthropic / Ollama compatible",
+          "status": "active"
+        },
+        { "label": "Default model", "model": "Switch per workflow anytime", "status": "default" }
+      ]
+    },
+    "flow": {
+      "eyebrow": "Connection flow",
+      "title": "First use follows one clear model setup path.",
+      "body": "Connect models in the desktop app: choose a built-in provider, add a custom endpoint, or enable a local model; enter the required credentials; verify available models; then set the default.",
+      "steps": [
+        {
+          "title": "Choose a model source",
+          "description": "Start from the built-in provider directory or add a custom service compatible with OpenAI, Anthropic, or Ollama."
+        },
+        {
+          "title": "Enter connection details",
+          "description": "Add the API key, API URL, model names, or local address required by that provider. Local keyless services can be configured directly."
+        },
+        {
+          "title": "Verify available models",
+          "description": "When you save, Jingle reads or confirms available models and shows a clear error if the connection fails."
+        },
+        {
+          "title": "Choose a default model",
+          "description": "Set the model used by Assistant and Agents. You can switch by task whenever your needs change."
+        }
+      ]
+    },
+    "boundary": {
+      "eyebrow": "Trust boundary",
+      "title": "You control the model connection; credentials serve only the AI features you authorize.",
+      "items": [
+        {
+          "title": "Choose your model source",
+          "body": "Jingle does not lock you to one provider. Built-in providers, custom endpoints, and local models share one model settings surface."
+        },
+        {
+          "title": "Encrypt credentials locally",
+          "body": "API keys and other sensitive fields are encrypted on your device. Model configuration and credentials are managed separately, and the full key is not exposed in the UI."
+        },
+        {
+          "title": "Inspect connection state",
+          "body": "You can see which providers are ready, which model is default, and whether Jingle can read models from the connection."
+        },
+        {
+          "title": "Change or remove anytime",
+          "body": "Update a key, edit an endpoint, change the default model, or remove a connection when your model strategy changes."
+        }
+      ]
+    },
+    "usage": {
+      "eyebrow": "After connection",
+      "title": "Once a model is connected, Jingle becomes your desktop AI workspace.",
+      "body": "The default model powers Assistant, Agent tasks, and desktop flows that need model reasoning. You stay in control of provider choice, cost, speed, and context sharing.",
+      "cards": [
+        {
+          "title": "AI Assistant",
+          "body": "Ask questions, summarize context, draft content, and get answers from the default model you selected."
+        },
+        {
+          "title": "Agent workflows",
+          "body": "Let Agents use approved tools, handle tasks, and show their work for you to inspect."
+        },
+        {
+          "title": "Local context",
+          "body": "Work with visible files, memories, and task context while important access stays inspectable and controlled."
+        },
+        {
+          "title": "Model choice",
+          "body": "Switch models for speed, cost, quality, reasoning depth, or team requirements without changing the rest of your workflow."
+        }
+      ]
+    },
+    "principles": {
+      "eyebrow": "Safety principles",
+      "title": "Clear, controllable, reversible.",
+      "items": [
+        "You decide whether to use a built-in provider, custom endpoint, local model, and whether to provide an API key.",
+        "Jingle calls the model connection only when you run AI features; it will not use a model key to sign in to other accounts.",
+        "API keys and other sensitive values are encrypted on device and are not shown in ordinary UI or AI output.",
+        "Connection failures are shown clearly, and you can update, switch, or remove model connections anytime."
+      ]
     }
   },
   "Docs": {

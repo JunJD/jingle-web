@@ -55,18 +55,33 @@ export function HomePage() {
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               {actions.map((action) => (
-                <Link
-                  key={action.href}
-                  href={action.href}
-                  className={
-                    action.primary
-                      ? "focus-ring dark-button inline-flex h-12 items-center justify-center gap-2 rounded-full px-5 text-sm font-semibold"
-                      : "focus-ring subtle-button inline-flex h-12 items-center justify-center gap-2 rounded-full px-5 text-sm font-semibold"
-                  }
-                >
-                  {action.label}
-                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                </Link>
+                action.href.startsWith("/api/") ? (
+                  <a
+                    key={action.href}
+                    href={action.href}
+                    className={
+                      action.primary
+                        ? "focus-ring dark-button inline-flex h-12 items-center justify-center gap-2 rounded-full px-5 text-sm font-semibold"
+                        : "focus-ring subtle-button inline-flex h-12 items-center justify-center gap-2 rounded-full px-5 text-sm font-semibold"
+                    }
+                  >
+                    {action.label}
+                    <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                  </a>
+                ) : (
+                  <Link
+                    key={action.href}
+                    href={action.href}
+                    className={
+                      action.primary
+                        ? "focus-ring dark-button inline-flex h-12 items-center justify-center gap-2 rounded-full px-5 text-sm font-semibold"
+                        : "focus-ring subtle-button inline-flex h-12 items-center justify-center gap-2 rounded-full px-5 text-sm font-semibold"
+                    }
+                  >
+                    {action.label}
+                    <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                  </Link>
+                )
               ))}
             </div>
           </div>

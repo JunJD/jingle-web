@@ -9,6 +9,7 @@ export function SiteHeader() {
   const nav = useTranslations("Nav")
   const siteText = useTranslations("Site")
   const navItems = [
+    { href: "/starter", label: nav("starter") },
     { href: "/#features", label: nav("features") },
     { href: "/#extensions", label: nav("extensions") },
     { href: "/roadmap", label: nav("roadmap") },

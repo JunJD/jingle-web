@@ -9,6 +9,7 @@ export function SiteFooter() {
   const groups = [
     {
       links: [
+        { href: "/starter", label: footer("starter") },
         { href: "/#features", label: footer("features") },
         { href: "/#extensions", label: footer("extensions") },
         { href: "/roadmap", label: footer("roadmap") },
