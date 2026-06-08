@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "lint": "next lint",
+    "test:oauth": "node --import tsx --test app/oauth/__tests__/*.test.ts",
     "typecheck": "fumadocs-mdx && tsc --noEmit",
     "postinstall": "fumadocs-mdx"
   },
@@ -28,6 +29,7 @@
     "@types/react": "^19.0.2",
     "@types/react-dom": "^19.0.2",
     "tailwindcss": "^4.1.17",
+    "tsx": "^4.22.4",
     "typescript": "^5.7.2"
   },
   "packageManager": "pnpm@10.33.0+sha512.10568bb4a6afb58c9eb3630da90cc9516417abebd3fabbe6739f0ae795728da1491e9db5a544c76ad8eb7570f5c4bb3d6c637b2cb41bfdcdb47fa823c8649319"
